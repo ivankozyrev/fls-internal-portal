@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Templates xmlns:ows="Microsoft SharePoint">
+  <Template Name="FLS.SharePoint.SiteStructure" ID="10000">
+    <Configuration ID="0" Title="FLS.SharePoint.SiteStructure" Hidden="FALSE" ImageUrl="/_layouts/images/CPVW.gif" Description="FLS.SharePoint.SiteStructure" DisplayCategory="SharePoint Customizations">
+    </Configuration>
+  </Template>
+</Templates>

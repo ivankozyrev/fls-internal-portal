@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" Id="7d54f934-4ae8-42b1-b7f4-c68a350fa47d" solutionId="7d54f934-4ae8-42b1-b7f4-c68a350fa47d" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" name="FLS.SharePoint.SiteStructure">
+    <projectItems>
+        <projectItemReference itemId="809b390d-bb4d-408b-bee1-db5b08b8da8c" />
+    </projectItems>
+</package>
