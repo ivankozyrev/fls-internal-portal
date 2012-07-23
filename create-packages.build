@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Deploy" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+    <PropertyGroup>
+	<OutDir Condition="'$(OutDit)'==''">Packages</OutDir>
+  </PropertyGroup>
+  <ItemGroup>
+	<PackageProject Include="blank">
+		<Name>FLS.SharePoint</Name>
+	</PackageProject>
+	<PackageProject Include="SiteStructure">
+		<Name>FLS.SharePoint.SiteStructure</Name>
+	</PackageProject>
+	<PackageProject Include="System">
+		<Name>FLS.SharePoint.System</Name>
+	</PackageProject>
+  </ItemGroup>
+  
+  
+  <Target Name="InitializePackageProjects">
+	  <ItemGroup>
+		<PackageProject>
+			<Name Condition="'%(PackageProject.Name)'==''">FLS.SharePoint</Name>
+			<Folder Condition="'%(PackageProject.Folder)'==''">%(PackageProject.Name)</Folder>
+			<FilePath Condition="'%(PackageProject.FilePath)'==''">%(PackageProject.Name)\%(PackageProject.Name).csproj</FilePath>
+		</PackageProject>
+	  </ItemGroup>
+  </Target>
+  
+  <Target Name="ComputePackagesList">
+	<ItemGroup>
+		<PackagesList Include="$(MSBuildProjectFile)">
+			<Properties>
+				Configuration=$(Configuration);
+				BasePackagePath=$(OutDir);
+				ProjectLocation=%(PackageProject.FilePath)
+			</Properties>
+		</PackagesList>
+	</ItemGroup>
+  </Target>
+	
+  <Target Name="Deploy" DependsOnTargets="InitializePackageProjects;ComputePackagesList">
+	<MSBuild Projects="@(PackagesList)" Targets="CreatePackage"/>
+  </Target>
+  
+  <Target Name="CreatePackage">
+	<Message Text="Creating $(Configuration) package for $(ProjectLocation) in '$(BasePackagePath)'"/>
+	<MSBuild Projects="$(ProjectLocation)" Targets="Package" Properties="Configuration=$(Configuration);BasePackagePath=$(BasePackagePath)"/>
+  </Target>
+</Project>
