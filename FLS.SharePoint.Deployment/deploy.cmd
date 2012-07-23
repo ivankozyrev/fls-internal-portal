@@ -1,2 +1,3 @@
 powershell Set-ExecutionPolicy Unrestricted
-powershell ./Scripts/deploy.ps1
+echo %CD%
+powershell .\Scripts\deploy.ps1
