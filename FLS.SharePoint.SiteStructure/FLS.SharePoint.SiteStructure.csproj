@@ -50,9 +50,15 @@
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\CreateSitesCollection\CreateSitesCollection.EventReceiver.cs">
+      <DependentUpon>CreateSitesCollection.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Features\CreateSitesCollection\CreateSitesCollection.feature">
+      <FeatureId>{ba28474a-9786-4d6c-b8f5-fda8b878590b}</FeatureId>
+    </None>
     <None Include="key.snk" />
     <None Include="SiteDefinition\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{809b390d-bb4d-408b-bee1-db5b08b8da8c}</SharePointProjectItemId>
@@ -69,8 +75,11 @@
       <DependentUpon>Package.package</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Features\" />
+    <Content Include="Features\CreateSitesCollection\CreateSitesCollection.Template.xml">
+      <DependentUpon>CreateSitesCollection.feature</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />
