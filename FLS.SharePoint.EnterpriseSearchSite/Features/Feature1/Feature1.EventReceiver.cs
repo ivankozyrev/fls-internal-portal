@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using Microsoft.SharePoint;
@@ -20,39 +21,32 @@ namespace FLS.SharePoint.EnterpriseSearchSite.Features.Feature1
 
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
-            using (var rootSite = new SPSite(SPContext.Current.Site.HostName))
+
+            using (var rootSite = (SPSite)properties.Feature.Parent)
             {
-                using (var rootWeb = rootSite.OpenWeb())
-                {
-                    try
-                    {
-                        rootWeb.AllowUnsafeUpdates = true;
-                        var searchWeb = rootSite.AllWebs.Add(
+                var app = rootSite.WebApplication.Sites;
+                
+                        app.Add(
                             SearchSiteUrl, 
                             "Search everything", 
-                            "Search site description", 
-                            SPContext.Current.Web.Language,
+                            "Search site description",
+                            1049,
                             "SRCHCEN#0",
-                            true,
-                            false
+                            rootSite.Owner.LoginName,
+                            rootSite.Owner.Name,
+                            rootSite.Owner.Email
                             );
-                        searchWeb.Update();
-                    }
-                    finally
-                    {
-                        rootWeb.AllowUnsafeUpdates = false;
-                    }
-                }
+                
             }
         }
 
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
-            using (var rootSite = new SPSite(SPContext.Current.Site.Url))
-            {
-                var webCollection = rootSite.AllWebs;
-                webCollection.Delete(SearchSiteUrl);
-            }
+//            using (var rootSite = new SPSite(SPContext.Current.Site.Url))
+//            {
+//                var webCollection = rootSite.AllWebs;
+//                webCollection.Delete(SearchSiteUrl);
+//            }
         }
 
 
