@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
-using FLS.SharePoint.SiteStructure;
+using FLS.SharePoint.Utils;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.SharePoint.Common.ServiceLocation;
 using Microsoft.SharePoint;

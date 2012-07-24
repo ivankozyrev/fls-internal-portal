@@ -42,10 +42,10 @@
   <ItemGroup>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\.Libraries\Microsoft\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Practices.SharePoint.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=ef4330804b3c4129, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\.Libraries\Microsoft\Microsoft.Practices.SharePoint.Common.dll</HintPath>
+    <Reference Include="Microsoft.Practices.SharePoint.Common">
+      <HintPath>..\..\.Libraries\Microsoft\Microsoft.Practices.SharePoint.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -85,9 +85,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FLS.SharePoint.SiteStructure\FLS.SharePoint.SiteStructure.csproj">
-      <Project>{367AA219-D214-4C73-8735-EC31CCF2B095}</Project>
-      <Name>FLS.SharePoint.SiteStructure</Name>
+    <ProjectReference Include="..\FLS.SharePoint.Utils\FLS.SharePoint.Utils.csproj">
+      <Project>{305F89C1-D67C-4E7F-846D-C64AA23B5DAF}</Project>
+      <Name>FLS.SharePoint.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
