@@ -6,7 +6,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.SiteStructure", "FLS.SharePoint.SiteStructure\FLS.SharePoint.SiteStructure.csproj", "{367AA219-D214-4C73-8735-EC31CCF2B095}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.EnterpriseSearchSite", "FLS.SharePoint.EnterpriseSearchSite\FLS.SharePoint.EnterpriseSearchSite.csproj", "{7A810443-C8B8-4C57-BE81-CA1B6EB1FDA8}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.System", "FLS.SharePoint.System\FLS.SharePoint.System.csproj", "{EC4AFF50-5A17-4434-BB32-88ED44E681ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Libraries", ".Libraries", "{6EB36F52-7E95-43EC-AA92-005929EE7767}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft", "Microsoft", "{BCEDCAAD-3316-49DE-AE42-BEE9AA555874}"
+	ProjectSection(SolutionItems) = preProject
+		.Libraries\Microsoft\Microsoft.Practices.ServiceLocation.dll = .Libraries\Microsoft\Microsoft.Practices.ServiceLocation.dll
+		.Libraries\Microsoft\Microsoft.Practices.SharePoint.Common.dll = .Libraries\Microsoft\Microsoft.Practices.SharePoint.Common.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,5 +50,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BCEDCAAD-3316-49DE-AE42-BEE9AA555874} = {6EB36F52-7E95-43EC-AA92-005929EE7767}
 	EndGlobalSection
 EndGlobal
