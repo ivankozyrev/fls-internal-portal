@@ -15,6 +15,12 @@
 	</PackageProject>
   </ItemGroup>
   
+  <ItemGroup>
+	<ExternalPackage Include="Pbs2010">
+		<Path>..\.Libraries\Pbs2010\PropertyBagSettings2010.wsp</Path>
+	</ExternalPackage>
+  </ItemGroup>
+  
   
   <Target Name="InitializePackageProjects">
 	  <ItemGroup>
@@ -35,15 +41,30 @@
 				ProjectLocation=%(PackageProject.FilePath)
 			</Properties>
 		</PackagesList>
+		<ExternalPackagesList Include="$(MSBuildProjectFile)">
+			<Properties>
+				Path=%(ExternalPackage.Path);
+				BasePackagePath=$(OutDir)
+			</Properties>
+		</ExternalPackagesList>
 	</ItemGroup>
   </Target>
 	
   <Target Name="Deploy" DependsOnTargets="InitializePackageProjects;ComputePackagesList">
 	<MSBuild Projects="@(PackagesList)" Targets="CreatePackage"/>
+	<MSBuild Projects="@(ExternalPackagesList)" Targets="CopyExternalPackage"/>
   </Target>
   
   <Target Name="CreatePackage">
 	<Message Text="Creating $(Configuration) package for $(ProjectLocation) in '$(BasePackagePath)'"/>
 	<MSBuild Projects="$(ProjectLocation)" Targets="Package" Properties="Configuration=$(Configuration);BasePackagePath=$(BasePackagePath)"/>
+  </Target>
+  
+  <Target Name="CopyExternalPackage">
+	<ItemGroup>
+		<ExternalPackagePath Include="$(Path)"/>
+	</ItemGroup>
+	<Copy SourceFiles="@(ExternalPackagePath)"
+            DestinationFiles="@(ExternalPackagePath->'$(BasePackagePath)\%(Filename)%(Extension)')"/>
   </Target>
 </Project>
