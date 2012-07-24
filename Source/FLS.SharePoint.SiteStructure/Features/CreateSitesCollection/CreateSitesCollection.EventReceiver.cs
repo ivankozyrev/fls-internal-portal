@@ -1,18 +1,15 @@
+using System.IO;
 using System.Runtime.InteropServices;
 using FLS.SharePoint.Utils;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.SharePoint.Common.ServiceLocation;
 using Microsoft.SharePoint;
-using Microsoft.SharePoint.Administration;
 
 namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
 {
     [Guid("68f9b364-9421-4b00-8408-6908a439bacd")]
     public class CreateSitesCollectionEventReceiver : SPFeatureReceiver
     {
-        private const string RootSiteLinkKey = "RootSiteLink";
-        private const string SiteNamesKey = "SiteNames";
-        
         private readonly IConfigPropertiesParser configPropertiesParser;
         
         public CreateSitesCollectionEventReceiver()
@@ -23,12 +20,7 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
 
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
-            SPWebCollection webs = GetAvailableWebs(properties.Feature.Properties[RootSiteLinkKey].Value);
-            if (webs == null)
-            {
-                return;
-            }
-            
+            var webs = GetAvailableWebs(properties);
             var siteNames = GetSiteNames(properties);
             var siteTitles = configPropertiesParser.ToStringArray(properties.Feature.Properties["SiteTitles"].Value);
             var siteDescriptions =
@@ -40,7 +32,7 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
                     siteNames[index],
                     siteTitles[index],
                     siteDescriptions[index],
-                    configPropertiesParser.ToUInt(properties.Feature.Properties["Locale"].Value),
+                    (uint)((SPWeb)properties.Feature.Parent).Locale.LCID,
                     properties.Feature.Properties["WebTemplate"].Value,
                     false, 
                     false);
@@ -49,7 +41,7 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
 
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
-            SPWebCollection webs = GetAvailableWebs(properties.Feature.Properties[RootSiteLinkKey].Value);
+            var webs = GetAvailableWebs(properties);
             if (webs == null)
             {
                 return;
@@ -61,25 +53,27 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
             }
         }
 
-        private SPWebCollection GetAvailableWebs(string rootSiteLink)
+        private static SPWebCollection GetAvailableWebs(SPFeatureReceiverProperties properties)
         {
-            SPWebApplication app = SPWebApplication.Lookup(configPropertiesParser.ToUri(rootSiteLink));
-            return app.Sites.Count > 0 
-                ? app.Sites[0].AllWebs 
-                : null;
+            return ((SPWeb) properties.Feature.Parent).Site.AllWebs;
         }
 
         private static void SafelyRemoveSubSite(string siteName, SPWebCollection webs)
         {
-            if (webs[siteName].Exists)
+            try
             {
                 webs.Delete(siteName);
             }
+            catch (FileNotFoundException)
+            {
+                // TODO: add logging
+            }
+            
         }
 
         private string[] GetSiteNames(SPFeatureReceiverProperties properties)
         {
-            return configPropertiesParser.ToStringArray(properties.Feature.Properties[SiteNamesKey].Value);
+            return configPropertiesParser.ToStringArray(properties.Feature.Properties["SiteNames"].Value);
         }
     }
 }
