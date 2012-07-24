@@ -1,5 +1,6 @@
-using System;
 using System.Runtime.InteropServices;
+using Microsoft.Practices.ServiceLocation;
+using Microsoft.Practices.SharePoint.Common.ServiceLocation;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Administration;
 
@@ -8,68 +9,76 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
     [Guid("68f9b364-9421-4b00-8408-6908a439bacd")]
     public class CreateSitesCollectionEventReceiver : SPFeatureReceiver
     {
-        // TODO: should be configurable.
-        private const string ApplicationUrl = "http://eskurikhin/";
-        private const int DefaultLanguage = 1033;
-        private const string DefaultTitle = "Sharepoint";
-        private const string DefaultDescription = "";
-        // TODO: template should be changed after it is created
-        private const string DefaultWebTemplate = "";
-        private const string AdminLogin = @"DOMAIN\eskurikhin";
-        private const string AdminName = "Admin";
-        private const string AdminEmail = "admin@domain.com";
-
-        private readonly string[] sitesToAdd = new[]
-                                                   {
-                                                       "sites/dev", "sites/qa", "sites/hr"
-                                                   };
+        private const string RootSiteLinkKey = "RootSiteLink";
+        private const string SiteNamesKey = "SiteNames";
+        
+        private readonly IConfigPropertiesParser configPropertiesParser;
+        
+        public CreateSitesCollectionEventReceiver()
+        {
+            IServiceLocator serviceLocator = SharePointServiceLocator.GetCurrent();
+            configPropertiesParser = serviceLocator.GetInstance<IConfigPropertiesParser>();
+        }
 
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
-            SPWebApplication application = SPWebApplication.Lookup(new Uri(ApplicationUrl));
-
-            foreach (var sitePath in sitesToAdd)
+            SPWebCollection webs = GetAvailableWebs(properties.Feature.Properties[RootSiteLinkKey].Value);
+            if (webs == null)
             {
-                AddSubSite(sitePath, application);
+                return;
+            }
+            
+            var siteNames = GetSiteNames(properties);
+            var siteTitles = configPropertiesParser.ToStringArray(properties.Feature.Properties["SiteTitles"].Value);
+            var siteDescriptions =
+                configPropertiesParser.ToStringArray(properties.Feature.Properties["SiteDescriptions"].Value);
+            for (int index = 0; index < siteNames.Length; index++)
+            {
+                SafelyRemoveSubSite(siteNames[index], webs);
+                webs.Add(
+                    siteNames[index],
+                    siteTitles[index],
+                    siteDescriptions[index],
+                    configPropertiesParser.ToUInt(properties.Feature.Properties["Locale"].Value),
+                    properties.Feature.Properties["WebTemplate"].Value,
+                    false, 
+                    false);
             }
         }
 
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
-            foreach (var sitePath in sitesToAdd)
+            SPWebCollection webs = GetAvailableWebs(properties.Feature.Properties[RootSiteLinkKey].Value);
+            if (webs == null)
             {
-                SafelyRemoveSubSite(sitePath);
+                return;
+            }
+
+            foreach (var sitePath in GetSiteNames(properties))
+            {
+                SafelyRemoveSubSite(sitePath, webs);
             }
         }
 
-        private static void AddSubSite(string relativePath, SPWebApplication application)
+        private SPWebCollection GetAvailableWebs(string rootSiteLink)
         {
-            SafelyRemoveSubSite(relativePath);
-            application.Sites.Add(
-                relativePath,
-                DefaultTitle,
-                DefaultDescription,
-                DefaultLanguage,
-                DefaultWebTemplate,
-                AdminLogin,
-                AdminName,
-                AdminEmail);
+            SPWebApplication app = SPWebApplication.Lookup(configPropertiesParser.ToUri(rootSiteLink));
+            return app.Sites.Count > 0 
+                ? app.Sites[0].AllWebs 
+                : null;
         }
 
-        private static void SafelyRemoveSubSite(string relativePath)
+        private static void SafelyRemoveSubSite(string siteName, SPWebCollection webs)
         {
-            UriBuilder builder = new UriBuilder(ApplicationUrl)
-                                     {
-                                         Path = relativePath
-                                     };
-
-            if (SPSite.Exists(builder.Uri))
+            if (webs[siteName].Exists)
             {
-                using (SPSite site = new SPSite(builder.ToString()))
-                {
-                    site.Delete();
-                }
+                webs.Delete(siteName);
             }
+        }
+
+        private string[] GetSiteNames(SPFeatureReceiverProperties properties)
+        {
+            return configPropertiesParser.ToStringArray(properties.Feature.Properties[SiteNamesKey].Value);
         }
     }
 }

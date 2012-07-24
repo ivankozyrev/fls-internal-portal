@@ -40,23 +40,39 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\.Libraries\Microsoft\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.SharePoint.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=ef4330804b3c4129, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\.Libraries\Microsoft\Microsoft.Practices.SharePoint.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Features\PackagesDeploymentJob\PackagesDeploymentJob.EventReceiver.cs">
       <DependentUpon>PackagesDeploymentJob.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\ServiceLocation\ServiceLocation.EventReceiver.cs">
+      <DependentUpon>ServiceLocation.feature</DependentUpon>
+    </Compile>
     <Compile Include="PackagesDeploymentJob.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Features\ServiceLocation\ServiceLocation.feature">
+      <FeatureId>{bae7b3c9-a3bd-423d-98eb-bf330f4989a0}</FeatureId>
+    </None>
     <None Include="Features\PackagesDeploymentJob\PackagesDeploymentJob.feature">
       <FeatureId>{5c705612-4ff8-4f32-be79-d7a0cb9a2cf7}</FeatureId>
     </None>
@@ -68,8 +84,16 @@
       <DependentUpon>Package.package</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\FLS.SharePoint.SiteStructure\FLS.SharePoint.SiteStructure.csproj">
+      <Project>{367AA219-D214-4C73-8735-EC31CCF2B095}</Project>
+      <Name>FLS.SharePoint.SiteStructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Features\ServiceLocation\ServiceLocation.Template.xml">
+      <DependentUpon>ServiceLocation.feature</DependentUpon>
+    </Content>
     <Content Include="Features\PackagesDeploymentJob\PackagesDeploymentJob.Template.xml">
       <DependentUpon>PackagesDeploymentJob.feature</DependentUpon>
     </Content>
