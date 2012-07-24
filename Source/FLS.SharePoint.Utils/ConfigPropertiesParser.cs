@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FLS.SharePoint.SiteStructure
+namespace FLS.SharePoint.Utils
 {
     public class ConfigPropertiesParser : IConfigPropertiesParser
     {

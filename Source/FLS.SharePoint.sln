@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft", "Microsoft", "{
 		.Libraries\Microsoft\Microsoft.Practices.SharePoint.Common.dll = .Libraries\Microsoft\Microsoft.Practices.SharePoint.Common.dll
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.Utils", "FLS.SharePoint.Utils\FLS.SharePoint.Utils.csproj", "{305F89C1-D67C-4E7F-846D-C64AA23B5DAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{EC4AFF50-5A17-4434-BB32-88ED44E681ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC4AFF50-5A17-4434-BB32-88ED44E681ED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EC4AFF50-5A17-4434-BB32-88ED44E681ED}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{305F89C1-D67C-4E7F-846D-C64AA23B5DAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{305F89C1-D67C-4E7F-846D-C64AA23B5DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{305F89C1-D67C-4E7F-846D-C64AA23B5DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{305F89C1-D67C-4E7F-846D-C64AA23B5DAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

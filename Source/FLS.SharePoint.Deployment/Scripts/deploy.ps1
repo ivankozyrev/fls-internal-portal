@@ -64,14 +64,14 @@ function DeploySolution([string]$Path, [string]$Identity)
     {
         Write-Host -f Yellow "...Yes!"        
         Write-Host -NoNewLine "[DEPLOY] Installing $Identity for all web applications"    
-        Install-SPSolution -Identity $Identity -AllWebApplications -GACDeployment
+        Install-SPSolution -Identity $Identity -AllWebApplications -GACDeployment -Force
 
     }
     else
     {
         Write-Host -f Yellow "...No!"        
         Write-Host -NoNewLine "[DEPLOY] Globally deploying $Identity"    
-        Install-SPSolution -Identity $Identity -GACDeployment
+        Install-SPSolution -Identity $Identity -GACDeployment -Force
     }
     Write-Host -f Green "...Done!"
 
