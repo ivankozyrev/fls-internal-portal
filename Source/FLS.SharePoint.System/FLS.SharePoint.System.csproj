@@ -94,6 +94,7 @@
   <ItemGroup>
     <Content Include="Features\ServiceLocation\ServiceLocation.Template.xml">
       <DependentUpon>ServiceLocation.feature</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Features\PackagesDeploymentJob\PackagesDeploymentJob.Template.xml">
       <DependentUpon>PackagesDeploymentJob.feature</DependentUpon>
