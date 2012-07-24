@@ -4,14 +4,14 @@
 	<OutDir Condition="'$(OutDit)'==''">Packages</OutDir>
   </PropertyGroup>
   <ItemGroup>
-	<PackageProject Include="blank">
-		<Name>FLS.SharePoint</Name>
+	<PackageProject Include="System">
+		<Name>FLS.SharePoint.System</Name>
 	</PackageProject>
 	<PackageProject Include="SiteStructure">
 		<Name>FLS.SharePoint.SiteStructure</Name>
 	</PackageProject>
-	<PackageProject Include="System">
-		<Name>FLS.SharePoint.System</Name>
+	<PackageProject Include="blank">
+		<Name>FLS.SharePoint</Name>
 	</PackageProject>
   </ItemGroup>
   
