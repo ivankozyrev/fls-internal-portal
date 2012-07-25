@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Feature xmlns="http://schemas.microsoft.com/sharepoint/">
   <Properties>
-    <Property Key="Locale" Value ="1033"/>
-    <Property Key="RootSiteLink" Value ="http://eskurikhin/"/>
     <Property Key="SiteNames" Value ="dev;qa;hr"/>
     <Property Key="SiteTitles" Value="Developers den;QA hideout;HR headquarters"/>
     <Property Key="SiteDescriptions" Value="Developers live here;Right place for testers;HRs should stay here"/>
