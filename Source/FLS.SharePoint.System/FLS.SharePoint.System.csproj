@@ -61,21 +61,21 @@
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Features\PackagesDeploymentJob\PackagesDeploymentJob.EventReceiver.cs">
-      <DependentUpon>PackagesDeploymentJob.feature</DependentUpon>
+    <Compile Include="Features\Logger\Logger.EventReceiver.cs">
+      <DependentUpon>Logger.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\ServiceLocation\ServiceLocation.EventReceiver.cs">
-      <DependentUpon>ServiceLocation.feature</DependentUpon>
+    <Compile Include="Features\ServiceLocator\ServiceLocator.EventReceiver.cs">
+      <DependentUpon>ServiceLocator.feature</DependentUpon>
     </Compile>
     <Compile Include="PackagesDeploymentJob.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Features\ServiceLocation\ServiceLocation.feature">
-      <FeatureId>{bae7b3c9-a3bd-423d-98eb-bf330f4989a0}</FeatureId>
+    <None Include="Features\Logger\Logger.feature">
+      <FeatureId>{ed31d504-0890-4d0b-b6f6-137d56824c08}</FeatureId>
     </None>
-    <None Include="Features\PackagesDeploymentJob\PackagesDeploymentJob.feature">
-      <FeatureId>{5c705612-4ff8-4f32-be79-d7a0cb9a2cf7}</FeatureId>
+    <None Include="Features\ServiceLocator\ServiceLocator.feature">
+      <FeatureId>{bae7b3c9-a3bd-423d-98eb-bf330f4989a0}</FeatureId>
     </None>
     <None Include="key.snk" />
     <None Include="Package\Package.package">
@@ -92,12 +92,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Features\ServiceLocation\ServiceLocation.Template.xml">
-      <DependentUpon>ServiceLocation.feature</DependentUpon>
-      <SubType>Designer</SubType>
+    <Content Include="Features\Logger\Logger.Template.xml">
+      <DependentUpon>Logger.feature</DependentUpon>
     </Content>
-    <Content Include="Features\PackagesDeploymentJob\PackagesDeploymentJob.Template.xml">
-      <DependentUpon>PackagesDeploymentJob.feature</DependentUpon>
+    <Content Include="Features\ServiceLocator\ServiceLocator.Template.xml">
+      <DependentUpon>ServiceLocator.feature</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

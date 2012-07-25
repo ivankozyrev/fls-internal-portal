@@ -1,7 +1,9 @@
 using System.IO;
 using System.Runtime.InteropServices;
+using FLS.SharePoint.Infrastructure;
 using FLS.SharePoint.Utils;
 using Microsoft.Practices.ServiceLocation;
+using Microsoft.Practices.SharePoint.Common.Logging;
 using Microsoft.Practices.SharePoint.Common.ServiceLocation;
 using Microsoft.SharePoint;
 
@@ -11,15 +13,19 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
     public class CreateSitesCollectionEventReceiver : SPFeatureReceiver
     {
         private readonly IConfigPropertiesParser configPropertiesParser;
+        private readonly IServiceLocator serviceLocator;
+        private readonly ILogger log;
         
         public CreateSitesCollectionEventReceiver()
         {
-            IServiceLocator serviceLocator = SharePointServiceLocator.GetCurrent();
+            serviceLocator = SharePointServiceLocator.GetCurrent();
             configPropertiesParser = serviceLocator.GetInstance<IConfigPropertiesParser>();
+            log = serviceLocator.GetInstance<ILogger>();
         }
 
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
+            log.Debug("Starting activation of a feature");
             var webs = GetAvailableWebs(properties);
             var siteNames = GetSiteNames(properties);
             var siteTitles = configPropertiesParser.ToStringArray(properties.Feature.Properties["SiteTitles"].Value);
