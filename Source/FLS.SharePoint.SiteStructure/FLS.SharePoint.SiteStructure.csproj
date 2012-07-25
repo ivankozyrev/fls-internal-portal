@@ -86,6 +86,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FLS.SharePoint.Infrastructure\FLS.SharePoint.Infrastructure.csproj">
+      <Project>{58BAF505-5D8D-41C6-955A-3957B8E67FC4}</Project>
+      <Name>FLS.SharePoint.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FLS.SharePoint.Utils\FLS.SharePoint.Utils.csproj">
       <Project>{305F89C1-D67C-4E7F-846D-C64AA23B5DAF}</Project>
       <Name>FLS.SharePoint.Utils</Name>
