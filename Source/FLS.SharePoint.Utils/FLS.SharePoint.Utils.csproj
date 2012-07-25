@@ -39,11 +39,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ConfigPropertiesParser.cs" />
+    <Compile Include="ConfigurationEntities\Group.cs" />
+    <Compile Include="ConfigurationEntities\Permission.cs" />
+    <Compile Include="ConfigurationEntities\Site.cs" />
+    <Compile Include="ConfigurationEntities\SitesConfiguration.cs" />
+    <Compile Include="ConfigurationEntities\User.cs" />
     <Compile Include="IConfigPropertiesParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
