@@ -1,5 +1,6 @@
 using System.IO;
 using System.Runtime.InteropServices;
+using FLS.SharePoint.Infrastructure;
 using FLS.SharePoint.Utils;
 using FLS.SharePoint.Utils.ConfigurationEntities;
 using Microsoft.Practices.ServiceLocation;
@@ -25,6 +26,7 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
 
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
+            log.Debug("start activating feature");
             var rootWebChildren = GetAvailableWebs(properties);
             var configuration = GetSitesConfiguration(properties);
 
