@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using FLS.SharePoint.Infrastructure;
@@ -7,6 +8,7 @@ using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.SharePoint.Common.Logging;
 using Microsoft.Practices.SharePoint.Common.ServiceLocation;
 using Microsoft.SharePoint;
+using Microsoft.SharePoint.Utilities;
 
 namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
 {
@@ -15,49 +17,61 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
     {
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
-            IServiceLocator serviceLocator = SharePointServiceLocator.GetCurrent();
-            IConfigPropertiesParser configPropertiesParser = serviceLocator.GetInstance<IConfigPropertiesParser>();
-            ILogger log = serviceLocator.GetInstance<ILogger>();
-            
-            log.Debug("start activating feature");
-            var rootWebChildren = GetAvailableWebs(properties);
-            var configuration = GetSitesConfiguration(properties, configPropertiesParser);
+            SPUtility.ValidateFormDigest();
+            SPSecurity.RunWithElevatedPrivileges(delegate
+                                                     {
+                                                         IServiceLocator serviceLocator =
+                                                             SharePointServiceLocator.GetCurrent();
+                                                         IConfigPropertiesParser configPropertiesParser =
+                                                             serviceLocator.GetInstance<IConfigPropertiesParser>();
+                                                         ILogger log = serviceLocator.GetInstance<ILogger>();
 
-            var rootWeb = GetFeatureRootWeb(properties);
-            foreach (var group in configuration.Groups)
-            {
-                if (!ContainsGroup(rootWeb.SiteGroups, group.Name))
-                {
-                    var owner = rootWeb.EnsureUser(configuration.SiteOwner);
-                    rootWeb.SiteGroups.Add(group.Name, owner, owner, group.Description);
-                }
+                                                         log.Debug("start activating feature");
+                                                         var rootWebChildren = GetAvailableWebs(properties);
+                                                         var configuration = GetSitesConfiguration(properties,
+                                                                                                   configPropertiesParser);
 
-                var newGroup = rootWeb.SiteGroups[group.Name];
-                foreach (var user in group.Users)
-                {
-                    newGroup.AddUser(user.Login, string.Empty, user.Login, string.Empty);
-                }
-            }
-            
-            foreach (var site in configuration.Sites)
-            {
-                SafelyRemoveSubSite(site.Name, rootWebChildren);
-                var newSite = rootWebChildren.Add(
-                    site.Name, 
-                    site.Title,
-                    site.Description,
-                    (uint)GetFeatureParent(properties).Locale.LCID,
-                    site.WebTemplate,
-                    true,
-                    false);
+                                                         var rootWeb = GetFeatureRootWeb(properties);
+                                                         foreach (var group in configuration.Groups)
+                                                         {
+                                                             if (!ContainsGroup(rootWeb.SiteGroups, group.Name))
+                                                             {
+                                                                 var owner = rootWeb.EnsureUser(configuration.SiteOwner);
+                                                                 rootWeb.SiteGroups.Add(group.Name, owner, owner,
+                                                                                        group.Description);
+                                                             }
 
-                foreach (var permission in site.Permissions)
-                {
-                    var roleAssignment = new SPRoleAssignment(rootWeb.SiteGroups[permission.GroupName]);
-                    roleAssignment.RoleDefinitionBindings.Add(rootWeb.RoleDefinitions[permission.PermissionLevel]);
-                    newSite.RoleAssignments.Add(roleAssignment);
-                }
-            }
+                                                             var newGroup = rootWeb.SiteGroups[group.Name];
+                                                             foreach (var user in group.Users)
+                                                             {
+                                                                 newGroup.AddUser(user.Login, string.Empty, user.Login,
+                                                                                  string.Empty);
+                                                             }
+                                                         }
+
+                                                         foreach (var site in configuration.Sites)
+                                                         {
+                                                             SafelyRemoveSubSite(site.Name, rootWebChildren);
+                                                             var newSite = rootWebChildren.Add(
+                                                                 site.Name,
+                                                                 site.Title,
+                                                                 site.Description,
+                                                                 (uint) GetFeatureParent(properties).Locale.LCID,
+                                                                 site.WebTemplate,
+                                                                 true,
+                                                                 false);
+
+                                                             foreach (var permission in site.Permissions)
+                                                             {
+                                                                 var roleAssignment =
+                                                                     new SPRoleAssignment(
+                                                                         rootWeb.SiteGroups[permission.GroupName]);
+                                                                 roleAssignment.RoleDefinitionBindings.Add(
+                                                                     rootWeb.RoleDefinitions[permission.PermissionLevel]);
+                                                                 newSite.RoleAssignments.Add(roleAssignment);
+                                                             }
+                                                         }
+                                                     });
         }
 
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
