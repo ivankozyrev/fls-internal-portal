@@ -13,22 +13,15 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
     [Guid("68f9b364-9421-4b00-8408-6908a439bacd")]
     public class CreateSitesCollectionEventReceiver : SPFeatureReceiver
     {
-        private readonly IConfigPropertiesParser configPropertiesParser;
-        private readonly IServiceLocator serviceLocator;
-        private readonly ILogger log;
-        
-        public CreateSitesCollectionEventReceiver()
-        {
-            serviceLocator = SharePointServiceLocator.GetCurrent();
-            configPropertiesParser = serviceLocator.GetInstance<IConfigPropertiesParser>();
-            log = serviceLocator.GetInstance<ILogger>();
-        }
-
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
+            IServiceLocator serviceLocator = SharePointServiceLocator.GetCurrent();
+            IConfigPropertiesParser configPropertiesParser = serviceLocator.GetInstance<IConfigPropertiesParser>();
+            ILogger log = serviceLocator.GetInstance<ILogger>();
+            
             log.Debug("start activating feature");
             var rootWebChildren = GetAvailableWebs(properties);
-            var configuration = GetSitesConfiguration(properties);
+            var configuration = GetSitesConfiguration(properties, configPropertiesParser);
 
             var rootWeb = GetFeatureRootWeb(properties);
             foreach (var group in configuration.Groups)
@@ -69,13 +62,16 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
 
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
+            IServiceLocator serviceLocator = SharePointServiceLocator.GetCurrent();
+            IConfigPropertiesParser configPropertiesParser = serviceLocator.GetInstance<IConfigPropertiesParser>();
+            
             var rootWebChildren = GetAvailableWebs(properties);
             if (rootWebChildren == null)
             {
                 return;
             }
 
-            var configuration = GetSitesConfiguration(properties);
+            var configuration = GetSitesConfiguration(properties, configPropertiesParser);
             var rootWeb = GetFeatureRootWeb(properties);
             foreach (var site in configuration.Sites)
             {
@@ -96,9 +92,9 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
             }
         }
 
-        private SitesConfiguration GetSitesConfiguration(SPFeatureReceiverProperties properties)
+        private SitesConfiguration GetSitesConfiguration(SPFeatureReceiverProperties properties, IConfigPropertiesParser parser)
         {
-            return configPropertiesParser.ParseSitesConfiguration(properties.Feature.Properties["SitesConfiguration"].Value);
+            return parser.ParseSitesConfiguration(properties.Feature.Properties["SitesConfiguration"].Value);
         }
 
         private static bool ContainsGroup(SPGroupCollection groupCollection, string groupName)
@@ -139,7 +135,6 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
             {
                 // TODO: add logging
             }
-            
         }
     }
 }
