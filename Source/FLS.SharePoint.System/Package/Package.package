@@ -4,6 +4,7 @@
     <customAssembly location="Microsoft.Practices.ServiceLocation.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\..\.Libraries\Microsoft\Microsoft.Practices.ServiceLocation.dll" />
     <customAssembly location="Microsoft.Practices.SharePoint.Common.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\..\.Libraries\Microsoft\Microsoft.Practices.SharePoint.Common.dll" />
     <projectOutputAssembly location="FLS.SharePoint.Utils.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\FLS.SharePoint.Utils\FLS.SharePoint.Utils.csproj" />
+    <projectOutputAssembly location="FLS.SharePoint.Infrastructure.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\FLS.SharePoint.Infrastructure\FLS.SharePoint.Infrastructure.csproj" />
   </assemblies>
   <features>
     <featureReference itemId="bae7b3c9-a3bd-423d-98eb-bf330f4989a0" />
