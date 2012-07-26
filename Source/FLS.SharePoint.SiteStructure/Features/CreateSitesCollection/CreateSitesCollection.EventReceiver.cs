@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using FLS.SharePoint.Infrastructure;
@@ -17,7 +16,6 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
     {
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
-            Debugger.Break();
             SPUtility.ValidateFormDigest();
             SPSecurity.RunWithElevatedPrivileges(delegate
                                                      {
