@@ -4,6 +4,6 @@
     {
         public string GroupName { get; set; }
 
-        public string PermissionLevel { get; set; }
+        public int PermissionLevelId { get; set; }
     }
 }
