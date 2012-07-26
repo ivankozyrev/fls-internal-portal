@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using FLS.SharePoint.Infrastructure;
@@ -67,7 +66,7 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
                                                                      new SPRoleAssignment(
                                                                          rootWeb.SiteGroups[permission.GroupName]);
                                                                  roleAssignment.RoleDefinitionBindings.Add(
-                                                                     rootWeb.RoleDefinitions[permission.PermissionLevel]);
+                                                                     rootWeb.RoleDefinitions.GetById(permission.PermissionLevelId));
                                                                  newSite.RoleAssignments.Add(roleAssignment);
                                                              }
                                                          }
@@ -102,11 +101,11 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
 
             foreach (var group in configuration.Groups)
             {
-                rootWeb.SiteGroups.Remove(@group.Name);
+                rootWeb.SiteGroups.Remove(group.Name);
             }
         }
 
-        private SitesConfiguration GetSitesConfiguration(SPFeatureReceiverProperties properties, IConfigPropertiesParser parser)
+        private static SitesConfiguration GetSitesConfiguration(SPFeatureReceiverProperties properties, IConfigPropertiesParser parser)
         {
             return parser.ParseSitesConfiguration(properties.Feature.Properties["SitesConfiguration"].Value);
         }
