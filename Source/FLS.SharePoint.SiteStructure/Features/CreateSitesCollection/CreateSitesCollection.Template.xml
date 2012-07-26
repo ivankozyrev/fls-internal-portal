@@ -4,6 +4,7 @@
     <Property Key="SitesConfiguration" Value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
 &lt;SitesConfiguration xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
   &lt;SiteOwner&gt;DOMAIN\eskurikhin&lt;/SiteOwner&gt;
+  &lt;SiteCollectionName&gt;sites/departments&lt;/SiteCollectionName&gt;
   &lt;Sites&gt;
     &lt;Site Name=&quot;dev&quot; Title=&quot;Developers den&quot;&gt;
       &lt;WebTemplate&gt;STS#1&lt;/WebTemplate&gt;

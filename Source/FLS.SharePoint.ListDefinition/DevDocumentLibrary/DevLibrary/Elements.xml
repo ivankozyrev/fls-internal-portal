@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Dev Library"
+                OnQuickLaunch="TRUE"
+                TemplateType="101"
+                Url="Lists/dev-library"
+                Description="Library for developer documents">
+  </ListInstance>
+</Elements>
