@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="e5594603-e978-4866-a69e-344831f64903" solutionId="e5594603-e978-4866-a69e-344831f64903" resetWebServer="false" name="FLS.Sharepoint.TwitterSearchWebPart" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
-  <features>
-    <featureReference itemId="ea689362-00c4-4894-a287-f0050c75a026" />
-  </features>
-</package>
