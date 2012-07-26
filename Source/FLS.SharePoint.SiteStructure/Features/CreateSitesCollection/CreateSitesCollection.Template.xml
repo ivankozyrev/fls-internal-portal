@@ -6,7 +6,7 @@
   &lt;SiteOwner&gt;DOMAIN\eskurikhin&lt;/SiteOwner&gt;
   &lt;Sites&gt;
     &lt;Site Name=&quot;dev&quot; Title=&quot;Developers den&quot;&gt;
-      &lt;WebTemplate /&gt;
+      &lt;WebTemplate&gt;STS#1&lt;/WebTemplate&gt;
       &lt;Description&gt;Developers live here&lt;/Description&gt;
       &lt;Permissions&gt;
         &lt;Permission&gt;
@@ -16,7 +16,7 @@
       &lt;/Permissions&gt;
     &lt;/Site&gt;
     &lt;Site Name=&quot;qa&quot; Title=&quot;QA hideout&quot;&gt;
-      &lt;WebTemplate /&gt;
+      &lt;WebTemplate&gt;STS#1&lt;/WebTemplate&gt;
       &lt;Description&gt;Right place for testers&lt;/Description&gt;
       &lt;Permissions&gt;
         &lt;Permission&gt;
@@ -30,7 +30,7 @@
       &lt;/Permissions&gt;
     &lt;/Site&gt;
     &lt;Site Name=&quot;hr&quot; Title=&quot;HR headquarters&quot;&gt;
-      &lt;WebTemplate /&gt;
+      &lt;WebTemplate&gt;STS#1&lt;/WebTemplate&gt;
       &lt;Description&gt;HRs should stay here&lt;/Description&gt;
       &lt;Permissions&gt;
         &lt;Permission&gt;
