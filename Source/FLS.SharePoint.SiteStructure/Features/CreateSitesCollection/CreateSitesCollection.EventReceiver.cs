@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using FLS.SharePoint.Infrastructure;
@@ -16,6 +17,7 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
     {
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
+            Debugger.Break();
             SPUtility.ValidateFormDigest();
             SPSecurity.RunWithElevatedPrivileges(delegate
                                                      {
@@ -55,7 +57,7 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
                                                                  site.Name,
                                                                  site.Title,
                                                                  site.Description,
-                                                                 (uint) GetFeatureParent(properties).Locale.LCID,
+                                                                 (uint) GetFeatureRootWeb(properties).Locale.LCID,
                                                                  site.WebTemplate,
                                                                  true,
                                                                  false);
@@ -125,17 +127,17 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
 
         private static SPWebCollection GetAvailableWebs(SPFeatureReceiverProperties properties)
         {
-            return GetFeatureParent(properties).Site.AllWebs;
+            return GetFeatureParent(properties).AllWebs;
         }
 
-        private static SPWeb GetFeatureParent(SPFeatureReceiverProperties properties)
+        private static SPSite GetFeatureParent(SPFeatureReceiverProperties properties)
         {
-            return (SPWeb)properties.Feature.Parent;
+            return (SPSite)properties.Feature.Parent;
         }
 
         private static SPWeb GetFeatureRootWeb(SPFeatureReceiverProperties properties)
         {
-            return GetFeatureParent(properties).Site.RootWeb;
+            return GetFeatureParent(properties).RootWeb;
         }
 
         private static void SafelyRemoveSubSite(string siteName, SPWebCollection websToRemoveFrom)
