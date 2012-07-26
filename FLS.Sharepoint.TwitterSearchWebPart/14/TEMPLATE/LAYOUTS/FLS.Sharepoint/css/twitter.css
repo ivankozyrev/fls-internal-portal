@@ -1,0 +1,72 @@
+﻿.tweet-searchheader
+{
+    margin: 0;
+    padding: 15px 0;
+}
+.tweet-search
+{
+    padding: 0 5px 0;
+}
+.tweet-emptysearch
+{
+}
+ol.tweet-statuses
+{
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+ol.tweet-statuses li 
+{
+    clear: both;
+    position: relative;
+    list-style-image: none !important;
+    padding: 10px 5px 0;
+    margin: 0;
+    border-bottom: 1px dashed #D2DADA;
+}
+
+ol.tweet-statuses li:hover
+{
+    background-color: #f7f7f7;
+}
+
+.tweet-thumb
+{
+    display: block;
+    width: 50px;
+    height: 50px;
+	float: left;
+    margin: 0 10px 10px 0;
+}
+
+.tweet-url
+{
+    border: 0 none;
+}
+
+.tweet-photo
+{
+    border: 1px solid #333;   
+}
+
+.tweet-statusbody, .tweet-statusbodyplain
+{
+    display: block;
+    margin: 0 0 10px 60px; 
+    padding: 0 0 7px;  
+}
+
+.tweet-statusbodyplain
+{
+    margin-left: 0;
+}
+
+.tweet-entrymeta
+{
+	display: block;
+	padding: 0 0 5px;
+}
+
+.clear { clear: both; }

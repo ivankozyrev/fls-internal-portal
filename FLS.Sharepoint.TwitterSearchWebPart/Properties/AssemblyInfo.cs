@@ -6,11 +6,11 @@ using System.Security;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FLS.SharePoint.EnterpriseSearchSite")]
+[assembly: AssemblyTitle("FLS.Sharepoint.TwitterSearchWebPart")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("fls")]
-[assembly: AssemblyProduct("FLS.SharePoint.EnterpriseSearchSite")]
+[assembly: AssemblyProduct("FLS.Sharepoint.TwitterSearchWebPart")]
 [assembly: AssemblyCopyright("Copyright © fls 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -21,7 +21,7 @@ using System.Security;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("7a810443-c8b8-4c57-be81-ca1b6eb1fda8")]
+[assembly: Guid("aa82c2d5-309b-4d5a-8058-5e82846dfcd6")]
 
 // Version information for an assembly consists of the following four values:
 //

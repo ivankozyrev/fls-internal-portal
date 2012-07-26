@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BB1F664B-9266-4fd6-B973-E1E44974B511};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ActiveDeploymentConfiguration>No Activation</ActiveDeploymentConfiguration>
+    <SandboxedSolution>False</SandboxedSolution>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,24 +41,45 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.SharePoint.Search, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\Common Files\Microsoft Shared\Web Server Extensions\14\ISAPI\Microsoft.SharePoint.Search.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Microsoft.SharePoint" />
-    <Reference Include="Microsoft.SharePoint.Security" />
+    <Reference Include="Microsoft.SharePoint">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Security">
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Features\Feature1\Feature1.EventReceiver.cs">
-      <DependentUpon>Feature1.feature</DependentUpon>
+    <Compile Include="EnterpriseSearchWebPart\EnterpriseSearchWebPart.cs" />
+    <Compile Include="EnterpriseSearchWebPart\EnterpriseSearchWebPartUserControl.ascx.cs">
+      <DependentUpon>EnterpriseSearchWebPartUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EnterpriseSearchWebPart\EnterpriseSearchWebPartUserControl.ascx.designer.cs">
+      <DependentUpon>EnterpriseSearchWebPartUserControl.ascx.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Features\Feature1\Feature1.feature">
-      <FeatureId>{2acc9d90-0418-4b3e-8e10-dfeab3a1d406}</FeatureId>
+    <None Include="EnterpriseSearchWebPart\EnterpriseSearchWebPart.webpart" />
+    <None Include="EnterpriseSearchWebPart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{03def697-d4aa-4b02-af29-aab81e13cac4}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\SearchFeature\SearchFeature.feature">
+      <FeatureId>{448515f4-7379-4b14-b14c-909c8c844ff0}</FeatureId>
     </None>
     <None Include="key.snk" />
     <None Include="Package\Package.package">
@@ -66,10 +89,16 @@
       <DependentUpon>Package.package</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Features\Feature1\Feature1.Template.xml">
-      <DependentUpon>Feature1.feature</DependentUpon>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EnterpriseSearchWebPart\Elements.xml" />
+    <Content Include="EnterpriseSearchWebPart\EnterpriseSearchWebPartUserControl.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Features\SearchFeature\SearchFeature.Template.xml">
+      <DependentUpon>SearchFeature.feature</DependentUpon>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
