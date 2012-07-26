@@ -2,6 +2,7 @@
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="7d54f934-4ae8-42b1-b7f4-c68a350fa47d" solutionId="7d54f934-4ae8-42b1-b7f4-c68a350fa47d" resetWebServer="false" name="FLS.SharePoint.SiteStructure" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
   <features>
     <featureReference itemId="ba28474a-9786-4d6c-b8f5-fda8b878590b" />
+    <featureReference itemId="df910d9a-e971-46d4-9292-20bea3595c19" />
   </features>
   <projectItems>
     <projectItemReference itemId="809b390d-bb4d-408b-bee1-db5b08b8da8c" />
