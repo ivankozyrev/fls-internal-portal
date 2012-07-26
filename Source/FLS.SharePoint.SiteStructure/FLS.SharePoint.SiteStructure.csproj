@@ -59,9 +59,6 @@
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Features\AddTestSite\AddTestSite.EventReceiver.cs">
-      <DependentUpon>AddTestSite.feature</DependentUpon>
-    </Compile>
     <Compile Include="Features\CreateSitesCollection\CreateSitesCollection.EventReceiver.cs">
       <DependentUpon>CreateSitesCollection.feature</DependentUpon>
     </Compile>
@@ -70,9 +67,6 @@
   <ItemGroup>
     <None Include="Features\CreateSitesCollection\CreateSitesCollection.feature">
       <FeatureId>{ba28474a-9786-4d6c-b8f5-fda8b878590b}</FeatureId>
-    </None>
-    <None Include="Features\AddTestSite\AddTestSite.feature">
-      <FeatureId>{df910d9a-e971-46d4-9292-20bea3595c19}</FeatureId>
     </None>
     <None Include="key.snk" />
     <None Include="SiteDefinition\SharePointProjectItem.spdata">
@@ -105,9 +99,6 @@
     <Content Include="Features\CreateSitesCollection\CreateSitesCollection.Template.xml">
       <DependentUpon>CreateSitesCollection.feature</DependentUpon>
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Features\AddTestSite\AddTestSite.Template.xml">
-      <DependentUpon>AddTestSite.feature</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup />
