@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <Feature xmlns="http://schemas.microsoft.com/sharepoint/">
   <Properties>
     <Property Key="SitesConfiguration" Value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
@@ -11,7 +11,7 @@
       &lt;Permissions&gt;
         &lt;Permission&gt;
           &lt;GroupName&gt;Developers&lt;/GroupName&gt;
-          &lt;PermissionLevel&gt;Contribute&lt;/PermissionLevel&gt;
+          &lt;PermissionLevelId&gt;1073741827&lt;/PermissionLevelId&gt;
         &lt;/Permission&gt;
       &lt;/Permissions&gt;
     &lt;/Site&gt;
@@ -21,11 +21,11 @@
       &lt;Permissions&gt;
         &lt;Permission&gt;
           &lt;GroupName&gt;Quality assurance&lt;/GroupName&gt;
-          &lt;PermissionLevel&gt;Contribute&lt;/PermissionLevel&gt;
+          &lt;PermissionLevelId&gt;1073741827&lt;/PermissionLevelId&gt;
         &lt;/Permission&gt;
         &lt;Permission&gt;
           &lt;GroupName&gt;Developers&lt;/GroupName&gt;
-          &lt;PermissionLevel&gt;Contribute&lt;/PermissionLevel&gt;
+          &lt;PermissionLevelId&gt;1073741827&lt;/PermissionLevelId&gt;
         &lt;/Permission&gt;
       &lt;/Permissions&gt;
     &lt;/Site&gt;
@@ -35,15 +35,15 @@
       &lt;Permissions&gt;
         &lt;Permission&gt;
           &lt;GroupName&gt;Head recruitment&lt;/GroupName&gt;
-          &lt;PermissionLevel&gt;Contribute&lt;/PermissionLevel&gt;
+          &lt;PermissionLevelId&gt;1073741827&lt;/PermissionLevelId&gt;
         &lt;/Permission&gt;
         &lt;Permission&gt;
           &lt;GroupName&gt;Quality assurance&lt;/GroupName&gt;
-          &lt;PermissionLevel&gt;Contribute&lt;/PermissionLevel&gt;
+          &lt;PermissionLevelId&gt;1073741827&lt;/PermissionLevelId&gt;
         &lt;/Permission&gt;
         &lt;Permission&gt;
           &lt;GroupName&gt;Developers&lt;/GroupName&gt;
-          &lt;PermissionLevel&gt;Contribute&lt;/PermissionLevel&gt;
+          &lt;PermissionLevelId&gt;1073741827&lt;/PermissionLevelId&gt;
         &lt;/Permission&gt;
       &lt;/Permissions&gt;
     &lt;/Site&gt;

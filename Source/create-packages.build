@@ -10,6 +10,10 @@
 	<PackageProject Include="SiteStructure">
 		<Name>FLS.SharePoint.SiteStructure</Name>
 	</PackageProject>
+	<PackageProject Include="SiteStructure">
+		<Name>FLS.SharePoint.FederatedSearch</Name>
+	</PackageProject>
+
 	<PackageProject Include="blank">
 		<Name>FLS.SharePoint</Name>
 	</PackageProject>
