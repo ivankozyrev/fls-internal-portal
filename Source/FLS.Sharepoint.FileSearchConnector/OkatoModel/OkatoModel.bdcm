@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/windows/2007/BusinessDataCatalog" Name="OkatoModel">
+  <LobSystems>
+    <LobSystem Name="OkatoModel" Type="DotNetAssembly">
+      <LobSystemInstances>
+        <LobSystemInstance Name="OkatoModel">
+          <Properties>
+            <Property Name="ShowInSearchUI" Type="System.String">x</Property>
+          </Properties></LobSystemInstance>
+      </LobSystemInstances>
+      <Entities>
+        <Entity Name="OkatoEntity" Namespace="FLS.Sharepoint.FileSearchConnector.OkatoModel" EstimatedInstanceCount="100000" Version="1.0.0.18" IsCached="true">
+          <Properties>
+            <Property Name="Class" Type="System.String">FLS.Sharepoint.FileSearchConnector.OkatoModel.OkatoService, OkatoModel</Property>
+            <Property Name="RootFinder" Type="System.String">x</Property>
+          </Properties>
+          <Identifiers>
+            <Identifier Name="Id" TypeName="System.String" />
+            <!-- TODO: Change the name of the ID and if needed the TypeName of your identifier. -->
+          </Identifiers>
+          <Methods>
+            <!-- start finder method -->
+            <Method Name="ReadList" IsCached="true">
+              <Properties>
+                <Property Name="RootFinder" Type="System.String">x</Property>
+              </Properties>
+              <!-- TODO: Change the name of the method if needed. -->
+              <Parameters>
+                <Parameter Direction="Return" Name="returnParameter">
+                  <TypeDescriptor TypeName="System.Collections.Generic.IEnumerable`1[[FLS.Sharepoint.FileSearchConnector.OkatoModel.OkatoEntity, OkatoModel]]" IsCollection="true" Name="OkatoEntityList">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="FLS.Sharepoint.FileSearchConnector.OkatoModel.OkatoEntity, OkatoModel" Name="OkatoEntity">
+                        <TypeDescriptors>
+                          <TypeDescriptor TypeName="System.String" IdentifierName="Id" Name="Id" />
+                          <TypeDescriptor TypeName="System.String" Name="City" />
+                          <!-- TODO: Add TypeDescriptors when you add properties to Entity1. -->
+                        </TypeDescriptors>
+                      </TypeDescriptor>
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </Parameter>
+              </Parameters>
+              <MethodInstances>
+                <MethodInstance Type="Finder" ReturnParameterName="returnParameter" Default="true" Name="ReadList" DefaultDisplayName="Okato List" IsCached="true">
+                  <Properties>
+                    <Property Name="RootFinder" Type="System.String">x</Property>
+                  </Properties></MethodInstance>
+              </MethodInstances>
+            </Method>
+            <!-- end finder method -->
+            <!-- start specific finder method -->
+            <Method Name="ReadItem">
+              <Parameters>
+                <Parameter Direction="In" Name="id">
+                  <TypeDescriptor TypeName="System.String" IdentifierName="Id" Name="Id" />
+                </Parameter>
+                <Parameter Direction="Return" Name="returnParameter">
+                  <TypeDescriptor TypeName="FLS.Sharepoint.FileSearchConnector.OkatoModel.OkatoEntity, OkatoModel" Name="OkatoEntity">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.String" IdentifierName="Id" Name="Id" />
+                      <TypeDescriptor TypeName="System.String" Name="City" />
+                      <!-- TODO: Add TypeDescriptors when you add properties to Entity1. -->
+                    </TypeDescriptors>
+                  </TypeDescriptor>
+                </Parameter>
+              </Parameters>
+              <MethodInstances>
+                <MethodInstance Type="SpecificFinder" ReturnParameterName="returnParameter" Default="true" Name="ReadItem" DefaultDisplayName="Read Entity1" />
+              </MethodInstances>
+            </Method>
+            <!-- end specific finder method -->
+          </Methods>
+        </Entity>
+      </Entities>
+    </LobSystem>
+  </LobSystems>
+</Model>
