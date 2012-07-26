@@ -1,24 +1,18 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
+using FLS.SharePoint.Utils.ConfigurationEntities;
 
 namespace FLS.SharePoint.Utils
 {
     public class ConfigPropertiesParser : IConfigPropertiesParser
     {
-        private const char Separator = ';';
-        
-        public uint ToUInt(string propertyValue)
+        public SitesConfiguration ParseSitesConfiguration(string xmlConfigurationString)
         {
-            return uint.Parse(propertyValue);
-        }
-
-        public string[] ToStringArray(string propertyValue)
-        {
-            return propertyValue.Split(Separator);
-        }
-
-        public Uri ToUri(string propertyValue)
-        {
-            return new Uri(propertyValue);
+            var serializer = new XmlSerializer(typeof(SitesConfiguration));
+            var xmlReader = new XmlTextReader(new StringReader(xmlConfigurationString));
+            return (SitesConfiguration)serializer.Deserialize(xmlReader);
         }
     }
 }

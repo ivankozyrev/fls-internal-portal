@@ -1,79 +1,171 @@
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
+using FLS.SharePoint.Infrastructure;
 using FLS.SharePoint.Utils;
+using FLS.SharePoint.Utils.ConfigurationEntities;
 using Microsoft.Practices.ServiceLocation;
+using Microsoft.Practices.SharePoint.Common.Logging;
 using Microsoft.Practices.SharePoint.Common.ServiceLocation;
 using Microsoft.SharePoint;
+using Microsoft.SharePoint.Administration;
 
 namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
 {
     [Guid("68f9b364-9421-4b00-8408-6908a439bacd")]
     public class CreateSitesCollectionEventReceiver : SPFeatureReceiver
     {
-        private readonly IConfigPropertiesParser configPropertiesParser;
-        
-        public CreateSitesCollectionEventReceiver()
-        {
-            IServiceLocator serviceLocator = SharePointServiceLocator.GetCurrent();
-            configPropertiesParser = serviceLocator.GetInstance<IConfigPropertiesParser>();
-        }
-
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
-            var webs = GetAvailableWebs(properties);
-            var siteNames = GetSiteNames(properties);
-            var siteTitles = configPropertiesParser.ToStringArray(properties.Feature.Properties["SiteTitles"].Value);
-            var siteDescriptions =
-                configPropertiesParser.ToStringArray(properties.Feature.Properties["SiteDescriptions"].Value);
-            for (int index = 0; index < siteNames.Length; index++)
+            IServiceLocator serviceLocator =
+                SharePointServiceLocator.GetCurrent();
+            IConfigPropertiesParser configPropertiesParser =
+                serviceLocator.GetInstance<IConfigPropertiesParser>();
+            ILogger log = serviceLocator.GetInstance<ILogger>();
+
+            log.Debug("start activating feature");
+            var configuration = GetSitesConfiguration(properties,
+                                                      configPropertiesParser);
+            // creating new site collection
+            var siteCollections = GetSiteCollections(properties);
+            if (SiteCollectionExists(siteCollections, configuration.SiteCollectionName))
             {
-                SafelyRemoveSubSite(siteNames[index], webs);
-                webs.Add(
-                    siteNames[index],
-                    siteTitles[index],
-                    siteDescriptions[index],
-                    (uint)((SPWeb)properties.Feature.Parent).Locale.LCID,
-                    properties.Feature.Properties["WebTemplate"].Value,
-                    false, 
+                siteCollections.Delete(configuration.SiteCollectionName);
+            }
+
+            SPSite rootSite = siteCollections.Add(
+                configuration.SiteCollectionName,
+                configuration.SiteOwner,
+                string.Empty);
+
+            // Creating groups
+            var rootSiteWebs = GetRootSiteWebs(rootSite);
+            var rootSiteWeb = GetRootSiteWeb(rootSite);
+
+            foreach (var group in configuration.Groups)
+            {
+                if (!ContainsGroup(rootSiteWeb.SiteGroups, group.Name))
+                {
+                    var owner = rootSiteWeb.EnsureUser(configuration.SiteOwner);
+                    rootSiteWeb.SiteGroups.Add(group.Name, owner, owner,
+                                           group.Description);
+                }
+
+                var newGroup = rootSiteWeb.SiteGroups[group.Name];
+                foreach (var user in group.Users)
+                {
+                    newGroup.AddUser(user.Login, string.Empty, user.Login,
+                                     string.Empty);
+                }
+            }
+
+            // Creating subsites and permissions
+            foreach (var site in configuration.Sites)
+            {
+                SafelyRemoveSubSite(site.Name, rootSiteWebs);
+                var newSite = rootSiteWebs.Add(
+                    site.Name,
+                    site.Title,
+                    site.Description,
+                    (uint) rootSiteWeb.Locale.LCID,
+                    site.WebTemplate,
+                    true,
                     false);
+
+                foreach (var permission in site.Permissions)
+                {
+                    var roleAssignment =
+                        new SPRoleAssignment(
+                            rootSiteWeb.SiteGroups[permission.GroupName]);
+                    roleAssignment.RoleDefinitionBindings.Add(
+                        rootSiteWeb.RoleDefinitions.GetById(permission.PermissionLevelId));
+                    newSite.RoleAssignments.Add(roleAssignment);
+                }
             }
         }
 
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
-            var webs = GetAvailableWebs(properties);
-            if (webs == null)
-            {
-                return;
-            }
+            IServiceLocator serviceLocator = SharePointServiceLocator.GetCurrent();
+            IConfigPropertiesParser configPropertiesParser = serviceLocator.GetInstance<IConfigPropertiesParser>();
+            
+            var configuration = GetSitesConfiguration(properties, configPropertiesParser);
+            var siteCollections = GetSiteCollections(properties);
 
-            foreach (var sitePath in GetSiteNames(properties))
+            if (SiteCollectionExists(siteCollections, configuration.SiteCollectionName))
             {
-                SafelyRemoveSubSite(sitePath, webs);
+                var rootSite = siteCollections[configuration.SiteCollectionName];
+                var rootSiteWebs = GetRootSiteWebs(rootSite);
+                var rootWeb = GetRootSiteWeb(rootSite);
+
+                foreach (var site in configuration.Sites)
+                {
+                    var web = rootSiteWebs[site.Name];
+
+                    foreach (var permission in site.Permissions)
+                    {
+                        web.RoleAssignments.Remove(rootWeb.SiteGroups[permission.GroupName]);
+                    }
+
+                    SafelyRemoveSubSite(site.Name, rootSiteWebs);
+                }
+
+                foreach (var group in configuration.Groups)
+                {
+                    rootWeb.SiteGroups.Remove(group.Name);
+                }
+
+                siteCollections.Delete(configuration.SiteCollectionName);
             }
         }
 
-        private static SPWebCollection GetAvailableWebs(SPFeatureReceiverProperties properties)
+        private static SitesConfiguration GetSitesConfiguration(SPFeatureReceiverProperties properties, IConfigPropertiesParser parser)
         {
-            return ((SPWeb) properties.Feature.Parent).Site.AllWebs;
+            return parser.ParseSitesConfiguration(properties.Feature.Properties["SitesConfiguration"].Value);
         }
 
-        private static void SafelyRemoveSubSite(string siteName, SPWebCollection webs)
+        private static bool ContainsGroup(SPGroupCollection groupCollection, string groupName)
         {
             try
             {
-                webs.Delete(siteName);
+                var group = groupCollection[groupName];
+                return true;
+            }
+            catch (SPException)
+            {
+                return false;
+            }
+        }
+
+        private static SPSiteCollection GetSiteCollections(SPFeatureReceiverProperties properties)
+        {
+            return ((SPWebApplication) properties.Feature.Parent).Sites;
+        }
+
+        private static SPWebCollection GetRootSiteWebs(SPSite rootSite)
+        {
+            return rootSite.AllWebs;
+        }
+
+        private static SPWeb GetRootSiteWeb(SPSite rootSite)
+        {
+            return rootSite.RootWeb;
+        }
+
+        private static void SafelyRemoveSubSite(string siteName, SPWebCollection websToRemoveFrom)
+        {
+            try
+            {
+                websToRemoveFrom.Delete(siteName);
             }
             catch (FileNotFoundException)
             {
-                // TODO: add logging
             }
-            
         }
 
-        private string[] GetSiteNames(SPFeatureReceiverProperties properties)
+        private static bool SiteCollectionExists(SPSiteCollection sites, string siteName)
         {
-            return configPropertiesParser.ToStringArray(properties.Feature.Properties["SiteNames"].Value);
+            return !string.IsNullOrEmpty(sites.Names.FirstOrDefault(site => site == siteName));
         }
     }
 }

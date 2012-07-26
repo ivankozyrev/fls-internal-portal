@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{305F89C1-D67C-4E7F-846D-C64AA23B5DAF}</ProjectGuid>
+    <ProjectGuid>{58BAF505-5D8D-41C6-955A-3957B8E67FC4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FLS.SharePoint.Utils</RootNamespace>
-    <AssemblyName>FLS.SharePoint.Utils</AssemblyName>
+    <RootNamespace>FLS.SharePoint.Infrastructure</RootNamespace>
+    <AssemblyName>FLS.SharePoint.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -38,18 +38,14 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ConfigPropertiesParser.cs" />
-    <Compile Include="ConfigurationEntities\Group.cs" />
-    <Compile Include="ConfigurationEntities\Permission.cs" />
-    <Compile Include="ConfigurationEntities\Site.cs" />
-    <Compile Include="ConfigurationEntities\SitesConfiguration.cs" />
-    <Compile Include="ConfigurationEntities\User.cs" />
-    <Compile Include="IConfigPropertiesParser.cs" />
+    <Compile Include="LoggerExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.Practices.SharePoint.Common">
+      <HintPath>..\..\.Libraries\Microsoft\Microsoft.Practices.SharePoint.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
