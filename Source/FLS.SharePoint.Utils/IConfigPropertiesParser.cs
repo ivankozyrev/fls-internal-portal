@@ -1,13 +1,9 @@
-﻿using System;
+﻿using FLS.SharePoint.Utils.ConfigurationEntities;
 
 namespace FLS.SharePoint.Utils
 {
     public interface IConfigPropertiesParser
     {
-        uint ToUInt(string propertyValue);
-
-        string[] ToStringArray(string propertyValue);
-
-        Uri ToUri(string propertyValue);
+        SitesConfiguration ParseSitesConfiguration(string xmlConfigurationString);
     }
 }
