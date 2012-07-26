@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A5FE7863-5712-4CE8-9CF2-69DD69649121}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FLS.SharePoint.ListDefinition</RootNamespace>
+    <AssemblyName>FLS.SharePoint.ListDefinition</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BB1F664B-9266-4fd6-B973-E1E44974B511};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Security" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DevDocumentLibrary\DevLibrary\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2bd7ab04-16e7-4090-8419-343f4adb8e16}</SharePointProjectItemId>
+    </None>
+    <None Include="DevDocumentLibrary\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{31374071-d827-474d-b5c7-281c801bbcd4}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\DevLibraryFeature\DevLibraryFeature.feature">
+      <FeatureId>{f37862ed-2163-4645-94de-ace03c5332ff}</FeatureId>
+    </None>
+    <None Include="QADocumentLibrary\QALibrary\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f810356b-c5b6-479c-a675-e78851c4b5eb}</SharePointProjectItemId>
+    </None>
+    <None Include="QADocumentLibrary\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{cb50bbcc-a68c-4940-b9d1-20a8b7558826}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\QALibraryFeature\QALibraryFeature.feature">
+      <FeatureId>{1232f532-be8b-4c73-8854-1edf9948bb06}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HRDocumentLibrary\HRLibrary\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0e20d9e5-5bf9-4093-8598-fba8091119b4}</SharePointProjectItemId>
+    </None>
+    <None Include="HRDocumentLibrary\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4652ab1e-d921-47d3-b0a8-1e65af53c7ef}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{30b65860-c993-46af-96b7-70fd8d306847}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Features\HRLibraryFeature\HRLibraryFeature.feature">
+      <FeatureId>{f8edb582-dfc6-4744-b1cc-6b56b46687f9}</FeatureId>
+    </None>
+    <None Include="Features\HRLibraryFeature\HRLibraryFeature.Template.xml">
+      <DependentUpon>HRLibraryFeature.feature</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DevDocumentLibrary\EditDlg.htm" />
+    <Content Include="DevDocumentLibrary\Elements.xml" />
+    <Content Include="DevDocumentLibrary\FileDlg.htm" />
+    <Content Include="DevDocumentLibrary\DevLibrary\Elements.xml" />
+    <Content Include="DevDocumentLibrary\Repair.aspx" />
+    <Content Include="DevDocumentLibrary\Schema.xml" />
+    <Content Include="DevDocumentLibrary\Upload.aspx" />
+    <Content Include="Features\DevLibraryFeature\DevLibraryFeature.Template.xml">
+      <DependentUpon>DevLibraryFeature.feature</DependentUpon>
+    </Content>
+    <Content Include="QADocumentLibrary\EditDlg.htm" />
+    <Content Include="QADocumentLibrary\Elements.xml" />
+    <Content Include="QADocumentLibrary\FileDlg.htm" />
+    <Content Include="QADocumentLibrary\QALibrary\Elements.xml" />
+    <Content Include="QADocumentLibrary\Repair.aspx" />
+    <Content Include="QADocumentLibrary\Schema.xml" />
+    <Content Include="QADocumentLibrary\Upload.aspx" />
+    <Content Include="Features\QALibraryFeature\QALibraryFeature.Template.xml">
+      <DependentUpon>QALibraryFeature.feature</DependentUpon>
+    </Content>
+    <Content Include="HRDocumentLibrary\EditDlg.htm" />
+    <Content Include="HRDocumentLibrary\Elements.xml" />
+    <Content Include="HRDocumentLibrary\FileDlg.htm" />
+    <Content Include="HRDocumentLibrary\HRLibrary\Elements.xml" />
+    <Content Include="HRDocumentLibrary\Repair.aspx" />
+    <Content Include="HRDocumentLibrary\Schema.xml" />
+    <Content Include="HRDocumentLibrary\Upload.aspx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />
+</Project>

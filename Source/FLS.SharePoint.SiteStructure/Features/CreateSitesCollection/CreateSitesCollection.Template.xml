@@ -4,8 +4,9 @@
     <Property Key="SitesConfiguration" Value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
 &lt;SitesConfiguration xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
   &lt;SiteOwner&gt;DOMAIN\eskurikhin&lt;/SiteOwner&gt;
+  &lt;SiteCollectionName&gt;sites/departments&lt;/SiteCollectionName&gt;
   &lt;Sites&gt;
-    &lt;Site Name=&quot;dev&quot; Title=&quot;Developers den&quot;&gt;
+    &lt;Site Name=&quot;sites/devauto&quot; Title=&quot;Developers den&quot;&gt;
       &lt;WebTemplate&gt;STS#1&lt;/WebTemplate&gt;
       &lt;Description&gt;Developers live here&lt;/Description&gt;
       &lt;Permissions&gt;
@@ -15,7 +16,7 @@
         &lt;/Permission&gt;
       &lt;/Permissions&gt;
     &lt;/Site&gt;
-    &lt;Site Name=&quot;qa&quot; Title=&quot;QA hideout&quot;&gt;
+    &lt;Site Name=&quot;sites/qaauto&quot; Title=&quot;QA hideout&quot;&gt;
       &lt;WebTemplate&gt;STS#1&lt;/WebTemplate&gt;
       &lt;Description&gt;Right place for testers&lt;/Description&gt;
       &lt;Permissions&gt;
@@ -29,7 +30,7 @@
         &lt;/Permission&gt;
       &lt;/Permissions&gt;
     &lt;/Site&gt;
-    &lt;Site Name=&quot;hr&quot; Title=&quot;HR headquarters&quot;&gt;
+    &lt;Site Name=&quot;sites/hrauto&quot; Title=&quot;HR headquarters&quot;&gt;
       &lt;WebTemplate&gt;STS#1&lt;/WebTemplate&gt;
       &lt;Description&gt;HRs should stay here&lt;/Description&gt;
       &lt;Permissions&gt;

@@ -13,7 +13,9 @@
 	<PackageProject Include="SiteStructure">
 		<Name>FLS.SharePoint.FederatedSearch</Name>
 	</PackageProject>
-
+	<PackageProject Include="ListDefinition">
+		<Name>FLS.SharePoint.ListDefinition</Name>
+	</PackageProject>
 	<PackageProject Include="blank">
 		<Name>FLS.SharePoint</Name>
 	</PackageProject>
