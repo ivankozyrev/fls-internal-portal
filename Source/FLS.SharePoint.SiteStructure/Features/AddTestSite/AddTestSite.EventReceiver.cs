@@ -24,10 +24,11 @@ namespace FLS.SharePoint.SiteStructure.Features.AddTestSite
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var currentSiteCollection = (SPSite)properties.Feature.Parent;
-            SPWebApplication webApp = currentSiteCollection.WebApplication;
-            var language = (uint)webApp.Sites[0].AllWebs[0].Locale.LCID;
-            SPSite site = webApp.Sites.Add("/sites/simpleSite", "SharePoint", null, language, "STS#1", "localadmin",
-                                           "Administrator", "admin@contoso.com");
+//            SPWebApplication webApp = currentSiteCollection.WebApplication;
+//            var language = (uint)webApp.Sites[0].AllWebs[0].Locale.LCID;
+//            SPSite site = webApp.Sites.Add("/sites/simpleSite", "SharePoint", null, language, "STS#1", "localadmin",
+//                                           "Administrator", "admin@contoso.com");
+            currentSiteCollection.AllWebs.Add("newnewsite");
         }
 
 
