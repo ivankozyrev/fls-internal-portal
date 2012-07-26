@@ -1,4 +1,4 @@
-using System.IO;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using FLS.SharePoint.Infrastructure;
@@ -26,21 +26,9 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
             log.Debug("start activating feature");
             var configuration = GetSitesConfiguration(properties,
                                                       configPropertiesParser);
-            // creating new site collection
-            var siteCollections = GetSiteCollections(properties);
-            if (SiteCollectionExists(siteCollections, configuration.SiteCollectionName))
-            {
-                siteCollections.Delete(configuration.SiteCollectionName);
-            }
-
-            SPSite rootSite = siteCollections.Add(
-                configuration.SiteCollectionName,
-                configuration.SiteOwner,
-                string.Empty);
-
-            // Creating groups
-            var rootSiteWebs = GetRootSiteWebs(rootSite);
-            var rootSiteWeb = GetRootSiteWeb(rootSite);
+            var rootSite = GetRootSite(properties);
+            var siteCollection = GetSiteCollection(properties);
+            var rootSiteWeb = GetSiteRootWeb(rootSite);
 
             foreach (var group in configuration.Groups)
             {
@@ -59,18 +47,22 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
                 }
             }
 
-            // Creating subsites and permissions
             foreach (var site in configuration.Sites)
             {
-                SafelyRemoveSubSite(site.Name, rootSiteWebs);
-                var newSite = rootSiteWebs.Add(
+                if (SiteCollectionExists(siteCollection, site.Name))
+                {
+                    siteCollection.Delete(site.Name);
+                }
+
+                var newSiteCollection = siteCollection.Add(
                     site.Name,
                     site.Title,
                     site.Description,
-                    (uint) rootSiteWeb.Locale.LCID,
+                    (uint)GetSiteRootWeb(rootSite).Locale.LCID,
                     site.WebTemplate,
-                    true,
-                    false);
+                    configuration.SiteOwner,
+                    configuration.SiteOwner,
+                    string.Empty);
 
                 foreach (var permission in site.Permissions)
                 {
@@ -79,43 +71,37 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
                             rootSiteWeb.SiteGroups[permission.GroupName]);
                     roleAssignment.RoleDefinitionBindings.Add(
                         rootSiteWeb.RoleDefinitions.GetById(permission.PermissionLevelId));
-                    newSite.RoleAssignments.Add(roleAssignment);
+                    GetSiteRootWeb(newSiteCollection).RoleAssignments.Add(roleAssignment);
                 }
             }
         }
 
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
+            Debugger.Break();
             IServiceLocator serviceLocator = SharePointServiceLocator.GetCurrent();
             IConfigPropertiesParser configPropertiesParser = serviceLocator.GetInstance<IConfigPropertiesParser>();
             
             var configuration = GetSitesConfiguration(properties, configPropertiesParser);
-            var siteCollections = GetSiteCollections(properties);
-
-            if (SiteCollectionExists(siteCollections, configuration.SiteCollectionName))
+            var sites = GetSiteCollection(properties);
+            var rootSite = GetRootSite(properties);
+            foreach (var collection in configuration.Sites)
             {
-                var rootSite = siteCollections[configuration.SiteCollectionName];
-                var rootSiteWebs = GetRootSiteWebs(rootSite);
-                var rootWeb = GetRootSiteWeb(rootSite);
-
-                foreach (var site in configuration.Sites)
+                if (SiteCollectionExists(sites, collection.Name))
                 {
-                    var web = rootSiteWebs[site.Name];
-
-                    foreach (var permission in site.Permissions)
+                    var site = sites[collection.Name];
+                    foreach (var permission in collection.Permissions)
                     {
-                        web.RoleAssignments.Remove(rootWeb.SiteGroups[permission.GroupName]);
+                        GetSiteRootWeb(site).RoleAssignments.Remove(GetSiteRootWeb(rootSite).SiteGroups[permission.GroupName]);
                     }
 
-                    SafelyRemoveSubSite(site.Name, rootSiteWebs);
+                    sites.Delete(collection.Name);
                 }
+            }
 
-                foreach (var group in configuration.Groups)
-                {
-                    rootWeb.SiteGroups.Remove(group.Name);
-                }
-
-                siteCollections.Delete(configuration.SiteCollectionName);
+            foreach (var group in configuration.Groups)
+            {
+                GetSiteRootWeb(rootSite).SiteGroups.Remove(group.Name);
             }
         }
 
@@ -137,30 +123,19 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
             }
         }
 
-        private static SPSiteCollection GetSiteCollections(SPFeatureReceiverProperties properties)
+        private static SPSite GetRootSite(SPFeatureReceiverProperties properties)
         {
-            return ((SPWebApplication) properties.Feature.Parent).Sites;
+            return ((SPWebApplication) properties.Feature.Parent).Sites[0];
         }
 
-        private static SPWebCollection GetRootSiteWebs(SPSite rootSite)
+        private static SPSiteCollection GetSiteCollection(SPFeatureReceiverProperties properties)
         {
-            return rootSite.AllWebs;
+            return ((SPWebApplication)properties.Feature.Parent).Sites;
         }
 
-        private static SPWeb GetRootSiteWeb(SPSite rootSite)
+        private static SPWeb GetSiteRootWeb(SPSite rootSite)
         {
             return rootSite.RootWeb;
-        }
-
-        private static void SafelyRemoveSubSite(string siteName, SPWebCollection websToRemoveFrom)
-        {
-            try
-            {
-                websToRemoveFrom.Delete(siteName);
-            }
-            catch (FileNotFoundException)
-            {
-            }
         }
 
         private static bool SiteCollectionExists(SPSiteCollection sites, string siteName)
