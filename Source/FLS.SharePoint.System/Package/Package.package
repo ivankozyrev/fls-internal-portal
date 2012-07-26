@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="81720784-e650-4ac8-a1c2-fc4ed2e22e73" solutionId="81720784-e650-4ac8-a1c2-fc4ed2e22e73" resetWebServer="false" name="FLS.SharePoint.System" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="81720784-e650-4ac8-a1c2-fc4ed2e22e73" solutionId="81720784-e650-4ac8-a1c2-fc4ed2e22e73" resetWebServer="false" name="010-FLS.SharePoint.System" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
   <assemblies>
     <customAssembly location="Microsoft.Practices.ServiceLocation.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\..\.Libraries\Microsoft\Microsoft.Practices.ServiceLocation.dll" />
     <customAssembly location="Microsoft.Practices.SharePoint.Common.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\..\.Libraries\Microsoft\Microsoft.Practices.SharePoint.Common.dll" />
