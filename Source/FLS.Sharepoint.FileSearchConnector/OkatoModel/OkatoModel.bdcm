@@ -1,15 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/windows/2007/BusinessDataCatalog" Name="OkatoModel">
+  <Properties>
+    <Property Name="ShowInSearchUI" Type="System.String">x</Property>
+  </Properties>
   <LobSystems>
     <LobSystem Name="OkatoModel" Type="DotNetAssembly">
       <LobSystemInstances>
         <LobSystemInstance Name="OkatoModel">
           <Properties>
             <Property Name="ShowInSearchUI" Type="System.String">x</Property>
-          </Properties></LobSystemInstance>
+          </Properties>
+          </LobSystemInstance>
       </LobSystemInstances>
       <Entities>
-        <Entity Name="OkatoEntity" Namespace="FLS.Sharepoint.FileSearchConnector.OkatoModel" EstimatedInstanceCount="100000" Version="1.0.0.18" IsCached="true">
+        <Entity Name="OkatoEntity" Namespace="FLS.Sharepoint.FileSearchConnector.OkatoModel" EstimatedInstanceCount="100000" Version="1.0.0.20" IsCached="true">
           <Properties>
             <Property Name="Class" Type="System.String">FLS.Sharepoint.FileSearchConnector.OkatoModel.OkatoService, OkatoModel</Property>
             <Property Name="RootFinder" Type="System.String">x</Property>
@@ -41,7 +45,7 @@
                 </Parameter>
               </Parameters>
               <MethodInstances>
-                <MethodInstance Type="Finder" ReturnParameterName="returnParameter" Default="true" Name="ReadList" DefaultDisplayName="Okato List" IsCached="true">
+                <MethodInstance Type="Finder" ReturnParameterName="returnParameter" Default="true" Name="ReadList" DefaultDisplayName="Okato List" IsCached="true" ReturnTypeDescriptorPath="OkatoEntityList">
                   <Properties>
                     <Property Name="RootFinder" Type="System.String">x</Property>
                   </Properties></MethodInstance>
