@@ -16,6 +16,9 @@
 	<PackageProject Include="ListDefinition">
 		<Name>FLS.SharePoint.ListDefinition</Name>
 	</PackageProject>
+	<PackageProject Include="FileSearchConnector">
+		<Name>FLS.SharePoint.FileSearchConnector</Name>
+	</PackageProject>
 	<PackageProject Include="blank">
 		<Name>FLS.SharePoint</Name>
 	</PackageProject>

@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using FLS.SharePoint.Infrastructure;
@@ -78,7 +77,6 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
 
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
-            Debugger.Break();
             IServiceLocator serviceLocator = SharePointServiceLocator.GetCurrent();
             IConfigPropertiesParser configPropertiesParser = serviceLocator.GetInstance<IConfigPropertiesParser>();
             
