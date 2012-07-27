@@ -13,7 +13,7 @@
           </LobSystemInstance>
       </LobSystemInstances>
       <Entities>
-        <Entity Name="OkatoEntity" Namespace="FLS.Sharepoint.FileSearchConnector.OkatoModel" EstimatedInstanceCount="100000" Version="1.0.0.19" IsCached="true">
+        <Entity Name="OkatoEntity" Namespace="FLS.Sharepoint.FileSearchConnector.OkatoModel" EstimatedInstanceCount="100000" Version="1.0.0.20" IsCached="true">
           <Properties>
             <Property Name="Class" Type="System.String">FLS.Sharepoint.FileSearchConnector.OkatoModel.OkatoService, OkatoModel</Property>
             <Property Name="RootFinder" Type="System.String">x</Property>
@@ -45,7 +45,7 @@
                 </Parameter>
               </Parameters>
               <MethodInstances>
-                <MethodInstance Type="Finder" ReturnParameterName="returnParameter" Default="true" Name="ReadList" DefaultDisplayName="Okato List" IsCached="true" ReturnTypeDescriptorPath="OkatoEntityList[0]">
+                <MethodInstance Type="Finder" ReturnParameterName="returnParameter" Default="true" Name="ReadList" DefaultDisplayName="Okato List" IsCached="true" ReturnTypeDescriptorPath="OkatoEntityList">
                   <Properties>
                     <Property Name="RootFinder" Type="System.String">x</Property>
                   </Properties></MethodInstance>
