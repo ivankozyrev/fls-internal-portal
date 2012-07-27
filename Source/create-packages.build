@@ -22,6 +22,9 @@
 	<PackageProject Include="UploadSolutionPage">
 		<Name>FLS.SharePoint.UploadSolutionPage</Name>
 	</PackageProject>
+	<PackageProject Include="UserProfile">
+		<Name>FLS.SharePoint.UserProfile</Name>
+	</PackageProject>
 	<PackageProject Include="blank">
 		<Name>FLS.SharePoint</Name>
 	</PackageProject>
