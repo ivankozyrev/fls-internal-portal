@@ -78,16 +78,14 @@
       <DependentUpon>Package.package</DependentUpon>
     </None>
     <None Include="UserProfileElements\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{93daaf21-fe7c-4682-9d47-0d4dc62b6d92}</SharePointProjectItemId>
+      <SharePointProjectItemId>{f4a479b1-c4e4-4976-9af1-7d3bc4fa0d95}</SharePointProjectItemId>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\CreateUserProfiles\CreateUserProfiles.Template.xml">
       <DependentUpon>CreateUserProfiles.feature</DependentUpon>
     </Content>
-    <Content Include="UserProfileElements\UserList.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="UserProfileElements\UserList.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FLS.SharePoint.Infrastructure\FLS.SharePoint.Infrastructure.csproj">
