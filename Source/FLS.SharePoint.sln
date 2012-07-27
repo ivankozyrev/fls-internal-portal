@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.Sharepoint.FileSearchCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.ListDefinition", "FLS.SharePoint.ListDefinition\FLS.SharePoint.ListDefinition.csproj", "{A5FE7863-5712-4CE8-9CF2-69DD69649121}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.Sharepoint.UploadSolutionPage", "FLS.Sharepoint.UploadSolutionPage\FLS.Sharepoint.UploadSolutionPage.csproj", "{095EB450-0B21-4B2F-9295-D95E2323409B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,12 @@ Global
 		{A5FE7863-5712-4CE8-9CF2-69DD69649121}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5FE7863-5712-4CE8-9CF2-69DD69649121}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A5FE7863-5712-4CE8-9CF2-69DD69649121}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{095EB450-0B21-4B2F-9295-D95E2323409B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{095EB450-0B21-4B2F-9295-D95E2323409B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{095EB450-0B21-4B2F-9295-D95E2323409B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{095EB450-0B21-4B2F-9295-D95E2323409B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{095EB450-0B21-4B2F-9295-D95E2323409B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{095EB450-0B21-4B2F-9295-D95E2323409B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

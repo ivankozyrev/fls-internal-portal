@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="e554fb05-0312-43ee-8250-d6002c55e4bb" solutionId="e554fb05-0312-43ee-8250-d6002c55e4bb" resetWebServer="false" name="FLS.Sharepoint.UploadSolutionPage" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="e554fb05-0312-43ee-8250-d6002c55e4bb" solutionId="7238eb49-307a-4e06-8ce9-caabf37a0ef8" resetWebServer="false" name="FLS.Sharepoint.UploadSolutionPage" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
   <features>
     <featureReference itemId="0b796390-35e4-491f-a5ac-23a6b6d0da06" />
   </features>
