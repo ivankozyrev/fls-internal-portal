@@ -14,4 +14,18 @@
     <fullname>Vasya Pupkin</fullname>
     <email>Vasya.Pupkin@firstlinesoftware.com</email>
   </profile>
+  <profile>
+    <login>domain\IKozyrev</login>
+    <firstname>Ivan</firstname>
+    <lastname>Kozyrev</lastname>
+    <fullname>Ivan Kozyrev</fullname>
+    <email>Ivan.Kozyrev@firstlinesoftware.com</email>
+  </profile>
+  <profile>
+    <login>domain\ESkurikhin</login>
+    <firstname>Evgeny</firstname>
+    <lastname>Skurikhin</lastname>
+    <fullname>Evgeny Skurikhin</fullname>
+    <email>Evgeny.Skurikhin@firstlinesoftware.com</email>
+  </profile>
 </profiles>
