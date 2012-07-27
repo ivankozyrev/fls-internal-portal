@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+	<CustomAction Id="UploadSolutionPackage" GroupId="GlobalConfiguration" Location="Microsoft.SharePoint.Administration.Operations" Sequence="100" Title="Upload Solution Package" xmlns="http://schemas.microsoft.com/sharepoint/">
+    <UrlAction Url="/_admin/UploadSolutionPackage.aspx" />
+  </CustomAction>
+</Elements>
