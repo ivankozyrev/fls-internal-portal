@@ -19,7 +19,9 @@
 	<PackageProject Include="FileSearchConnector">
 		<Name>FLS.SharePoint.FileSearchConnector</Name>
 	</PackageProject>
-	
+	<PackageProject Include="UploadSolutionPage">
+		<Name>FLS.SharePoint.UploadSolutionPage</Name>
+	</PackageProject>
 	<PackageProject Include="blank">
 		<Name>FLS.SharePoint</Name>
 	</PackageProject>
@@ -29,9 +31,7 @@
 	<ExternalPackage Include="Pbs2010">
 		<Path>..\.Libraries\Pbs2010\PropertyBagSettings2010.wsp</Path>
 	</ExternalPackage>
-	<ExternalPackage Include="SolutionUploader">
-		<Path>..\.Libraries\SolutionUploader\UploadSolutionPackage.wsp</Path>
-	</ExternalPackage>
+	
   </ItemGroup>
   
   
