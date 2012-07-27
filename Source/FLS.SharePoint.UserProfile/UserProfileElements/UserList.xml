@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<profiles>
+  <profile>
+    <login>DOMAIN\NMoskalev</login>
+    <firstname>Nikolay</firstname>
+    <lastname>Moskalev</lastname>
+    <fullname>Nikolay Moskalev</fullname>
+    <email>Nikolay.Moskalev@firstlinesoftware.com</email>
+  </profile>
+  <profile>
+    <login>domain\VPupkin</login>
+    <firstname>Vasya</firstname>
+    <lastname>Pupkin</lastname>
+    <fullname>Vasya Pupkin</fullname>
+    <email>Vasya.Pupkin@firstlinesoftware.com</email>
+  </profile>
+</profiles>

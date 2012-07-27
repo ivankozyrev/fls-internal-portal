@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.Infrastructu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.Sharepoint.FileSearchConnector", "FLS.Sharepoint.FileSearchConnector\FLS.Sharepoint.FileSearchConnector.csproj", "{8E67423C-D324-4FFF-8F02-94921EFC2BE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.UserProfile", "FLS.SharePoint.UserProfile\FLS.SharePoint.UserProfile.csproj", "{71B3EFF2-D2EC-4DA7-92B5-051234EDB4E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,12 @@ Global
 		{8E67423C-D324-4FFF-8F02-94921EFC2BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E67423C-D324-4FFF-8F02-94921EFC2BE0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8E67423C-D324-4FFF-8F02-94921EFC2BE0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{71B3EFF2-D2EC-4DA7-92B5-051234EDB4E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71B3EFF2-D2EC-4DA7-92B5-051234EDB4E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71B3EFF2-D2EC-4DA7-92B5-051234EDB4E7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{71B3EFF2-D2EC-4DA7-92B5-051234EDB4E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71B3EFF2-D2EC-4DA7-92B5-051234EDB4E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71B3EFF2-D2EC-4DA7-92B5-051234EDB4E7}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
