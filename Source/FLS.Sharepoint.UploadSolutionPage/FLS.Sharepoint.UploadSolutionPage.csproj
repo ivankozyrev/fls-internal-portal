@@ -48,6 +48,14 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
     <Reference Include="Microsoft.SharePoint.Security" />
+    <Reference Include="UploadSolutionPackage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1409993b7d98c43d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Other Imported Files\UploadSolutionPackage.dll</HintPath>
+    </Reference>
+    <Reference Include="UploadSolutionPackagePage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1409993b7d98c43d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Other Imported Files\UploadSolutionPackagePage.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
