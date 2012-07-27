@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:ms-ose="http://schemas.microsoft.com/opensearchext/2009/">
+  <ShortName>Twitter</ShortName>
+  <Description>Twitter</Description>
+  <Url type="application/rss+xml" template="http://search.twitter.com/search.atom?q={searchTerms}&amp;web.count=50" />
+  <Url type="text/html" template="http://search.twitter.com/search?q={searchTerms}" />
+  <InternalName xmlns="http://schemas.microsoft.com/Search/2007/location">Twitter</InternalName>
+  <LocationType xmlns="http://schemas.microsoft.com/Search/2007/location">OpenSearch</LocationType>
+  <Version xmlns="http://schemas.microsoft.com/Search/2007/location">1.0.0.0</Version>
+  <Trigger type="Regex" xmlns="http://schemas.microsoft.com/Search/2007/location"></Trigger>
+  <ConnectionUrlTemplate xmlns="http://schemas.microsoft.com/Search/2007/location">http://search.twitter.com/search.atom?q={searchTerms}&amp;web.count=50</ConnectionUrlTemplate>
+  <MoreLinkTemplate xmlns="http://schemas.microsoft.com/Search/2007/location">http://search.twitter.com/search?q={searchTerms}</MoreLinkTemplate>
+  <CreationDate xmlns="http://schemas.microsoft.com/Search/2007/location">11/27/2011 2:14:34 PM</CreationDate>
+  <LastModifiedDate xmlns="http://schemas.microsoft.com/Search/2007/location">11/27/2011 2:15:27 PM</LastModifiedDate>
+  <ExpirationDate xmlns="http://schemas.microsoft.com/Search/2007/location">1/1/0001 12:00:00 AM</ExpirationDate>
+
+  <Visualization name="summary" xmlns="http://schemas.microsoft.com/Search/2007/location">
+    <Xsl>
+      <xsl:stylesheet xmlns:x="http://www.w3.org/2001/XMLSchema" version="1.0" exclude-result-prefixes="xsl ddwrt msxsl srwrt" xmlns:ddwrt="http://schemas.microsoft.com/WebParts/v2/DataView/runtime" xmlns:srwrt="http://schemas.microsoft.com/WebParts/v3/searchresults/runtime" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rss1="http://purl.org/rss/1.0/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom2="http://purl.org/atom/ns#">
+        <xsl:output method="xml" indent="no" />
+
+        <xsl:param name="ResultsPerPage">5</xsl:param>
+        <xsl:param name="IsDesignMode">True</xsl:param>
+        <xsl:param name="UrlMaxLength">50</xsl:param>
+        <xsl:param name="SummaryMaxLength">300</xsl:param>
+        <xsl:param name="ShowMoreLink">true</xsl:param>
+        <xsl:param name="MoreLink"></xsl:param>
+        <xsl:param name="MoreLinkLabel">Show more Tweets</xsl:param>
+        <xsl:param name="IdPrefix"></xsl:param>
+        <xsl:param name="WebpartTitle">Twitter</xsl:param>
+        <xsl:param name="DefaultIconDescription"></xsl:param>
+        <xsl:param name="BrandingIcon">/_layouts/images/blank.gif</xsl:param>
+        <xsl:param name="IsFirstPage">true</xsl:param>
+        <xsl:param name="RecommendationText"></xsl:param>
+        <xsl:param name="ShowSeperationLine">False</xsl:param>
+
+
+        <xsl:template match="atom:feed">
+          <xsl:call-template name="MainTemplate">
+            <xsl:with-param name="Type" select="'atom'" />
+          </xsl:call-template>
+        </xsl:template>
+        <xsl:template match="atom2:feed">
+          <xsl:call-template name="MainTemplate">
+            <xsl:with-param name="Type" select="'atom2'" />
+          </xsl:call-template>
+        </xsl:template>
+        <xsl:template name="GetLink">
+          <xsl:param name="Type" />
+          <xsl:choose>
+            <xsl:when test="$Type = 'rss'">
+              <xsl:value-of select="link" />
+            </xsl:when>
+            <xsl:when test="$Type = 'rdf'">
+              <xsl:value-of select="rss1:link" />
+            </xsl:when>
+            <xsl:when test="$Type = 'atom'">
+              <xsl:value-of select="atom:link/@href" />
+            </xsl:when>
+            <xsl:when test="$Type = 'atom2'">
+              <xsl:value-of select="atom2:link/@href" />
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="link" />
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:template>
+        <xsl:template name="GetAuthor">
+          <xsl:param name="Type" />
+          <xsl:value-of select="atom:author/atom:name" />
+        </xsl:template>
+        <xsl:template name="GetAuthorImage">
+          <xsl:param name="Type" />
+          <xsl:value-of select="atom:link[@type = 'image/png']/@href" />
+        </xsl:template>
+        <xsl:template name="GetAuthorLink">
+          <xsl:param name="Type" />
+          <xsl:value-of select="atom:author/atom:uri" />
+        </xsl:template>
+        <xsl:template name="GetTitle">
+          <xsl:param name="Type" />
+          <xsl:choose>
+            <xsl:when test="$Type = 'atom'">
+              <xsl:value-of select="atom:title" />
+            </xsl:when>
+            <xsl:when test="$Type = 'atom2'">
+              <xsl:value-of select="atom2:title" />
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="title" />
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:template>
+        <xsl:template name="GetContent">
+          <xsl:param name="Type" />
+          <xsl:choose>
+            <xsl:when test="$Type = 'atom'">
+              <xsl:value-of select="atom:content" />
+            </xsl:when>
+            <xsl:when test="$Type = 'atom2'">
+              <xsl:value-of select="atom2:content" />
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="title" />
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:template>
+
+        <xsl:template name="MainTemplate">
+          <xsl:param name="Type" />
+          <xsl:variable name="Rows" select="channel/item|rss1:item|atom:entry|atom2:entry" />
+          <xsl:variable name="RowCount" select="count($Rows)" />
+          <xsl:variable name="ChannelTitle">
+            <xsl:choose>
+              <xsl:when test="$Type = 'atom'">
+                <xsl:value-of select="atom:title" />
+              </xsl:when>
+              <xsl:when test="$Type = 'atom2'">
+                <xsl:value-of select="atom2:title" />
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="channel/title" />
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:variable>
+          <xsl:if test="($RowCount &gt; 0)">
+            <div xmlns="">
+              
+              <div class="ms-searchChannelTitle" accesskey="W" xmlns="">
+                <span class="ms-searchChannelTitle">
+                  <xsl:value-of select="$ChannelTitle" />
+                </span>
+              </div>
+              
+              <xsl:call-template name="MainTemplate.body">
+                <xsl:with-param name="Rows" select="$Rows" />
+                <xsl:with-param name="RowCount" select="count($Rows)" />
+                <xsl:with-param name="ShowIcon" select="false()" />
+                <xsl:with-param name="ShowUrl" select="true()" />
+                <xsl:with-param name="StyleClassPrefix" select="string('ms-searchsummary')" />
+                <xsl:with-param name="Type" select="$Type" />
+              </xsl:call-template>
+              <xsl:call-template name="MoreLinkTemplate">
+                <xsl:with-param name="StyleClassPrefix" select="string('ms-searchsummary')" />
+              </xsl:call-template>
+              <xsl:call-template name="SeperationLineTemplate">
+              </xsl:call-template>
+            </div>
+          </xsl:if>
+        </xsl:template>
+
+        <xsl:template name="MainTemplate.body">
+          <xsl:param name="Rows" />
+          <xsl:param name="RowCount" />
+          <xsl:param name="ShowIcon" />
+          <xsl:param name="ShowUrl" />
+          <xsl:param name="StyleClassPrefix" />
+          <xsl:param name="Type" />
+          <xsl:variable name="BodyClass" select="concat($StyleClassPrefix,'body')" />
+          <div xmlns="">
+            <xsl:for-each select="$Rows">
+              <xsl:variable name="CurPosition" select="position()" />
+              <xsl:variable name="CurrentId" select="concat($IdPrefix,$CurPosition)" />
+              <xsl:variable name="link">
+                <xsl:call-template name="GetLink">
+                  <xsl:with-param name="Type" select="$Type" />
+                </xsl:call-template>
+              </xsl:variable>
+              <xsl:variable name="title">
+                <xsl:call-template name="GetTitle">
+                  <xsl:with-param name="Type" select="$Type" />
+                </xsl:call-template>
+              </xsl:variable>
+              <xsl:variable name="content">
+                <xsl:call-template name="GetContent">
+                  <xsl:with-param name="Type" select="$Type" />
+                </xsl:call-template>
+              </xsl:variable>
+              <xsl:variable name="author">
+                <xsl:call-template name="GetAuthor">
+                  <xsl:with-param name="Type" select="$Type" />
+                </xsl:call-template>
+              </xsl:variable>
+              <xsl:variable name="authorimage">
+                <xsl:call-template name="GetAuthorImage">
+                  <xsl:with-param name="Type" select="$Type" />
+                </xsl:call-template>
+              </xsl:variable>
+              <xsl:variable name="authorlink">
+                <xsl:call-template name="GetAuthorLink">
+                  <xsl:with-param name="Type" select="$Type" />
+                </xsl:call-template>
+              </xsl:variable>
+
+              <xsl:if test="($CurPosition &lt;= $ResultsPerPage)">
+                <xsl:variable name="TitleClass" select="concat($StyleClassPrefix,'Title')" />
+                <div style="margin-right:7px;" xmlns="">
+                  <xsl:variable name="SafeHtml">
+                    <xsl:call-template name="GetSafeHtml">
+                      <xsl:with-param name="Html" select="$title" />
+                    </xsl:call-template>
+                  </xsl:variable>
+
+                  <div style="float:left;width:50px;" xmlns="">
+                    <a id="{concat($CurrentId, '_Title')}p" href="{ddwrt:EnsureAllowedProtocol(string($authorlink))}" title="{$author}" class="externallink" xmlns="">
+                      <img src="{$authorimage}" alt="{$author}" border="0" title="{$author}" xmlns=""/>
+                    </a>
+                  </div>
+                  <div style="margin-left:53px" class="tweet" xmlns="">
+                    <a id="{concat($CurrentId, '_Title')}" href="{ddwrt:EnsureAllowedProtocol(string($link))}" class="externallink" xmlns="">tweeted</a>:
+                    <xsl:value-of select="$content" disable-output-escaping="yes" />
+                  </div>
+                  <div style="height:5px;clear:both;" xmlns=""></div>
+                </div>
+              </xsl:if>
+            </xsl:for-each>
+          </div>
+        </xsl:template>
+        <xsl:template name="SeperationLineTemplate">
+          <xsl:if test="$ShowSeperationLine= 'True'">
+            <div class="ms-topanswerseperation" xmlns="">
+              <div class="ms-topanswerseperation2">
+                <img src="/_layouts/images/blank.gif" />
+              </div>
+            </div>
+          </xsl:if>
+        </xsl:template>
+        <xsl:template name="MoreLinkTemplate">
+          <xsl:param name="StyleClassPrefix" />
+          <xsl:variable name="MoreLinkClass" select="concat($StyleClassPrefix,'morelink')" />
+          <xsl:if test="$ShowMoreLink = true() and string-length($MoreLink) &gt; 0">
+            <div class="{$MoreLinkClass}" xmlns="">
+              <a href="{ddwrt:EnsureAllowedProtocol(string($MoreLink))}" target="_blank">
+                <xsl:value-of select="$MoreLinkLabel" />
+              </a>
+            </div>
+          </xsl:if>
+        </xsl:template>
+        <xsl:template name="GetSafeHtml">
+          <xsl:param name="Html" />
+          <xsl:choose>
+            <xsl:when test="$IsDesignMode = 'True'">
+              <xsl:value-of select="$Html" />
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="srwrt:MakeSafe($Html)" />
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:template>
+        <xsl:template name="GetPlainTextFromHtml">
+          <xsl:param name="Html" />
+          <xsl:choose>
+            <xsl:when test="$IsDesignMode = 'True'">
+              <xsl:value-of select="$Html" />
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="srwrt:GetPlainTextFromHtml($Html)" />
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:template>
+        <xsl:template name="TrimIfGreaterThanMax">
+          <xsl:param name="Source" />
+          <xsl:param name="MaxLength" />
+          <xsl:choose>
+            <xsl:when test="string-length($Source) &gt; $MaxLength">
+              <xsl:value-of select="substring($Source, 1, $MaxLength)" />...
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="$Source" />
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:template>
+      </xsl:stylesheet>
+    </Xsl>
+    <Properties>
+      &lt;Columns&gt;
+      &lt;Column Name="title"/&gt;
+      &lt;Column Name="link"/&gt;
+      &lt;Column Name="author"/&gt;
+      &lt;Column Name="authorlink"/&gt;
+      &lt;Column Name="authorimage"/&gt;
+      &lt;Column Name="description"/&gt;
+      &lt;/Columns&gt;
+    </Properties>
+    <SampleData>
+      <rss version="2.0" xmlns="">
+        <channel>
+          <title></title>
+          <link>http://www.sample.com/</link>
+          <description></description>
+          <item>
+            <title>Title of document or web page</title>
+            <link></link>
+            <description>This is the summary of the document or web page. The summary is generated from the original document based on matches with query terms. In some cases, the summary is a description provided by the author.</description>
+          </item>
+        </channel>
+      </rss>
+    </SampleData>
+  </Visualization>
+</OpenSearchDescription>

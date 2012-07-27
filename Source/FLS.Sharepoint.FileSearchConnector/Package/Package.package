@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="3b40a2c8-0385-443a-853d-e85680aa754a" solutionId="3b40a2c8-0385-443a-853d-e85680aa754a" resetWebServer="false" name="FLS.Sharepoint.FileSearchConnector" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="49337f2c-fd1c-4b68-8fc8-9220ece24de6" />
+  </features>
+</package>
