@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Libraries", ".Libraries", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft", "Microsoft", "{BCEDCAAD-3316-49DE-AE42-BEE9AA555874}"
 	ProjectSection(SolutionItems) = preProject
+		..\.Libraries\Microsoft\Microsoft.Office.Server.dll = ..\.Libraries\Microsoft\Microsoft.Office.Server.dll
+		..\.Libraries\Microsoft\Microsoft.Office.Server.UserProfiles.dll = ..\.Libraries\Microsoft\Microsoft.Office.Server.UserProfiles.dll
 		.Libraries\Microsoft\Microsoft.Practices.ServiceLocation.dll = .Libraries\Microsoft\Microsoft.Practices.ServiceLocation.dll
 		.Libraries\Microsoft\Microsoft.Practices.SharePoint.Common.dll = .Libraries\Microsoft\Microsoft.Practices.SharePoint.Common.dll
 	EndProjectSection
@@ -24,6 +26,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.Sharepoint.FileSearchConnector", "FLS.Sharepoint.FileSearchConnector\FLS.Sharepoint.FileSearchConnector.csproj", "{8E67423C-D324-4FFF-8F02-94921EFC2BE0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.UserProfile", "FLS.SharePoint.UserProfile\FLS.SharePoint.UserProfile.csproj", "{71B3EFF2-D2EC-4DA7-92B5-051234EDB4E7}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.ListDefinition", "FLS.SharePoint.ListDefinition\FLS.SharePoint.ListDefinition.csproj", "{A5FE7863-5712-4CE8-9CF2-69DD69649121}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.Sharepoint.UploadSolutionPage", "FLS.Sharepoint.UploadSolutionPage\FLS.Sharepoint.UploadSolutionPage.csproj", "{095EB450-0B21-4B2F-9295-D95E2323409B}"
