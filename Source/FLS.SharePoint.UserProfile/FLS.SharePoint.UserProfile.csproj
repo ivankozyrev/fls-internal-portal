@@ -40,6 +40,7 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Server.UserProfiles, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\.Libraries\Microsoft\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -62,6 +63,9 @@
     <Compile Include="Features\CreateUserProfiles\CreateUserProfiles.EventReceiver.cs">
       <DependentUpon>CreateUserProfiles.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CreateUserProfileProperties\CreateUserProfileProperties.EventReceiver.cs">
+      <DependentUpon>CreateUserProfileProperties.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +73,11 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <FeatureId>{fa6ac8ce-27a1-4abb-a868-31481a453a33}</FeatureId>
       <LastGenOutput>CreateUserProfiles.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\CreateUserProfileProperties\CreateUserProfileProperties.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <FeatureId>{06f147ba-dff3-461a-a927-1122fce58954}</FeatureId>
+      <LastGenOutput>CreateUserProfileProperties.feature.cs</LastGenOutput>
     </None>
     <None Include="key.snk" />
     <None Include="Package\Package.package">
@@ -85,6 +94,10 @@
     <Content Include="Features\CreateUserProfiles\CreateUserProfiles.Template.xml">
       <DependentUpon>CreateUserProfiles.feature</DependentUpon>
     </Content>
+    <Content Include="Features\CreateUserProfileProperties\CreateUserProfileProperties.Template.xml">
+      <DependentUpon>CreateUserProfileProperties.feature</DependentUpon>
+    </Content>
+    <Content Include="UserProfileElements\CustomPropertyList.xml" />
     <Content Include="UserProfileElements\UserList.xml" />
   </ItemGroup>
   <ItemGroup>

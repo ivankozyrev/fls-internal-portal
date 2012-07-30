@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Properties>
+  <Property>
+    <Name>Audience</Name>
+    <DisplayName>Audience Property 1</DisplayName>
+    <!-- Collection of Values for Type Node : (big integer | binary | boolean | date | date no year | date time | Email | float | unique identifier | HTML | integer | Person  | string (Single Value) | string (Multi Value) | Time Zone | URL)  -->
+    <Type>string (Multi Value)</Type>
+    <!-- IsMultiValue : Possible Options true | false :  Note = Only true when Type = String (Multi Value) -->
+    <IsMultiValue>true</IsMultiValue>
+    <TermStoreGroup>DSG</TermStoreGroup>
+    <TermSet>Audiences</TermSet>
+  </Property>
+  <Property>
+    <Name>DateofJoining</Name>
+    <DisplayName>Date of Joining Property 2</DisplayName>
+    <!-- Collection of Values for Type Node : (big integer | binary | boolean | date | date no year | date time | Email | float | unique identifier | HTML | integer | Person  | string (Single Value) | string (Multi Value) | Time Zone | URL)  -->
+    <Type>date</Type>
+    <!-- IsMultiValue : Possible Options true | false -->
+    <IsMultiValue>false</IsMultiValue>
+    <TermStoreGroup>null</TermStoreGroup>
+    <TermSet>null</TermSet>
+  </Property>
+  <Property>
+    <Name>Property1</Name>
+    <DisplayName>date Time Property 3</DisplayName>
+    <!-- Collection of Values for Type Node : (big integer | binary | boolean | date | date no year | date time | Email | float | unique identifier | HTML | integer | Person  | string (Single Value) | string (Multi Value) | Time Zone | URL)  -->
+    <Type>date time</Type>
+    <!-- IsMultiValue : Possible Options true | false -->
+    <IsMultiValue>false</IsMultiValue>
+    <TermStoreGroup>null</TermStoreGroup>
+    <TermSet>null</TermSet>
+  </Property>
+  <Property>
+    <Name>Property2</Name>
+    <DisplayName>Email Property 4</DisplayName>
+    <!-- Collection of Values for Type Node : (big integer | binary | boolean | date | date no year | date time | Email | float | unique identifier | HTML | integer | Person  | string (Single Value) | string (Multi Value) | Time Zone | URL)  -->
+    <Type>Email</Type>
+    <!-- IsMultiValue : Possible Options true | false -->
+    <IsMultiValue>false</IsMultiValue>
+    <TermStoreGroup>null</TermStoreGroup>
+    <TermSet>null</TermSet>
+  </Property>
+</Properties>

@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 using FLS.SharePoint.Infrastructure.ViewObjects;
 
 namespace FLS.SharePoint.Infrastructure
 {
-    public static class XmlFileManager
+    public class XmlFileManager
     {
         public static IEnumerable<UserProfileViewObject> GetUserProfileList(string filePath)
         {
@@ -33,6 +34,38 @@ namespace FLS.SharePoint.Infrastructure
                                                                                            FullName = fullName.Item(i).InnerText,
                                                                                            Email = email.Item(i).InnerText
                                                                                        }));
+
+            return resultList;
+        }
+
+        public static IEnumerable<UserProfileProperty> GetPropertyList(string filePath)
+        {
+            var resultList = new List<UserProfileProperty>();
+            if (string.IsNullOrEmpty(filePath))
+            {
+                return resultList;
+            }
+
+            var document = new XmlDocument();
+            document.Load(filePath);
+
+            var propertyXmlNodeList = document.GetElementsByTagName("Property");
+            var name = document.GetElementsByTagName("Name");
+            var displayName = document.GetElementsByTagName("DisplayName");
+            var type = document.GetElementsByTagName("Type");
+            var multiValueFlag = document.GetElementsByTagName("IsMultiValue");
+            var termSet = document.GetElementsByTagName("TermSet");
+            var termStoreGroup = document.GetElementsByTagName("TermStoreGroup");
+
+            resultList.AddRange(propertyXmlNodeList.Cast<object>().Select((t, i) => new UserProfileProperty
+            {
+                Name = name.Item(i).InnerText,
+                DisplayName = displayName.Item(i).InnerText,
+                Type = type.Item(i).InnerText,
+                IsMultiValue = Convert.ToBoolean(multiValueFlag.Item(i).InnerText),
+                TermSet = termSet.Item(i).InnerText,
+                TermStoreGroup = termStoreGroup.Item(i).InnerText
+            }));
 
             return resultList;
         }

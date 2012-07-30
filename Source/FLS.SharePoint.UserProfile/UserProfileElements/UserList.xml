@@ -28,4 +28,11 @@
     <fullname>Evgeny Skurikhin</fullname>
     <email>Evgeny.Skurikhin@firstlinesoftware.com</email>
   </profile>
+  <profile>
+    <login>domain\EGribovskaya</login>
+    <firstname>Elena </firstname>
+    <lastname>Gribovskaya</lastname>
+    <fullname>Elena Gribovskaya</fullname>
+    <email>Elena.Gribovskaya@firstlinesoftware.com</email>
+  </profile>
 </profiles>

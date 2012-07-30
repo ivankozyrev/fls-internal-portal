@@ -1,7 +1,8 @@
 using System;
 using System.Linq;
-using System.Runtime.InteropServices;
+using System.Collections.Generic;
 using FLS.SharePoint.Infrastructure;
+using System.Runtime.InteropServices;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.SharePoint.Common.Logging;
 using Microsoft.Practices.SharePoint.Common.ServiceLocation;
@@ -9,22 +10,22 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.Administration;
 using Microsoft.SharePoint.Utilities;
 
-namespace FLS.SharePoint.UserProfile.Features.CreateUserProfiles
+namespace FLS.SharePoint.UserProfile.Features.CreateUserProfileProperties
 {
-    [Guid("ecba645a-1feb-4414-a8f8-71fab18f146a")]
-    public class CreateUserProfilesEventReceiver : SPFeatureReceiver
+    [Guid("739106d4-5581-4056-bd64-f0bfd10fd3fd")]
+    public class CreateUserProfilePropertiesEventReceiver : SPFeatureReceiver
     {
         // \Template\Features\{ProjectName}_{FeautureName}\{ElementName}\{FileName}
-        private const string ProfileFilePathTemplate = @"\Template\Features\FLS.SharePoint.UserProfile_CreateUserProfiles\UserProfileElements\UserList.xml";
+        private const string filePathTemplate = @"\Template\Features\FLS.SharePoint.UserProfile_CreateUserProfileProperties\UserProfileElements\CustomPropertyList.xml";
 
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             IServiceLocator serviceLocator = SharePointServiceLocator.GetCurrent();
             var logger = serviceLocator.GetInstance<ILogger>();
 
-            var filePath = SPUtility.GetGenericSetupPath(ProfileFilePathTemplate);
+            var filePath = SPUtility.GetGenericSetupPath(filePathTemplate);
 
-            var userProfileList = XmlFileManager.GetUserProfileList(filePath);
+            IEnumerable<FLS.SharePoint.Infrastructure.ViewObjects.UserProfileProperty> propertyList = XmlFileManager.GetPropertyList(filePath);
 
             SPSite site = ((SPWebApplication)properties.Feature.Parent).Sites[0];
             SPServiceContext context = SPServiceContext.GetContext(site);
@@ -33,19 +34,20 @@ namespace FLS.SharePoint.UserProfile.Features.CreateUserProfiles
 
             try
             {
-                logger.Debug("start activating 'Create user profiles' feature");
-             
-                service.CreateOrUpdateUserProfiles(userProfileList);
+                logger.Debug("start activating 'Create custom properties' for User Profile feature");
+            
+                service.CreateProperties(propertyList);
 
-                logger.Debug("feature 'Create user profiles' was activated");
+                logger.Debug("feature 'Create custom properties' for User Profile was activated");
             }
             catch (Exception ex)
             {
                 logger.Error(ex);
-                service.RemoveUserProfiles(userProfileList.Select(s => s.Login));
+                service.RemoveProperties(propertyList.Select(pr => pr.Name));
                 throw;
             }
         }
+
 
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
@@ -53,18 +55,18 @@ namespace FLS.SharePoint.UserProfile.Features.CreateUserProfiles
             var logger = serviceLocator.GetInstance<ILogger>();
             try
             {
-                logger.Debug("start deactivating 'Create user profiles' feature");
+                logger.Debug("start deactivating 'Create custom properties' for User Profile feature");
 
-                var filePath = SPUtility.GetGenericSetupPath(ProfileFilePathTemplate);
-                var userProfileList = XmlFileManager.GetUserProfileList(filePath);
+                var filePath = SPUtility.GetGenericSetupPath(filePathTemplate);
+                var propertyList = XmlFileManager.GetPropertyList(filePath);
 
                 SPSite site = ((SPWebApplication)properties.Feature.Parent).Sites[0];
                 SPServiceContext context = SPServiceContext.GetContext(site);
 
                 var service = new UserProfileService(context, logger);
-                service.RemoveUserProfiles(userProfileList.Select(s => s.Login));
+                service.RemoveProperties(propertyList.Select(pr => pr.Name));
 
-                logger.Debug("feature 'Create user profiles' was deactivated");
+                logger.Debug("feature 'Create custom properties' for User Profile was deactivated");
             }
             catch (Exception ex)
             {
@@ -73,22 +75,24 @@ namespace FLS.SharePoint.UserProfile.Features.CreateUserProfiles
             }
         }
 
+
         // Uncomment the method below to handle the event raised after a feature has been installed.
 
-        // public override void FeatureInstalled(SPFeatureReceiverProperties properties)
-        // {
-        // }
+        //public override void FeatureInstalled(SPFeatureReceiverProperties properties)
+        //{
+        //}
+
 
         // Uncomment the method below to handle the event raised before a feature is uninstalled.
 
-        // public override void FeatureUninstalling(SPFeatureReceiverProperties properties)
-        // {
-        // }
+        //public override void FeatureUninstalling(SPFeatureReceiverProperties properties)
+        //{
+        //}
 
         // Uncomment the method below to handle the event raised when a feature is upgrading.
 
-        // public override void FeatureUpgrading(SPFeatureReceiverProperties properties, string upgradeActionName, System.Collections.Generic.IDictionary<string, string> parameters)
-        // {
-        // }
+        //public override void FeatureUpgrading(SPFeatureReceiverProperties properties, string upgradeActionName, System.Collections.Generic.IDictionary<string, string> parameters)
+        //{
+        //}
     }
 }
