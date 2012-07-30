@@ -8,12 +8,12 @@ using Microsoft.SharePoint;
 
 namespace FLS.SharePoint.Infrastructure
 {
-    public class UserProfileService
+    public class UserProfileHelper
     {
         private readonly ILogger spLogger;
         private readonly SPServiceContext spContext;
 
-        public UserProfileService(SPServiceContext context, ILogger logger)
+        public UserProfileHelper(SPServiceContext context, ILogger logger)
         {
             spContext = context;
             spLogger = logger;

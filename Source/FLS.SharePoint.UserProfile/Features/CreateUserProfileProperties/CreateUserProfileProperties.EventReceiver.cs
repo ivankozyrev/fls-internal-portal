@@ -25,12 +25,12 @@ namespace FLS.SharePoint.UserProfile.Features.CreateUserProfileProperties
 
             var filePath = SPUtility.GetGenericSetupPath(filePathTemplate);
 
-            IEnumerable<FLS.SharePoint.Infrastructure.ViewObjects.UserProfileProperty> propertyList = XmlFileManager.GetPropertyList(filePath);
+            IEnumerable<FLS.SharePoint.Infrastructure.ViewObjects.UserProfileProperty> propertyList = XmlSettingsHelper.GetPropertyList(filePath);
 
             SPSite site = ((SPWebApplication)properties.Feature.Parent).Sites[0];
             SPServiceContext context = SPServiceContext.GetContext(site);
 
-            var service = new UserProfileService(context, logger);
+            var service = new UserProfileHelper(context, logger);
 
             try
             {
@@ -58,12 +58,12 @@ namespace FLS.SharePoint.UserProfile.Features.CreateUserProfileProperties
                 logger.Debug("start deactivating 'Create custom properties' for User Profile feature");
 
                 var filePath = SPUtility.GetGenericSetupPath(filePathTemplate);
-                var propertyList = XmlFileManager.GetPropertyList(filePath);
+                var propertyList = XmlSettingsHelper.GetPropertyList(filePath);
 
                 SPSite site = ((SPWebApplication)properties.Feature.Parent).Sites[0];
                 SPServiceContext context = SPServiceContext.GetContext(site);
 
-                var service = new UserProfileService(context, logger);
+                var service = new UserProfileHelper(context, logger);
                 service.RemoveProperties(propertyList.Select(pr => pr.Name));
 
                 logger.Debug("feature 'Create custom properties' for User Profile was deactivated");
