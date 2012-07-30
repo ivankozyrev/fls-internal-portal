@@ -40,6 +40,14 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Server, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\.Libraries\Microsoft\Microsoft.Office.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server.UserProfiles, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\.Libraries\Microsoft\Microsoft.Office.Server.UserProfiles.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\.Libraries\Microsoft\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -59,12 +67,14 @@
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\CreateUserProfileProperties\UserProfilePropertiesHelper.cs" />
     <Compile Include="Features\CreateUserProfiles\CreateUserProfiles.EventReceiver.cs">
       <DependentUpon>CreateUserProfiles.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\CreateUserProfileProperties\CreateUserProfileProperties.EventReceiver.cs">
       <DependentUpon>CreateUserProfileProperties.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\CreateUserProfiles\UserProfileHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
