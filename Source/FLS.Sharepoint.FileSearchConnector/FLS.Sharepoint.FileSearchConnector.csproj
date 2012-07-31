@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BB1F664B-9266-4fd6-B973-E1E44974B511};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <SandboxedSolution>False</SandboxedSolution>
+    <ActiveDeploymentConfiguration>No Activation</ActiveDeploymentConfiguration>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,21 +41,38 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.BusinessData, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\.Libraries\Microsoft\Microsoft.BusinessData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\.Libraries\Microsoft\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.SharePoint.Common">
+      <HintPath>..\..\.Libraries\Microsoft\Microsoft.Practices.SharePoint.Common.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\OkatoSearchConfigFeature\OkatoSearchConfigFeature.EventReceiver.cs">
+      <DependentUpon>OkatoSearchConfigFeature.feature</DependentUpon>
+    </Compile>
     <Compile Include="OkatoModel\OkatoEntity.cs" />
     <Compile Include="OkatoModel\OkatoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Features\OkatoSearchConfigFeature\OkatoSearchConfigFeature.feature">
+      <FeatureId>{432b930d-3eb5-47ea-8dac-7e675754d3d8}</FeatureId>
+    </None>
     <None Include="Features\OkatoSearchFeature\OkatoSearchFeature.feature">
       <FeatureId>{49337f2c-fd1c-4b68-8fc8-9220ece24de6}</FeatureId>
     </None>
@@ -73,8 +91,21 @@
       <DependentUpon>Package.package</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\FLS.SharePoint.Infrastructure\FLS.SharePoint.Infrastructure.csproj">
+      <Project>{58BAF505-5D8D-41C6-955A-3957B8E67FC4}</Project>
+      <Name>FLS.SharePoint.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FLS.SharePoint.Utils\FLS.SharePoint.Utils.csproj">
+      <Project>{305F89C1-D67C-4E7F-846D-C64AA23B5DAF}</Project>
+      <Name>FLS.SharePoint.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Features\OkatoSearchConfigFeature\OkatoSearchConfigFeature.Template.xml">
+      <DependentUpon>OkatoSearchConfigFeature.feature</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Features\OkatoSearchFeature\OkatoSearchFeature.Template.xml">
       <DependentUpon>OkatoSearchFeature.feature</DependentUpon>
     </Content>
