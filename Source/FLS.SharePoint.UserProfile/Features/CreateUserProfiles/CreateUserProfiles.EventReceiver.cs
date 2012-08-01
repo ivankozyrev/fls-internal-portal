@@ -24,12 +24,12 @@ namespace FLS.SharePoint.UserProfile.Features.CreateUserProfiles
 
             var filePath = SPUtility.GetGenericSetupPath(ProfileFilePathTemplate);
 
-            var userProfileList = XmlFileManager.GetUserProfileList(filePath);
+            var userProfileList = XmlSettingsHelper.GetUserProfileList(filePath);
 
             SPSite site = ((SPWebApplication)properties.Feature.Parent).Sites[0];
             SPServiceContext context = SPServiceContext.GetContext(site);
 
-            var service = new UserProfileService(context, logger);
+            var service = new UserProfileHelper(context, logger);
 
             try
             {
@@ -56,12 +56,12 @@ namespace FLS.SharePoint.UserProfile.Features.CreateUserProfiles
                 logger.Debug("start deactivating 'Create user profiles' feature");
 
                 var filePath = SPUtility.GetGenericSetupPath(ProfileFilePathTemplate);
-                var userProfileList = XmlFileManager.GetUserProfileList(filePath);
+                var userProfileList = XmlSettingsHelper.GetUserProfileList(filePath);
 
                 SPSite site = ((SPWebApplication)properties.Feature.Parent).Sites[0];
                 SPServiceContext context = SPServiceContext.GetContext(site);
 
-                var service = new UserProfileService(context, logger);
+                var service = new UserProfileHelper(context, logger);
                 service.RemoveUserProfiles(userProfileList.Select(s => s.Login));
 
                 logger.Debug("feature 'Create user profiles' was deactivated");

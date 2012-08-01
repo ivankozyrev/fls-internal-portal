@@ -6,7 +6,7 @@ using FLS.SharePoint.Infrastructure.ViewObjects;
 
 namespace FLS.SharePoint.Infrastructure
 {
-    public class XmlFileManager
+    public class XmlSettingsHelper
     {
         public static IEnumerable<UserProfileViewObject> GetUserProfileList(string filePath)
         {
