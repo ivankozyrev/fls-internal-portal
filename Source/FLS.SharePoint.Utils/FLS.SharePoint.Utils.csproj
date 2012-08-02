@@ -44,7 +44,10 @@
     <Compile Include="ConfigurationEntities\Site.cs" />
     <Compile Include="ConfigurationEntities\SitesConfiguration.cs" />
     <Compile Include="ConfigurationEntities\User.cs" />
+    <Compile Include="ConfigurationEntities\WebTemplate.cs" />
+    <Compile Include="FileSystemHelper.cs" />
     <Compile Include="IConfigPropertiesParser.cs" />
+    <Compile Include="IFileSystemHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
