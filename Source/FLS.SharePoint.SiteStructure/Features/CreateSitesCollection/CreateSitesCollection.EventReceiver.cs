@@ -45,19 +45,30 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
             logger.Debug("Creating groups...");
             foreach (var group in configuration.Groups)
             {
+                logger.Debug(string.Format("Creating group: {0}", group.Name));
                 if (!ContainsGroup(rootWeb.SiteGroups, group.Name))
                 {
+                    logger.Debug(string.Format("Site: {0} hasn't group: {1}", rootWeb.Name, group.Name));
+                    logger.Debug(string.Format("Ensure user: {0}", configuration.SitesOwner));
                     var owner = rootWeb.EnsureUser(configuration.SitesOwner);
-                    rootWeb.SiteGroups.Add(group.Name, owner, owner,
-                                           group.Description);
+                    logger.Debug(string.Format("Done. Ensure user: {0}", configuration.SitesOwner));
+                    logger.Debug(string.Format("Adding group: {0}", group.Name));
+                    rootWeb.SiteGroups.Add(group.Name, owner, owner, group.Description);
+                    logger.Debug(string.Format("Done. Adding group: {0}", group.Name));
                 }
 
+                logger.Debug(string.Format("Adding users to group: {0}", group.Name));
                 var newGroup = rootWeb.SiteGroups[group.Name];
                 foreach (var user in group.Users)
                 {
+                    logger.Debug(string.Format("Adding user: {0} to group {1}", user.Login, group.Name));
                     newGroup.AddUser(user.Login, string.Empty, user.Login,
                                      string.Empty);
+                    logger.Debug(string.Format("Done. Adding user: {0} to group {1}", user.Login, group.Name));
                 }
+                logger.Debug(string.Format("Done. Adding users to group: {0}", group.Name));
+
+                logger.Debug(string.Format("Done. Creating group: {0}", group.Name));
             }
 
             logger.Debug("Done. Creation of groups");
