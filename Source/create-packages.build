@@ -34,6 +34,9 @@
 	<ExternalPackage Include="Pbs2010">
 		<Path>..\.Libraries\Pbs2010\PropertyBagSettings2010.wsp</Path>
 	</ExternalPackage>
+	<ExternalPackage Include="SiteTemplates">
+		<Path>..\.SiteTemplates\qa-template.wsp</Path>
+	</ExternalPackage>
 	
   </ItemGroup>
   
