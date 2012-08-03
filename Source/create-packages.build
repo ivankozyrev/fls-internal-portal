@@ -10,7 +10,7 @@
 	<PackageProject Include="SiteStructure">
 		<Name>FLS.SharePoint.SiteStructure</Name>
 	</PackageProject>
-	<PackageProject Include="SiteStructure">
+	<PackageProject Include="FederatedSearch">
 		<Name>FLS.SharePoint.FederatedSearch</Name>
 	</PackageProject>
 	<PackageProject Include="ListDefinition">
@@ -18,9 +18,6 @@
 	</PackageProject>
 	<PackageProject Include="FileSearchConnector">
 		<Name>FLS.SharePoint.FileSearchConnector</Name>
-	</PackageProject>
-	<PackageProject Include="UploadSolutionPage">
-		<Name>FLS.SharePoint.UploadSolutionPage</Name>
 	</PackageProject>
 	<PackageProject Include="UserProfile">
 		<Name>FLS.SharePoint.UserProfile</Name>
@@ -36,6 +33,9 @@
   <ItemGroup>
 	<ExternalPackage Include="Pbs2010">
 		<Path>..\.Libraries\Pbs2010\PropertyBagSettings2010.wsp</Path>
+	</ExternalPackage>
+	<ExternalPackage Include="SiteTemplates">
+		<Path>..\.SiteTemplates\qa-template.wsp</Path>
 	</ExternalPackage>
 	
   </ItemGroup>

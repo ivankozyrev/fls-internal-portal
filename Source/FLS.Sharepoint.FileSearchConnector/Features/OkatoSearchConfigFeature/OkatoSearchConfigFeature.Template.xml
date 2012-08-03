@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Properties>
+    <Property Key="SitesConfiguration" Value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
+    &lt;SitesConfiguration xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+      &lt;SiteOwner&gt;DOMAIN\sorokin&lt;/SiteOwner&gt;
+      &lt;SiteCollectionName&gt;sites/entityprofilers&lt;/SiteCollectionName&gt;
+      &lt;Sites&gt;
+        &lt;Site Name=&quot;okato&quot; Title=&quot;OKATO entity profiles&quot;&gt;
+          &lt;WebTemplate&gt;STS#1&lt;/WebTemplate&gt;
+        &lt;/Site&gt;
+      &lt;/Sites&gt;
+    &lt;/SitesConfiguration&gt;"/>
+  </Properties>
+</Feature>
