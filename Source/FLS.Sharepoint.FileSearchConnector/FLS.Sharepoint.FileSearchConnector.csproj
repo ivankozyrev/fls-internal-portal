@@ -45,11 +45,31 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\.Libraries\Microsoft\Microsoft.BusinessData.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Server, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\.Libraries\Microsoft\Microsoft.Office.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server.Search, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files\Common Files\Microsoft Shared\Web Server Extensions\14\ISAPI\Microsoft.Office.Server.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server.UserProfiles, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\.Libraries\Microsoft\Microsoft.Office.Server.UserProfiles.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\..\.Libraries\Microsoft\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.SharePoint.Common">
       <HintPath>..\..\.Libraries\Microsoft\Microsoft.Practices.SharePoint.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="microsoft.sharepoint.portal, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\.Libraries\Microsoft\microsoft.sharepoint.portal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Search, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\.Libraries\Microsoft\Microsoft.SharePoint.Search.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
