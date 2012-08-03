@@ -4,9 +4,9 @@ namespace FLS.SharePoint.Utils.ConfigurationEntities
 {
     public class SitesConfiguration
     {
-        public string SiteOwner { get; set; }
+        public string SitesOwner { get; set; }
 
-        public string SiteCollectionName { get; set; }
+        public string TemplatesDirectory { get; set; }
 
         public List<Site> Sites { get; set; }
 

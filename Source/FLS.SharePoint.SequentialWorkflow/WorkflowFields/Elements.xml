@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Fields for Task 1 of Workflow 1-->
+  <Field ID="{2FE15855-3CAB-44A6-AB29-1600204FCA20}" Name="Workflow1Task1_Test1"
+         MaxLength="255" DisplayName="Test1" Description=""
+         Direction="None" Type="Text" Overwrite="TRUE"
+         xmlns="http://schemas.microsoft.com/sharepoint/" />
+  <Field ID="{517B22A5-1B89-4C24-82BE-3D4FD99645BC}" Name="Workflow1Task1_Test2"
+         MaxLength="255" DisplayName="Test2" Description=""
+         Direction="None" Type="Text" Overwrite="TRUE"
+         xmlns="http://schemas.microsoft.com/sharepoint/" />
+  <Field ID="{3ECFF1FE-F56B-4556-8805-4570D9422FF4}" Name="Workflow1Task1_Test3"
+         MaxLength="255" DisplayName="Test3" Description=""
+         Direction="None" Type="Text" Overwrite="TRUE"
+         xmlns="http://schemas.microsoft.com/sharepoint/" />
+</Elements>
