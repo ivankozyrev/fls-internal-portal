@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.VisualWebPart" DefaultFile="AvailableSiteListsUserControl.ascx" SupportedTrustLevels="FullTrust" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="AvailableSiteLists\" Type="ElementManifest" />
+    <ProjectItemFile Source="AvailableSiteLists.webpart" Target="AvailableSiteLists\" Type="ElementFile" />
+    <ProjectItemFile Source="AvailableSiteListsUserControl.ascx" Target="CONTROLTEMPLATES\FLS.Sharepoint.ClientObjectModel\AvailableSiteLists\" Type="TemplateFile" />
+  </Files>
+  <SafeControls>
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="FLS.Sharepoint.ClientObjectModel.AvailableSiteLists" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+  </SafeControls>
+</ProjectItem>

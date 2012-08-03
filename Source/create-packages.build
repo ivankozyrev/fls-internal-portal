@@ -25,6 +25,9 @@
 	<PackageProject Include="UserProfile">
 		<Name>FLS.SharePoint.UserProfile</Name>
 	</PackageProject>
+	<PackageProject Include="ClientObjectModel">
+		<Name>FLS.Sharepoint.ClientObjectModel</Name>
+	</PackageProject>
 	<PackageProject Include="blank">
 		<Name>FLS.SharePoint</Name>
 	</PackageProject>
