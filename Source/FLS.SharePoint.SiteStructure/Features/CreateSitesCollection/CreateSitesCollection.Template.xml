@@ -3,10 +3,10 @@
   <Properties>
     <Property Key="SitesConfiguration" Value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
 &lt;SitesConfiguration xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
-  &lt;SitesOwner&gt;DOMAIN\eskurikhin&lt;/SitesOwner&gt;
-  &lt;TemplatesDirectory&gt;c:\GIT\fls-internal-portal\Source\Packages\WebTemplates\&lt;/TemplatesDirectory&gt;
+  &lt;SitesOwner&gt;localadmin&lt;/SitesOwner&gt;
+  &lt;TemplatesDirectory&gt;c:\SPPackages\WebTemplates\&lt;/TemplatesDirectory&gt;
   &lt;Sites&gt;
-    &lt;Site Name=&quot;sites/dev&quot; Title=&quot;Developers den&quot;&gt;
+    &lt;Site Name=&quot;sites/devauto&quot; Title=&quot;Developers den&quot;&gt;
       &lt;Description&gt;Developers live here&lt;/Description&gt;
       &lt;WebTemplate Name=&quot;testDev&quot;&gt;
         &lt;PackageFileName&gt;testDev.wsp&lt;/PackageFileName&gt;
@@ -18,7 +18,7 @@
         &lt;/Permission&gt;
       &lt;/Permissions&gt;
     &lt;/Site&gt;
-    &lt;Site Name=&quot;sites/qa&quot; Title=&quot;QA hideout&quot;&gt;
+    &lt;Site Name=&quot;sites/qaauto&quot; Title=&quot;QA hideout&quot;&gt;
       &lt;Description&gt;Right place for testers&lt;/Description&gt;
       &lt;WebTemplate Name=&quot;testDev&quot;&gt;
         &lt;PackageFileName&gt;testDev.wsp&lt;/PackageFileName&gt;
@@ -34,7 +34,7 @@
         &lt;/Permission&gt;
       &lt;/Permissions&gt;
     &lt;/Site&gt;
-    &lt;Site Name=&quot;sites/hr&quot; Title=&quot;HR headquarters&quot;&gt;
+    &lt;Site Name=&quot;sites/hrauto&quot; Title=&quot;HR headquarters&quot;&gt;
       &lt;Description&gt;HRs should stay here&lt;/Description&gt;
       &lt;WebTemplate Name=&quot;testDev&quot;&gt;
         &lt;PackageFileName&gt;testDev.wsp&lt;/PackageFileName&gt;
