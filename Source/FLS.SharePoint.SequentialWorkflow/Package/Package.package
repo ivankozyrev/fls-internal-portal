@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="4442703d-f5e6-45cf-bb9f-c5872ef119f6" solutionId="4442703d-f5e6-45cf-bb9f-c5872ef119f6" resetWebServer="false" name="FLS.SharePoint.SequentialWorkflow" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="669da4fc-1fad-4159-b89a-39dc212aea34" />
+    <featureReference itemId="5004a7a0-93aa-4832-897f-398492c3f071" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="779a8816-24f2-4285-85cf-f150d8f1c773" />
+  </projectItems>
+</package>

@@ -28,6 +28,7 @@ _ReSharper*/
 bin
 obj
 Packages
+deploymentAccount.creds
 
 # mstest test results
 TestResults

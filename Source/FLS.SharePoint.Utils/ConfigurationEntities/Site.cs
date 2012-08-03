@@ -11,9 +11,9 @@ namespace FLS.SharePoint.Utils.ConfigurationEntities
         [XmlAttribute]
         public string Title { get; set; }
 
-        public string WebTemplate { get; set; }
-
         public string Description { get; set; }
+
+        public WebTemplate WebTemplate { get; set; }
 
         public List<Permission> Permissions { get; set; }
     }

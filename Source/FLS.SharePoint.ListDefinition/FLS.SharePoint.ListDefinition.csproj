@@ -104,6 +104,7 @@
     <Content Include="DevDocumentLibrary\Upload.aspx" />
     <Content Include="Features\DevLibraryFeature\DevLibraryFeature.Template.xml">
       <DependentUpon>DevLibraryFeature.feature</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="QADocumentLibrary\EditDlg.htm" />
     <Content Include="QADocumentLibrary\Elements.xml" />

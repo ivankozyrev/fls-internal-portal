@@ -42,17 +42,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Server">
-      <HintPath>..\..\..\Users\sorokin\Desktop\Microsoft.Office.Server.dll</HintPath>
+      <HintPath>..\..\.Libraries\Microsoft\Microsoft.Office.Server.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search">
-      <HintPath>..\..\..\Users\sorokin\Desktop\Microsoft.Office.Server.Search.dll</HintPath>
+      <HintPath>..\..\.Libraries\Microsoft\Microsoft.Office.Server.Search.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Server.Search.Connector">
-      <HintPath>..\..\..\Users\sorokin\Desktop\Microsoft.Office.Server.Search.Connector.dll</HintPath>
+      <HintPath>..\..\.Libraries\Microsoft\Microsoft.Office.Server.Search.Connector.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SharePoint.Portal, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Program Files\Common Files\Microsoft Shared\Web Server Extensions\14\ISAPI\Microsoft.SharePoint.Portal.dll</HintPath>
+      <HintPath>..\..\.Libraries\Microsoft\microsoft.sharepoint.portal.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SharePoint.Search, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>

@@ -1,8 +1,7 @@
 using System;
 using System.Linq;
-using System.Collections.Generic;
-using FLS.SharePoint.Infrastructure;
 using System.Runtime.InteropServices;
+using FLS.SharePoint.Infrastructure;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.SharePoint.Common.Logging;
 using Microsoft.Practices.SharePoint.Common.ServiceLocation;
@@ -16,21 +15,21 @@ namespace FLS.SharePoint.UserProfile.Features.CreateUserProfileProperties
     public class CreateUserProfilePropertiesEventReceiver : SPFeatureReceiver
     {
         // \Template\Features\{ProjectName}_{FeautureName}\{ElementName}\{FileName}
-        private const string filePathTemplate = @"\Template\Features\FLS.SharePoint.UserProfile_CreateUserProfileProperties\UserProfileElements\CustomPropertyList.xml";
+        private const string FilePathTemplate = @"\Template\Features\FLS.SharePoint.UserProfile_CreateUserProfileProperties\UserProfileElements\CustomPropertyList.xml";
 
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             IServiceLocator serviceLocator = SharePointServiceLocator.GetCurrent();
             var logger = serviceLocator.GetInstance<ILogger>();
 
-            var filePath = SPUtility.GetGenericSetupPath(filePathTemplate);
+            var filePath = SPUtility.GetGenericSetupPath(FilePathTemplate);
 
-            IEnumerable<FLS.SharePoint.Infrastructure.ViewObjects.UserProfileProperty> propertyList = XmlFileManager.GetPropertyList(filePath);
+            var propertyList = XmlSettingsHelper.GetPropertyList(filePath);
 
             SPSite site = ((SPWebApplication)properties.Feature.Parent).Sites[0];
             SPServiceContext context = SPServiceContext.GetContext(site);
 
-            var service = new UserProfileService(context, logger);
+            var service = new UserProfilePropertiesHelper(context, logger);
 
             try
             {
@@ -57,13 +56,13 @@ namespace FLS.SharePoint.UserProfile.Features.CreateUserProfileProperties
             {
                 logger.Debug("start deactivating 'Create custom properties' for User Profile feature");
 
-                var filePath = SPUtility.GetGenericSetupPath(filePathTemplate);
-                var propertyList = XmlFileManager.GetPropertyList(filePath);
+                var filePath = SPUtility.GetGenericSetupPath(FilePathTemplate);
+                var propertyList = XmlSettingsHelper.GetPropertyList(filePath);
 
                 SPSite site = ((SPWebApplication)properties.Feature.Parent).Sites[0];
                 SPServiceContext context = SPServiceContext.GetContext(site);
 
-                var service = new UserProfileService(context, logger);
+                var service = new UserProfilePropertiesHelper(context, logger);
                 service.RemoveProperties(propertyList.Select(pr => pr.Name));
 
                 logger.Debug("feature 'Create custom properties' for User Profile was deactivated");
@@ -78,21 +77,21 @@ namespace FLS.SharePoint.UserProfile.Features.CreateUserProfileProperties
 
         // Uncomment the method below to handle the event raised after a feature has been installed.
 
-        //public override void FeatureInstalled(SPFeatureReceiverProperties properties)
-        //{
-        //}
+        // public override void FeatureInstalled(SPFeatureReceiverProperties properties)
+        // {
+        // }
 
 
         // Uncomment the method below to handle the event raised before a feature is uninstalled.
 
-        //public override void FeatureUninstalling(SPFeatureReceiverProperties properties)
-        //{
-        //}
+        // public override void FeatureUninstalling(SPFeatureReceiverProperties properties)
+        // {
+        // }
 
         // Uncomment the method below to handle the event raised when a feature is upgrading.
 
-        //public override void FeatureUpgrading(SPFeatureReceiverProperties properties, string upgradeActionName, System.Collections.Generic.IDictionary<string, string> parameters)
-        //{
-        //}
+        // public override void FeatureUpgrading(SPFeatureReceiverProperties properties, string upgradeActionName, System.Collections.Generic.IDictionary<string, string> parameters)
+        // {
+        // }
     }
 }
