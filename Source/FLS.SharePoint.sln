@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.Sharepoint.ClientObject
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.SequentialWorkflow", "FLS.SharePoint.SequentialWorkflow\FLS.SharePoint.SequentialWorkflow.csproj", "{4FD2D12B-E9FF-4A48-91D8-46D89A9F64E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.Sharepoint.MetroUI", "FLS.Sharepoint.MetroUI\FLS.Sharepoint.MetroUI.csproj", "{7F296F15-917C-425B-AD1B-9FF820E933FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +111,12 @@ Global
 		{4FD2D12B-E9FF-4A48-91D8-46D89A9F64E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FD2D12B-E9FF-4A48-91D8-46D89A9F64E7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4FD2D12B-E9FF-4A48-91D8-46D89A9F64E7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7F296F15-917C-425B-AD1B-9FF820E933FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F296F15-917C-425B-AD1B-9FF820E933FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F296F15-917C-425B-AD1B-9FF820E933FD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7F296F15-917C-425B-AD1B-9FF820E933FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F296F15-917C-425B-AD1B-9FF820E933FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F296F15-917C-425B-AD1B-9FF820E933FD}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

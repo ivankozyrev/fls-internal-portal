@@ -26,6 +26,8 @@ namespace FLS.Sharepoint.FileSearchConnector.Features.OkatoSearchConfigFeature
     [Guid("71cdf3ee-087b-4852-bae5-3d0ce2bb05db")]
     public class OkatoSearchConfigFeatureEventReceiver : SPFeatureReceiver
     {
+        private const string SitesCollectionName = @"sites/entityprofilers";
+
         private static readonly IServiceLocator ServiceLocator = SharePointServiceLocator.GetCurrent();
 
         private static readonly IConfigPropertiesParser ConfigPropertiesParser = ServiceLocator.GetInstance<IConfigPropertiesParser>();
@@ -104,19 +106,19 @@ namespace FLS.Sharepoint.FileSearchConnector.Features.OkatoSearchConfigFeature
             try
             {
                 var application = (SPWebApplication)properties.Feature.Parent;
-                if (IsSiteCollectionExists(application, configuration.SiteCollectionName))
+                if (IsSiteCollectionExists(application, SitesCollectionName))
                 {
                     return;
                 }
                 
                 GetSiteCollection(properties).Add(
-                    configuration.SiteCollectionName,
+                    SitesCollectionName,
                     "BDC entity profilers",
                     string.Empty,
                     (uint)root.RootWeb.Locale.LCID,
                     "STS#1",
-                    configuration.SiteOwner,
-                    configuration.SiteOwner,
+                    configuration.SitesOwner,
+                    configuration.SitesOwner,
                     string.Empty);
             }
             catch (Exception ex)
