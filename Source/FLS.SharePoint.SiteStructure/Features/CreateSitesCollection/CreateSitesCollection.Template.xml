@@ -4,12 +4,12 @@
     <Property Key="SitesConfiguration" Value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;
 &lt;SitesConfiguration xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
   &lt;SitesOwner&gt;localadmin&lt;/SitesOwner&gt;
-  &lt;TemplatesDirectory&gt;c:\SPPackages\WebTemplates\&lt;/TemplatesDirectory&gt;
+  &lt;TemplatesDirectory&gt;c:\SPPackages\&lt;/TemplatesDirectory&gt;
   &lt;Sites&gt;
     &lt;Site Name=&quot;sites/devauto&quot; Title=&quot;Developers den&quot;&gt;
       &lt;Description&gt;Developers live here&lt;/Description&gt;
-      &lt;WebTemplate Name=&quot;testDev&quot;&gt;
-        &lt;PackageFileName&gt;testDev.wsp&lt;/PackageFileName&gt;
+      &lt;WebTemplate Name=&quot;qa-template&quot;&gt;
+        &lt;PackageFileName&gt;qa-template.wsp&lt;/PackageFileName&gt;
       &lt;/WebTemplate&gt;
       &lt;Permissions&gt;
         &lt;Permission&gt;
@@ -20,8 +20,8 @@
     &lt;/Site&gt;
     &lt;Site Name=&quot;sites/qaauto&quot; Title=&quot;QA hideout&quot;&gt;
       &lt;Description&gt;Right place for testers&lt;/Description&gt;
-      &lt;WebTemplate Name=&quot;testDev&quot;&gt;
-        &lt;PackageFileName&gt;testDev.wsp&lt;/PackageFileName&gt;
+      &lt;WebTemplate Name=&quot;qa-template&quot;&gt;
+        &lt;PackageFileName&gt;qa-template.wsp&lt;/PackageFileName&gt;
       &lt;/WebTemplate&gt;
       &lt;Permissions&gt;
         &lt;Permission&gt;
@@ -36,8 +36,8 @@
     &lt;/Site&gt;
     &lt;Site Name=&quot;sites/hrauto&quot; Title=&quot;HR headquarters&quot;&gt;
       &lt;Description&gt;HRs should stay here&lt;/Description&gt;
-      &lt;WebTemplate Name=&quot;testDev&quot;&gt;
-        &lt;PackageFileName&gt;testDev.wsp&lt;/PackageFileName&gt;
+      &lt;WebTemplate Name=&quot;qa-template&quot;&gt;
+        &lt;PackageFileName&gt;qa-template.wsp&lt;/PackageFileName&gt;
       &lt;/WebTemplate&gt;
       &lt;Permissions&gt;
         &lt;Permission&gt;
