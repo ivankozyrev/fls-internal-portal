@@ -19,9 +19,6 @@
 	<PackageProject Include="FileSearchConnector">
 		<Name>FLS.SharePoint.FileSearchConnector</Name>
 	</PackageProject>
-	<PackageProject Include="UploadSolutionPage">
-		<Name>FLS.SharePoint.UploadSolutionPage</Name>
-	</PackageProject>
 	<PackageProject Include="UserProfile">
 		<Name>FLS.SharePoint.UserProfile</Name>
 	</PackageProject>
