@@ -21,20 +21,25 @@ namespace FLS.Sharepoint.ClientObjectModel.AvailableSiteLists
                 var siteCollection = new List<SPSite>();
                 if (adminFlag)
                 {
-                    AuthMessageLabel.Text = "You are administration Farm and you can see all farm sites.";
-                    var service = SPFarm.Local.Services.GetValue<SPWebService>(string.Empty);
-                    foreach (SPWebApplication webApplication in service.WebApplications)
+                   //full access
+                    SPSecurity.RunWithElevatedPrivileges(delegate
                     {
-                        siteCollection.AddRange(webApplication.Sites);
-                    }
+                        var service = SPFarm.Local.Services.GetValue<SPWebService>(string.Empty);
+                        foreach (SPWebApplication webApplication in service.WebApplications)
+                        {
+                            siteCollection.AddRange(webApplication.Sites);
+                        }
+
+                        ShowSiteCollection(siteCollection);
+                    });
+                   
                 }
                 else
                 {
                     AuthMessageLabel.Text = "You are not Farm administration and you can't see all farm sites, only current site and it children sites";
                     siteCollection.Add(SPContext.Current.Site);
+                    ShowSiteCollection(siteCollection);
                 }
-
-                ShowSiteCollection(siteCollection);
 
                 if (siteCollectionTree.SelectedNode != null)
                 {
@@ -57,10 +62,12 @@ namespace FLS.Sharepoint.ClientObjectModel.AvailableSiteLists
                 var info = collection.WebsInfo[i];
 
                 var node = func.Invoke(info.Title, info.ServerRelativeUrl, rootNode);
-
-                if (collection[i].Webs.Count > 0)
+                using (SPWeb web = collection[i])
                 {
-                    ShowWebCollection(collection[i].Webs, func, node);
+                    if (web.Webs.Count > 0)
+                    {
+                        ShowWebCollection(web.Webs, func, node);
+                    }
                 }
             }
         }
@@ -96,6 +103,7 @@ namespace FLS.Sharepoint.ClientObjectModel.AvailableSiteLists
                 using (site)
                 {
                     var rootWeb = site.RootWeb;
+
                     var node = new TreeNode(rootWeb.Title, rootWeb.Url);
                     if (rootWeb.Url == currentWeb.Url)
                     {
@@ -105,21 +113,21 @@ namespace FLS.Sharepoint.ClientObjectModel.AvailableSiteLists
                     if (rootWeb.Webs.Count > 0)
                     {
                         ShowWebCollection(
-                            rootWeb.Webs, 
+                            rootWeb.Webs,
                             (title, url, rootNode) =>
-                                                            {
-                                                                var childNode = new TreeNode(title, new Uri(new Uri(site.Url), url).ToString());
-                                                                if (currentWeb.Url.Contains(url))
-                                                                {
-                                                                    childNode.Selected = true;
-                                                                    childNode.Expand();
-                                                                }
+                                {
+                                    var childNode = new TreeNode(title, new Uri(new Uri(site.Url), url).ToString());
+                                    if (currentWeb.Url.Contains(url))
+                                    {
+                                        childNode.Selected = true;
+                                        childNode.Expand();
+                                    }
 
-                                                                rootNode.ChildNodes.Add(childNode);
+                                    rootNode.ChildNodes.Add(childNode);
 
-                                                                return childNode;
-                                                            },
-                                                            node);
+                                    return childNode;
+                                },
+                            node);
                     }
 
                     siteCollectionTree.Nodes.Add(node);
