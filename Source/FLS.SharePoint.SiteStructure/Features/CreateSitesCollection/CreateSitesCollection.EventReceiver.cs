@@ -15,24 +15,21 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
     [Guid("68f9b364-9421-4b00-8408-6908a439bacd")]
     public class CreateSitesCollectionEventReceiver : SPFeatureReceiver
     {
-        private readonly IServiceLocator serviceLocator;
+        private IServiceLocator serviceLocator;
 
-        private readonly IConfigPropertiesParser configPropertiesParser;
+        private IConfigPropertiesParser configPropertiesParser;
 
-        private readonly IFileSystemHelper fileSystemHelper;
+        private IFileSystemHelper fileSystemHelper;
 
-        private readonly ILogger logger;
+        private ILogger logger;
 
-        public CreateSitesCollectionEventReceiver()
+        public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             serviceLocator = SharePointServiceLocator.GetCurrent();
             configPropertiesParser = serviceLocator.GetInstance<IConfigPropertiesParser>();
             fileSystemHelper = serviceLocator.GetInstance<IFileSystemHelper>();
             logger = serviceLocator.GetInstance<ILogger>();
-        }
 
-        public override void FeatureActivated(SPFeatureReceiverProperties properties)
-        {
             logger.Debug(string.Format("Start feature {0} activation.", properties.Feature.Definition.DisplayName));
             logger.Debug("Reading configuration...");
             var configuration = GetSitesConfiguration(properties,
@@ -149,6 +146,11 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
 
         public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
+            serviceLocator = SharePointServiceLocator.GetCurrent();
+            configPropertiesParser = serviceLocator.GetInstance<IConfigPropertiesParser>();
+            fileSystemHelper = serviceLocator.GetInstance<IFileSystemHelper>();
+            logger = serviceLocator.GetInstance<ILogger>();
+            
             logger.Debug(string.Format("Start feature {0} deactivation", properties.Feature.Definition.DisplayName));
             logger.Debug("Reading configuration...");
             var configuration = GetSitesConfiguration(properties, configPropertiesParser);
