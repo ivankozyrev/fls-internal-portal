@@ -20,7 +20,8 @@ namespace FLS.SharePoint.UserProfile.UserProfileListWebPart
                                                                                          DisplayName = up.DisplayName,
                                                                                          PublicUrl = up.PublicUrl,
                                                                                          Email = up["WorkEmail"].Value ?? string.Empty,
-                                                                                         EditLink = "#"
+                                                                                         // TODO hack
+                                                                                         EditLink = up.PublicUrl.ToString().Replace("Person.aspx", "_layouts/EditProfile.aspx")
                                                                                      });
                     userProfileListRpt.DataBind();
                 }

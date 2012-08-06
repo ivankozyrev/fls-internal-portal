@@ -6,42 +6,36 @@
 <div>
   <table>
   <tr>
-    <td>
+    <td colspan="2">
       <asp:Label ID="AuthMessageLabel" runat="server"/>
     </td>
   </tr>
    <tr>
      <td>
-        <asp:TreeView ID="siteCollectionTree" OnSelectedNodeChanged="SelectedNodeChanged" runat="server"></asp:TreeView>
+       <asp:TreeView ID="siteCollectionTree" OnSelectedNodeChanged="SelectedNodeChanged" runat="server"/>
+        <asp:Label ID="SiteNameLabel" runat="server"/>
      </td>
-   </tr>
-   <tr>
-     <td>
-       <asp:Label ID="SiteNameLabel" runat="server"/>
-     </td>
-   </tr>
-   <tr>
-     <td>
-       <asp:Repeater ID="AvailableListsRpt" runat="server">
-      <HeaderTemplate>
-        <table>
-          <tr>
-              <th>List Name</th>
-              <th>Item count</th>
-          </tr>
-      </HeaderTemplate>
-      <ItemTemplate>
-        <tr>
-          <td>
-            <a href="<%#DataBinder.Eval(Container.DataItem, "DefaultViewUrl")%>"><%#DataBinder.Eval(Container.DataItem, "Title")%></a>
-          </td>
-          <td><%#DataBinder.Eval(Container.DataItem, "ItemCount")%></td>
-        </tr>
-      </ItemTemplate>
-      <FooterTemplate>
-        </table>
-      </FooterTemplate>
-    </asp:Repeater>
+      <td>
+         <asp:Repeater ID="AvailableListsRpt" runat="server">
+            <HeaderTemplate>
+              <table>
+                <tr>
+                    <th>List Name</th>
+                    <th>Item count</th>
+                </tr>
+            </HeaderTemplate>
+            <ItemTemplate>
+              <tr>
+                <td>
+                  <a href="<%#DataBinder.Eval(Container.DataItem, "DefaultViewUrl")%>"><%#DataBinder.Eval(Container.DataItem, "Title")%></a>
+                </td>
+                <td><%#DataBinder.Eval(Container.DataItem, "ItemCount")%></td>
+              </tr>
+            </ItemTemplate>
+            <FooterTemplate>
+              </table>
+            </FooterTemplate>
+        </asp:Repeater>
      </td>
    </tr>
   </table>
