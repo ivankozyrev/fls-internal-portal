@@ -38,8 +38,16 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
             var configuration = GetSitesConfiguration(properties,
                                                       configPropertiesParser);
             logger.Debug("Done. Reading configuration.");
-            var rootSite = GetRootSite(properties);
             var sites = GetSiteCollections(properties);
+            logger.Debug("Getting application root site");
+            var rootSite = GetRootSite(properties);
+            if (rootSite == null)
+            {
+                logger.Debug("Web application root site is not found. Trying to create it.");
+                rootSite = sites.Add("/", configuration.SitesOwner, null);
+                logger.Debug("Done. Creating web application root site.");
+            }
+            logger.Debug("Done. Getting application root site.");
             var rootWeb = GetSiteRootWeb(rootSite);
 
             logger.Debug("Creating groups...");
@@ -146,9 +154,14 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
             var configuration = GetSitesConfiguration(properties, configPropertiesParser);
             logger.Debug("Done. Reading configuration");
 
-            var sites = GetSiteCollections(properties);
             var rootSite = GetRootSite(properties);
+            if (rootSite == null)
+            {
+                logger.Debug("Root site doesn't exist. Leaving deactivation procedure.");
+                return;
+            }
 
+            var sites = GetSiteCollections(properties);
             logger.Debug("Start deleting sites...");
             foreach (var site in configuration.Sites)
             {
@@ -217,9 +230,17 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
             }
         }
 
-        private static SPSite GetRootSite(SPFeatureReceiverProperties properties)
+        private SPSite GetRootSite(SPFeatureReceiverProperties properties)
         {
-            return ((SPWebApplication) properties.Feature.Parent).Sites[0];
+            var webApplication = (SPWebApplication)properties.Feature.Parent;
+            if (webApplication.Sites.Count > 0)
+            {
+                logger.Debug("WebApplication root site does exist.");
+                return ((SPWebApplication)properties.Feature.Parent).Sites[0];
+            }
+
+            logger.Debug("WebApplication root site doesn't exist");
+            return null;
         }
 
         private void ApplyWebTemplate(SPWeb web, string templateName)
