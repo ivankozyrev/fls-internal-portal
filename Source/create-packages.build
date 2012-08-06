@@ -10,9 +10,9 @@
 	<PackageProject Include="SiteStructure">
 		<Name>FLS.SharePoint.SiteStructure</Name>
 	</PackageProject>
-	<PackageProject Include="FederatedSearch">
+	<PackageProject Include="SiteStructure">
 		<Name>FLS.SharePoint.FederatedSearch</Name>
-	</PackageProject>
+	</PackageProject>	
 	<PackageProject Include="ListDefinition">
 		<Name>FLS.SharePoint.ListDefinition</Name>
 	</PackageProject>
@@ -36,6 +36,9 @@
 	</ExternalPackage>
 	<ExternalPackage Include="SiteTemplates">
 		<Path>..\.SiteTemplates\qa-template.wsp</Path>
+	</ExternalPackage>
+	<ExternalPackage Include="ConfigurationProxy">
+		<Path>..\.SiteTemplates\011-FLS.SharePoint.System.ConfigurationProxy.wsp</Path>
 	</ExternalPackage>
 	
   </ItemGroup>
