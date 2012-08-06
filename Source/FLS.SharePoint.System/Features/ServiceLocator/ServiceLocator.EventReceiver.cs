@@ -8,7 +8,7 @@ namespace FLS.SharePoint.System.Features.ServiceLocator
     [Guid("754ec693-13c1-4d7d-957b-59eec52300db")]
     public class ServiceLocationEventReceiver : SPFeatureReceiver
     {
-        public override void FeatureInstalled(SPFeatureReceiverProperties properties)
+        public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var serviceLocator = SharePointServiceLocator.GetCurrent();
             var typeMappings = serviceLocator.GetInstance<IServiceLocatorConfig>();
@@ -17,7 +17,7 @@ namespace FLS.SharePoint.System.Features.ServiceLocator
             typeMappings.RegisterTypeMapping<IFileSystemHelper, FileSystemHelper>();
         }
 
-        public override void FeatureUninstalling(SPFeatureReceiverProperties properties)
+        public override void FeatureDeactivating(SPFeatureReceiverProperties properties)
         {
             var serviceLocator = SharePointServiceLocator.GetCurrent();
             var typeMappings = serviceLocator.GetInstance<IServiceLocatorConfig>();
