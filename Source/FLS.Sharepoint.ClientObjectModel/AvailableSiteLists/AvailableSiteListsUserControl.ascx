@@ -5,6 +5,11 @@
 
 <div>
   <table>
+  <tr>
+    <td>
+      <asp:Label ID="AuthMessageLabel" runat="server"/>
+    </td>
+  </tr>
    <tr>
      <td>
         <asp:TreeView ID="siteCollectionTree" OnSelectedNodeChanged="SelectedNodeChanged" runat="server"></asp:TreeView>
