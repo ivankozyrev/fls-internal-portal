@@ -37,10 +37,6 @@
 	<ExternalPackage Include="SiteTemplates">
 		<Path>..\.SiteTemplates\qa-template.wsp</Path>
 	</ExternalPackage>
-	<ExternalPackage Include="ConfigurationProxy">
-		<Path>..\.SiteTemplates\011-FLS.SharePoint.System.ConfigurationProxy.wsp</Path>
-	</ExternalPackage>
-	
   </ItemGroup>
   
   
