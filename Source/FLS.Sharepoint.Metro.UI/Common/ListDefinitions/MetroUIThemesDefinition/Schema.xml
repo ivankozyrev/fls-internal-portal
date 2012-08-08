@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="FLS.Sharepoint.Metro.UI - MetroUIThemesDefinition" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/FLS.Sharepoint.Metro.UI-MetroUIThemesDefinition" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/">
+  <MetaData>
+    <ContentTypes>
+      <ContentType ID="0x0100552f6243ef7d4519a30254c3cecc270f" Name="MetroUIThemes" Group="FLS.Sharepoint Content Types" Description="My Content Type" Inherits="TRUE" Version="0">
+        <FieldRefs>
+          <FieldRef ID="{121D3BD4-C05A-4782-A289-BDAFB74E4201}" Name="CssUrl" />
+          <FieldRef ID="{121D3BD4-C05A-4782-A289-BDAFB74E4202}" Name="SiteIconUrl" />
+        </FieldRefs>
+      </ContentType>
+    </ContentTypes>
+    <Fields>
+      <Field ID="{121d3bd4-c05a-4782-a289-bdafb74e4201}" Name="CssUrl" DisplayName="CSS Url" Group="FLS.Sharepoint Columns" Type="Text" />
+      <Field ID="{121d3bd4-c05a-4782-a289-bdafb74e4202}" Name="SiteIconUrl" DisplayName="Site Icon Url" Group="FLS.Sharepoint Columns" Type="Text" />
+    </Fields>
+    <Views>
+      <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          <FieldRef Name="LinkTitleNoMenu">
+          </FieldRef>
+        </ViewFields>
+        <Query>
+          <OrderBy>
+            <FieldRef Name="Modified" Ascending="FALSE">
+            </FieldRef>
+          </OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View>
+      <View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/images/generic.png" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          <FieldRef Name="Attachments">
+          </FieldRef>
+          <FieldRef Name="LinkTitle">
+          </FieldRef>
+        </ViewFields>
+        <Query>
+          <OrderBy>
+            <FieldRef Name="ID">
+            </FieldRef>
+          </OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View>
+    </Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

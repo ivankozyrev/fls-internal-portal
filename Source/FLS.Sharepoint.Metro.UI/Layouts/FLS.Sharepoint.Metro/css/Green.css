@@ -1,0 +1,146 @@
+﻿.s4-title h1 a,.s4-title h2 a,.s4-tn li.static > .menu-item,.ms-WPBody a:link,.link-item a,.link-item a:link,.s4-ql ul.root > li > .menu-item,.s4-qlheader,.s4-ql a.selected,.s4-ql ul.root ul > li > a,.ms-menutoolbar td a,a.ms-addnew,.ms-ltviewselectormenuheader .ms-viewselector a,.ms-ltviewselectormenuheader .ms-viewselectorhover a,.ms-vb a:link,.ms-vb2 a:link,.ms-vb-user a:link,.ms-linksection-level1 ul li a,.ms-WPTitle a{color:#419639;text-decoration:none;}
+.ms-WPBody a:visited,.link-item a:visited,.s4-qlheader:visited,a.ms-addnew:visited,.ms-ltviewselectormenuheader .ms-viewselector a:visited,.ms-ltviewselectormenuheader .ms-viewselectorhover a:visited,.ms-vb a:visited,.ms-vb2 a:visited,.ms-vb-user a:visited,.ms-linksection-level1 ul li a:visited{color:#419639;text-decoration:none;}
+.s4-title h1 a:hover,.s4-title h2 a:hover,.s4-tn li.static > a:hover,.s4-toplinks .s4-tn a.selected:hover,.ms-WPBody a:hover,.link-item a:hover,.s4-ql ul > li > a:hover,.s4-ql ul.root > li > a:hover,.s4-qlheader:hover,.ms-rtestate-field a:hover,.s4-ql ul.root ul > li > a:hover,.ms-menutoolbar td a:hover,.ms-vh a:hover,.ms-vh2 a:hover,a.ms-addnew:hover,.ms-ltviewselectormenuheader .ms-viewselector a:hover,.ms-ltviewselectormenuheader .ms-viewselectorhover a:hover,a.ms-toolbar:hover,.ms-vh2-nofilter a:hover,.ms-vh2-nofilter-notextalign a:hover,.ms-vb a:hover,.ms-vb2 a:hover,.ms-vb-user a:hover,.ms-linksection-level1 ul li a:hover,.ms-propertysheet a:hover,.ms-sectionheader a:hover,.ms-disc a:hover{color:#419639;text-decoration:none;}
+.link-item a:active,a.ms-addnew:active,.ms-ltviewselectormenuheader .ms-viewselector a:active,.ms-ltviewselectormenuheader .ms-viewselectorhover a:active,.ms-vb a:active,.ms-vb2 a:active,.ms-vb-user a:active,.ms-linksection-level1 ul li a:active{color:#419639;text-decoration:none;}
+.s4-ql a.selected,.ms-viewlsts .ms-vb2 > a,.ms-addnew a,.ms-selectorlink a,.ms-selectorlink a:visited,.ms-navitem a:link{color:#419639!important;text-decoration:none!important;}
+.s4-ql a.selected:visited,.ms-viewlsts .ms-vb2 > a:visited,.ms-addnew a:visited,.ms-navitem a:visited{color:#419639!important;text-decoration:none!important;}
+.s4-ql a.selected:hover,.ms-viewlsts .ms-vb2 > a:hover,.ms-addnew a:hover,tr.s4-itm-hover a:hover,tr.ms-itmhover a:hover,.ms-selectorlink a:hover,.ms-navitem a:hover,.ms-WPTitle a:hover{color:#419639!important;text-decoration:none!important;}
+.s4-ql a.selected:active,.ms-viewlsts .ms-vb2 > a:active,.ms-addnew a:active,.ms-navitem a:active{color:#419639!important;text-decoration:none!important;}
+
+
+/* SharePoint Base
+********************************************************************************************/
+
+
+.ms-rteElement-H1B, ms-rteElement-H1
+{
+ color:#419639;	
+}
+
+.ms-rteElement-H2B, ms-rteElement-H2
+{
+ color:#419639;		
+}
+
+.ms-rteElement-H3B, ms-rteElement-H3
+{
+ color:#419639;		
+}
+
+#s4-bodyContainer {
+	
+}
+
+	.colourBlockLeft
+	{
+		background-color:#419639;
+	}
+
+/* Header 
+********************************************************************************************/
+
+
+
+		#pageTitle h1
+		{
+			color:#419639;
+		}
+		
+			#pageTitle h1 a
+			{
+					color:#419639;
+			}
+		
+		.ms-socialNotif-Container a:hover
+		{    
+			background-color: #419639 ;
+		}	
+	
+
+	/* Breadcrumb  
+	********************************************************************************************/
+
+			
+	#breadcrumb
+	{
+		color:#419639;
+	}
+
+		#breadcrumb a
+		{			
+			color:#419639;
+		}
+
+
+		/* Search Box Styles  
+		********************************************************************************************/
+
+		.s4-search .ms-sbgo a
+		{
+			background:url(../images/Green/search_btn.png) no-repeat; 
+		}
+
+		
+		/* Quick Launch  
+		********************************************************************************************/
+		
+		.s4-ql li a 
+		{ 
+			background-color:#419639;
+		}
+
+		
+		.s4-ql li ul li .selected 
+		{ 
+			background-image:none; 
+			background-color:#22ac60;
+			padding:5px 3px 5px 5px !important;
+			color:#fff !important;
+		}
+
+		.s4-ql a.selected, .s4-ql a.selected:visited, .s4-ql a.selected:hover
+		{ 
+			color:#fff !important;
+		}
+
+		.s4-ql li ul li a:hover 
+		{   
+			background-image:none; 
+			background-color:#22ac60;
+			padding:5px 3px 5px 5px !important;
+			color:#fff !important;
+		}			
+	
+		/* Mini Calendar Picker  
+		********************************************************************************************/
+
+		.ms-picker-header
+		{
+			background-color:#419639 !important;
+		}
+
+
+
+/* WebParts  
+********************************************************************************************/
+
+.ms-WPHeader, .ms-WPHeader td, .ms-WPTitle, .ms-WPHeaderTdMenu, .ms-WPHeaderTdSelection, .ms-wpTdSpace
+{
+	background-color:#419639;
+	border-bottom: 1px solid #419639!important;
+}
+
+/* Calendar  
+********************************************************************************************/
+
+.ms-acal-summary-dayrow TD DIV
+{
+	background-color:#419639;	
+}
+
+.ms-acal-summary-dayrow TD DIV:hover
+{
+	background-color:#419639;
+}
+	
+

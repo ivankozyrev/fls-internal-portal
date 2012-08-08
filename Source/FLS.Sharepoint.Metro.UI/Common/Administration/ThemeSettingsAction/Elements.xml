@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction
+    Id="3a9cf712-5db8-4ed4-98e1-98b526e26434"
+    Location="Microsoft.SharePoint.SiteSettings"
+    GroupId="43eaed72-da4d-47d4-8766-440f80b28ee9"
+    Sequence="106"
+    Title="Theme" >
+    <UrlAction Url="~site/_layouts/FLS.Sharepoint.Metro/admin/theme.aspx"/>
+  </CustomAction>
+</Elements>

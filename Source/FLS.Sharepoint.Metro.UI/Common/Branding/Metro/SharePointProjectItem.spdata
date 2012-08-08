@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="CKS.Dev.SharePoint.Branding" FeatureReceiverClass="FLS.Sharepoint.Metro.UI.Common.Branding.Metro.SiteFeatureReceiver" FeatureReceiverAssembly="$SharePoint.Project.AssemblyFullName$" SupportedTrustLevels="All" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files />
+  <FeatureProperties>
+    <FeatureProperty Key="MasterPage" Value="Metro.master" />
+    <FeatureProperty Key="SearchMasterPage" Value="MetroSearch.master" />
+  </FeatureProperties>
+</ProjectItem>

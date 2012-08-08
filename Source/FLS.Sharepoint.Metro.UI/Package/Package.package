@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="23df5a7e-73e0-4076-ade1-016e58e21af4" solutionId="768bf7b2-ce06-4b93-aebe-e2d86b060a96" resetWebServer="false" name="FLS.Sharepoint.MetroUI" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="33d189cd-a555-4309-b1d3-e5fd0219d69f" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="6f06b448-7224-4aa8-bda8-1367c5597e1f" />
+  </projectItems>
+</package>
