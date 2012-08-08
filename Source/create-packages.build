@@ -25,6 +25,9 @@
 	<PackageProject Include="ClientObjectModel">
 		<Name>FLS.Sharepoint.ClientObjectModel</Name>
 	</PackageProject>
+	<PackageProject Include="MetroUI">
+		<Name>FLS.Sharepoint.Metro.UI</Name>
+	</PackageProject>
 	<PackageProject Include="blank">
 		<Name>FLS.SharePoint</Name>
 	</PackageProject>
