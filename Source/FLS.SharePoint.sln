@@ -29,13 +29,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.UserProfile"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.ListDefinition", "FLS.SharePoint.ListDefinition\FLS.SharePoint.ListDefinition.csproj", "{A5FE7863-5712-4CE8-9CF2-69DD69649121}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.Sharepoint.UploadSolutionPage", "FLS.Sharepoint.UploadSolutionPage\FLS.Sharepoint.UploadSolutionPage.csproj", "{095EB450-0B21-4B2F-9295-D95E2323409B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.Sharepoint.ClientObjectModel", "FLS.Sharepoint.ClientObjectModel\FLS.Sharepoint.ClientObjectModel.csproj", "{36E787B8-062A-4D58-9A8E-81A4F30CC019}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.SequentialWorkflow", "FLS.SharePoint.SequentialWorkflow\FLS.SharePoint.SequentialWorkflow.csproj", "{4FD2D12B-E9FF-4A48-91D8-46D89A9F64E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.Sharepoint.MetroUI", "FLS.Sharepoint.MetroUI\FLS.Sharepoint.MetroUI.csproj", "{7F296F15-917C-425B-AD1B-9FF820E933FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.Sharepoint.Metro.UI", "FLS.Sharepoint.Metro.UI\FLS.Sharepoint.Metro.UI.csproj", "{7F296F15-917C-425B-AD1B-9FF820E933FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,12 +91,6 @@ Global
 		{A5FE7863-5712-4CE8-9CF2-69DD69649121}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5FE7863-5712-4CE8-9CF2-69DD69649121}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A5FE7863-5712-4CE8-9CF2-69DD69649121}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{095EB450-0B21-4B2F-9295-D95E2323409B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{095EB450-0B21-4B2F-9295-D95E2323409B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{095EB450-0B21-4B2F-9295-D95E2323409B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{095EB450-0B21-4B2F-9295-D95E2323409B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{095EB450-0B21-4B2F-9295-D95E2323409B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{095EB450-0B21-4B2F-9295-D95E2323409B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{36E787B8-062A-4D58-9A8E-81A4F30CC019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{36E787B8-062A-4D58-9A8E-81A4F30CC019}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36E787B8-062A-4D58-9A8E-81A4F30CC019}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
