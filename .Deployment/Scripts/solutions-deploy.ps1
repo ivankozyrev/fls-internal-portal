@@ -1,7 +1,7 @@
 function WaitForJobToFinish([string]$Identity)
 {   
     $job = Get-SPTimerJob | ?{ $_.Name -like "*solution-deployment*$Identity*" }
-    $maxwait = 30
+    $maxwait = 60
     $currentwait = 0
 
     if (!$job)
@@ -21,7 +21,7 @@ function WaitForJobToFinish([string]$Identity)
                 break;
             }
         }
-        Write-Host  -f Green "...Done!"
+        Write-Host  -f Green "...Done! $currentwait sec."
     }
 }
 
