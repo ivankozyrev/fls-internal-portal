@@ -1,7 +1,7 @@
 function WaitForJobToFinish([string]$Identity)
 {   
     $job = Get-SPTimerJob | ?{ $_.Name -like "*solution-deployment*$Identity*" }
-    $maxwait = 60
+    $maxwait = 300
     $currentwait = 0
 
     if (!$job)
