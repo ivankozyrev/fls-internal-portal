@@ -100,7 +100,9 @@
     <Content Include="DevDocumentLibrary\FileDlg.htm" />
     <Content Include="DevDocumentLibrary\DevLibrary\Elements.xml" />
     <Content Include="DevDocumentLibrary\Repair.aspx" />
-    <Content Include="DevDocumentLibrary\Schema.xml" />
+    <Content Include="DevDocumentLibrary\Schema.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="DevDocumentLibrary\Upload.aspx" />
     <Content Include="Features\DevLibraryFeature\DevLibraryFeature.Template.xml">
       <DependentUpon>DevLibraryFeature.feature</DependentUpon>

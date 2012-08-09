@@ -35,8 +35,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.Sharepoint.ClientObject
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.SequentialWorkflow", "FLS.SharePoint.SequentialWorkflow\FLS.SharePoint.SequentialWorkflow.csproj", "{4FD2D12B-E9FF-4A48-91D8-46D89A9F64E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomTaskApproval", "CustomTaskApproval\CustomTaskApproval.csproj", "{A04FF98C-88CF-4BD4-B6B3-4A08CFA0A51A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentApproval", "DocumentApproval\DocumentApproval.csproj", "{78F4054A-332A-45DD-94ED-0DCA5950A478}"
 EndProject
 Global
@@ -113,12 +111,6 @@ Global
 		{4FD2D12B-E9FF-4A48-91D8-46D89A9F64E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FD2D12B-E9FF-4A48-91D8-46D89A9F64E7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4FD2D12B-E9FF-4A48-91D8-46D89A9F64E7}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{A04FF98C-88CF-4BD4-B6B3-4A08CFA0A51A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A04FF98C-88CF-4BD4-B6B3-4A08CFA0A51A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A04FF98C-88CF-4BD4-B6B3-4A08CFA0A51A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{A04FF98C-88CF-4BD4-B6B3-4A08CFA0A51A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A04FF98C-88CF-4BD4-B6B3-4A08CFA0A51A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A04FF98C-88CF-4BD4-B6B3-4A08CFA0A51A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{78F4054A-332A-45DD-94ED-0DCA5950A478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{78F4054A-332A-45DD-94ED-0DCA5950A478}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78F4054A-332A-45DD-94ED-0DCA5950A478}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
