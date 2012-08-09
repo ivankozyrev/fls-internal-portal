@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListInstance Title="Metro UI Themes"
+                OnQuickLaunch="TRUE"
+                TemplateType="10001"
+                Url="Lists/MetroUIThemes"
+                Description="Contains a List Of Metro UI Themes">
+    <Data>
+      <Rows>
+        <Row>
+          <Field Name="Title">Blue</Field>
+          <Field Name="CssUrl">/_layouts/FLS.Sharepoint.Metro/css/Blue.css</Field>
+          <Field Name="SiteIconUrl">/_layouts/FLS.Sharepoint.Metro/images/Blue/siteIcon.png</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">Green</Field>
+          <Field Name="CssUrl">/_layouts/FLS.Sharepoint.Metro/css/Green.css</Field>
+          <Field Name="SiteIconUrl">/_layouts/FLS.Sharepoint.Metro/images/Green/siteIcon.png</Field>
+        </Row>
+        <Row>
+          <Field Name="Title">Red</Field>
+          <Field Name="CssUrl">/_layouts/FLS.Sharepoint.Metro/css/Red.css</Field>
+          <Field Name="SiteIconUrl">/_layouts/FLS.Sharepoint.Metro/images/Red/siteIcon.png</Field>
+        </Row>
+      </Rows>
+    </Data>
+  </ListInstance>
+</Elements>

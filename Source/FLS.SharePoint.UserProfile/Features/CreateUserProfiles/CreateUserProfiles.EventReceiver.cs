@@ -26,24 +26,26 @@ namespace FLS.SharePoint.UserProfile.Features.CreateUserProfiles
 
             var userProfileList = XmlSettingsHelper.GetUserProfileList(filePath);
 
-            SPSite site = ((SPWebApplication)properties.Feature.Parent).Sites[0];
-            SPServiceContext context = SPServiceContext.GetContext(site);
-
-            var service = new UserProfileHelper(context, logger);
-
-            try
+            using (SPSite site = ((SPWebApplication)properties.Feature.Parent).Sites[0])
             {
-                logger.Debug("start activating 'Create user profiles' feature");
-             
-                service.CreateOrUpdateUserProfiles(userProfileList);
+                SPServiceContext context = SPServiceContext.GetContext(site);
 
-                logger.Debug("feature 'Create user profiles' was activated");
-            }
-            catch (Exception ex)
-            {
-                logger.Error(ex);
-                service.RemoveUserProfiles(userProfileList.Select(s => s.Login));
-                throw;
+                var service = new UserProfileHelper(context, logger);
+
+                try
+                {
+                    logger.Debug("start activating 'Create user profiles' feature");
+
+                    service.CreateOrUpdateUserProfiles(userProfileList);
+
+                    logger.Debug("feature 'Create user profiles' was activated");
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex);
+                    service.RemoveUserProfiles(userProfileList.Select(s => s.Login));
+                    throw;
+                }
             }
         }
 
@@ -58,13 +60,15 @@ namespace FLS.SharePoint.UserProfile.Features.CreateUserProfiles
                 var filePath = SPUtility.GetGenericSetupPath(ProfileFilePathTemplate);
                 var userProfileList = XmlSettingsHelper.GetUserProfileList(filePath);
 
-                SPSite site = ((SPWebApplication)properties.Feature.Parent).Sites[0];
-                SPServiceContext context = SPServiceContext.GetContext(site);
+                using (SPSite site = ((SPWebApplication)properties.Feature.Parent).Sites[0])
+                {
+                    SPServiceContext context = SPServiceContext.GetContext(site);
 
-                var service = new UserProfileHelper(context, logger);
-                service.RemoveUserProfiles(userProfileList.Select(s => s.Login));
+                    var service = new UserProfileHelper(context, logger);
+                    service.RemoveUserProfiles(userProfileList.Select(s => s.Login));
 
-                logger.Debug("feature 'Create user profiles' was deactivated");
+                    logger.Debug("feature 'Create user profiles' was deactivated");
+                }
             }
             catch (Exception ex)
             {

@@ -61,6 +61,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
@@ -76,6 +77,14 @@
     </Compile>
     <Compile Include="Features\CreateUserProfiles\UserProfileHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserProfileListWebPart\UserProfileListWebPart.cs" />
+    <Compile Include="UserProfileListWebPart\UserProfileListWebPartUserControl.ascx.cs">
+      <DependentUpon>UserProfileListWebPartUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserProfileListWebPart\UserProfileListWebPartUserControl.ascx.designer.cs">
+      <DependentUpon>UserProfileListWebPartUserControl.ascx.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Features\CreateUserProfiles\CreateUserProfiles.feature">
@@ -88,6 +97,11 @@
       <FeatureId>{06f147ba-dff3-461a-a927-1122fce58954}</FeatureId>
       <LastGenOutput>CreateUserProfileProperties.feature.cs</LastGenOutput>
     </None>
+    <None Include="Features\UserProfileList\UserProfileList.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <FeatureId>{b1a751b7-6567-4ff4-af53-4b64a974ca86}</FeatureId>
+      <LastGenOutput>UserProfileList.feature.cs</LastGenOutput>
+    </None>
     <None Include="key.snk" />
     <None Include="Package\Package.package">
       <PackageId>{78d7da3f-b6c4-4be6-9043-d0eb44f10dfb}</PackageId>
@@ -98,6 +112,10 @@
     <None Include="UserProfileElements\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{f4a479b1-c4e4-4976-9af1-7d3bc4fa0d95}</SharePointProjectItemId>
     </None>
+    <None Include="UserProfileListWebPart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d4264a28-53be-41b1-82ba-f11c02ee45ce}</SharePointProjectItemId>
+    </None>
+    <None Include="UserProfileListWebPart\UserProfileListWebPart.webpart" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Features\CreateUserProfiles\CreateUserProfiles.Template.xml">
@@ -106,8 +124,15 @@
     <Content Include="Features\CreateUserProfileProperties\CreateUserProfileProperties.Template.xml">
       <DependentUpon>CreateUserProfileProperties.feature</DependentUpon>
     </Content>
+    <Content Include="Features\UserProfileList\UserProfileList.Template.xml">
+      <DependentUpon>UserProfileList.feature</DependentUpon>
+    </Content>
     <Content Include="UserProfileElements\CustomPropertyList.xml" />
     <Content Include="UserProfileElements\UserList.xml" />
+    <Content Include="UserProfileListWebPart\Elements.xml" />
+    <Content Include="UserProfileListWebPart\UserProfileListWebPartUserControl.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FLS.SharePoint.Infrastructure\FLS.SharePoint.Infrastructure.csproj">

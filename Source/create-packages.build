@@ -12,7 +12,7 @@
 	</PackageProject>
 	<PackageProject Include="SiteStructure">
 		<Name>FLS.SharePoint.FederatedSearch</Name>
-	</PackageProject>
+	</PackageProject>	
 	<PackageProject Include="ListDefinition">
 		<Name>FLS.SharePoint.ListDefinition</Name>
 	</PackageProject>
@@ -25,6 +25,9 @@
 	<PackageProject Include="ClientObjectModel">
 		<Name>FLS.Sharepoint.ClientObjectModel</Name>
 	</PackageProject>
+	<PackageProject Include="MetroUI">
+		<Name>FLS.Sharepoint.Metro.UI</Name>
+	</PackageProject>
 	<PackageProject Include="blank">
 		<Name>FLS.SharePoint</Name>
 	</PackageProject>
@@ -34,7 +37,15 @@
 	<ExternalPackage Include="Pbs2010">
 		<Path>..\.Libraries\Pbs2010\PropertyBagSettings2010.wsp</Path>
 	</ExternalPackage>
-	
+	<ExternalPackage Include="SiteTemplates">
+		<Path>..\.SiteTemplates\qa.wsp</Path>
+	</ExternalPackage>
+	<ExternalPackage Include="SiteTemplates">
+		<Path>..\.SiteTemplates\hr.wsp</Path>
+	</ExternalPackage>
+	<ExternalPackage Include="SiteTemplates">
+		<Path>..\.SiteTemplates\Dep-template-03.08.2012-13-31.wsp</Path>
+	</ExternalPackage>
   </ItemGroup>
   
   

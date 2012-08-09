@@ -1,0 +1,667 @@
+﻿/* Global Reset
+********************************************************************************************/
+
+.s4-title h1 a,.s4-title h2 a,.s4-tn li.static > .menu-item,.ms-WPBody a:link,.link-item a,.link-item a:link,.s4-ql ul.root > li > .menu-item,.s4-qlheader,.s4-ql a.selected,.s4-ql ul.root ul > li > a,.ms-menutoolbar td a,a.ms-addnew,.ms-ltviewselectormenuheader .ms-viewselector a,.ms-ltviewselectormenuheader .ms-viewselectorhover a,.ms-vb a:link,.ms-vb2 a:link,.ms-vb-user a:link,.ms-linksection-level1 ul li a,.ms-WPTitle a{color:#0066cc;text-decoration:none;}
+.ms-WPBody a:visited,.link-item a:visited,.s4-qlheader:visited,a.ms-addnew:visited,.ms-ltviewselectormenuheader .ms-viewselector a:visited,.ms-ltviewselectormenuheader .ms-viewselectorhover a:visited,.ms-vb a:visited,.ms-vb2 a:visited,.ms-vb-user a:visited,.ms-linksection-level1 ul li a:visited{color:#0066cc;text-decoration:none;}
+.s4-title h1 a:hover,.s4-title h2 a:hover,.s4-tn li.static > a:hover,.s4-toplinks .s4-tn a.selected:hover,.ms-WPBody a:hover,.link-item a:hover,.s4-ql ul > li > a:hover,.s4-ql ul.root > li > a:hover,.s4-qlheader:hover,.ms-rtestate-field a:hover,.s4-ql ul.root ul > li > a:hover,.ms-menutoolbar td a:hover,.ms-vh a:hover,.ms-vh2 a:hover,a.ms-addnew:hover,.ms-ltviewselectormenuheader .ms-viewselector a:hover,.ms-ltviewselectormenuheader .ms-viewselectorhover a:hover,a.ms-toolbar:hover,.ms-vh2-nofilter a:hover,.ms-vh2-nofilter-notextalign a:hover,.ms-vb a:hover,.ms-vb2 a:hover,.ms-vb-user a:hover,.ms-linksection-level1 ul li a:hover,.ms-propertysheet a:hover,.ms-sectionheader a:hover,.ms-disc a:hover{color:#0066cc;text-decoration:none;}
+.link-item a:active,a.ms-addnew:active,.ms-ltviewselectormenuheader .ms-viewselector a:active,.ms-ltviewselectormenuheader .ms-viewselectorhover a:active,.ms-vb a:active,.ms-vb2 a:active,.ms-vb-user a:active,.ms-linksection-level1 ul li a:active{color:#0066cc;text-decoration:none;}
+.s4-ql a.selected,.ms-viewlsts .ms-vb2 > a,.ms-addnew a,.ms-selectorlink a,.ms-selectorlink a:visited,.ms-navitem a:link{color:#0066cc!important;text-decoration:none!important;}
+.s4-ql a.selected:visited,.ms-viewlsts .ms-vb2 > a:visited,.ms-addnew a:visited,.ms-navitem a:visited{color:#0066cc!important;text-decoration:none!important;}
+.s4-ql a.selected:hover,.ms-viewlsts .ms-vb2 > a:hover,.ms-addnew a:hover,tr.s4-itm-hover a:hover,tr.ms-itmhover a:hover,.ms-selectorlink a:hover,.ms-navitem a:hover,.ms-WPTitle a:hover{color:#0066cc!important;text-decoration:none!important;}
+.s4-ql a.selected:active,.ms-viewlsts .ms-vb2 > a:active,.ms-addnew a:active,.ms-navitem a:active{color:#0066cc!important;text-decoration:none!important;}
+.ms-cui-ribbon,.ms-cui-menu,.ms-siteactionsmenuinner,.ms-siteactionsmenuhover,.ms-welcomeMenu,div.ms-MenuUIPopupBody.ms-MenuUIPopupScreen,div.ms-MenuUIPopupBody.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner,div.ms-MenuUIPopupBody.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div,.ms-cui-toolbar-toolbar,.s4-titletable,.ms-socialNotif-Container,.ms-sbplain,.ms-sbtable,body #pageStatusBar,.link-item,.link-item a,.link-item a:link,.ms-WPBody,.ms-menutoolbar td a,.ms-toolbar,.ms-listheaderlabel,.ms-viewselector,.ms-viewselectortext,.ms-viewselectorhover,.ms-vh2-nofilter,.ms-vh2-nofilter-notextalign,.ms-vh,.ms-vh2,.ms-vh-icon,.ms-vh-icon-empty,.ms-vhImage,.ms-gb,.ms-gb2,.ms-gbload,.ms-vb,.ms-vb2,.ms-vb-tall,.ms-vb-user,.ms-vh2-nograd,.ms-vh3-nograd,.ms-vh2-nograd-icon,.ms-vh2-nofilter-icon,.ms-pb,.ms-pb-selected,.ms-ph,td.ms-vb,a.ms-addnew,.ms-ltviewselectormenuheader .ms-viewselector a,.ms-ltviewselectormenuheader .ms-viewselectorhover a,th.ms-vh,td.ms-vb,.ms-dlgTitleText,.ms-formlabel,.ms-descriptiontext,.ms-formtoolbar,select,.ms-input,.ms-long,.ms-inputuserfield,.ms-toolbarContainer,div.ms-formfieldlabelcontainer span.ms-formfieldlabel,.ms-formfieldlabelcontainer,.description,.ms-sectionheader,.ms-linksection-level1,.ms-pageinformation h3.ms-standardheader,table.ms-pageinformation,table.ms-createpageinformation,.ms-pageinformation table td,.ms-createpageinformation table td,.ms-linksectionheader,th .ms-vb,.ms-vh2-nofilter-icon,th.ms-vh2-nograd,th.ms-vh2-nograd-icon,.ms-propertysheet,.ms-formdescription,.ms-paging,.ms-listedit .ms-standardheader,.ms-listedit .ms-linksectionheader,.ms-listedit .ms-linksectionheader .ms-standardheader,.ms-listedit table.ms-pageinformation,.ms-listedit .ms-pageinformation table td,.ms-listedit .ms-propertysheet,.ms-listedit .ms-descriptiontext,.ms-SPZoneLabel,.ms-SPButton,.ms-wpadder-sectionhead,.ms-wpadder-wpname,.ms-wpadder-categoryColumn,.ms-wpadder-categoryColumn td,.ms-wpadder-items,.ms-wpadder-upload input,.ms-wpadder-upload button,.ms-wpadder-tabTable th,.ms-wpadder-description,.ms-wpadder-zoneArea button,.ms-WPTitle,.link-item-large,.link-item-large a,.link-item-large a:link,div.title-With-Background a,div.title-With-Background a:link,div.title-With-Background a:hover,div.title-With-Background a:visited,div.title-With-Background a:active,.headertitle,.headertitle a,.headertitle a:link,.level-item,.level-item a,.level-item a:link,.headertitle-band,.headertitle-band a,.headertitle-band a:link,.headertitle-large,.headertitle-large a,.headertitle-large a:link,.headertitle-small,.headertitle-small a,.headertitle-small a:link,.level-description,.ms-WPBody td,.medium,groupheader,.ms-rtelong,.ms-longer,.ms-rtelonger,.ms-radiotext,.ms-rtedropdown,.ms-lookuptypeintextbox,.ms-rtefield,table.ms-disc td,table tr td.ms-disc-bordered-noleft,.ms-formbodysurvey,.ms-gridCol,.ms-gridT1,.ms-surveyVBarT,.ms-surveyVBarTC,.ms-surveyTotal{font-family:inherit;}
+.ms-selectorlink a,.ms-selectorlink a:visited{font-family:inherit!important;}
+.ms-cui-ribbon,.ms-cui-menu,.ms-siteactionsmenu,.s4-breadcrumb-menu,.ms-cui-TabRowLeft,.ms-cui-toolbar-toolbar,.ms-MenuUILabel,.ms-MenuUILabelRtL,.ms-menuuilabelcompact,.ms-menuuilabelcompactRtl,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILarge ul.ms-MenuUIUL div.ms-MenuUIULItem a.ms-MenuUIULLink,div.ms-MenuUIPopupScreen div.ms-MenuUIPopupInner div.ms-MenuUILargeRtL ul.ms-MenuUIUL div.ms-MenuUIULItem a.ms-MenuUIULLink,.s4-search input.ms-sbplain,.ms-sbplain,.s4-search input,.link-item,.link-item a,.link-item a:link,.ms-WPBody,.s4-ql ul.root > li > .menu-item,.s4-qlheader,.s4-qlheader:visited,.ms-menutoolbar td a,.ms-toolbar,.ms-listheaderlabel,.ms-viewselector,.ms-viewselectortext,.ms-viewselectorhover,.ms-vh2-nofilter,.ms-vh2-nofilter-notextalign,.ms-vh,.ms-vh2,.ms-vh-icon,.ms-vh-icon-empty,.ms-vhImage,.ms-gb,.ms-gb2,.ms-gbload,.ms-vb,.ms-vb2,.ms-vb-tall,.ms-vb-user,.ms-vh2-nograd,.ms-vh3-nograd,.ms-vh2-nograd-icon,.ms-vh2-nofilter-icon,.ms-pb,.ms-pb-selected,.ms-ph,td.ms-vb,a.ms-addnew,.ms-ltviewselectormenuheader .ms-viewselector a,.ms-ltviewselectormenuheader .ms-viewselectorhover a,th.ms-vh,td.ms-vb,.s4-titletable,.ms-dlgTitleText,.ms-descriptiontext,.ms-formtoolbar,select,.ms-input,.ms-long,.ms-dtinput,.ms-dttimeinput,.ms-inputuserfield,.ms-toolbarContainer,div.ms-formfieldlabelcontainer span.ms-formfieldlabel,.ms-formfieldlabelcontainer,.description,.ms-linksection-level1 h3,.ms-linksection-level1 ul li a,.ms-pageinformation h3.ms-standardheader,table.ms-pageinformation,table.ms-createpageinformation,.ms-pageinformation table td,.ms-createpageinformation table td,th .ms-vb,.ms-vh2-nofilter-icon,th.ms-vh2-nograd,th.ms-vh2-nograd-icon,.ms-formdescription,.ms-authoringcontrols,.ms-paging,.ms-listedit .ms-standardheader,.ms-listedit .ms-linksectionheader,.ms-listedit .ms-linksectionheader .ms-standardheader,.ms-linksectionheader,.ms-SPZoneLabel,.ms-SPButton,.ms-wpadder-categoryColumn,.ms-wpadder-categoryColumn td,.ms-wpadder-items,.ms-wpadder-upload input,.ms-wpadder-upload button,.ms-wpadder-tabTable th,.ms-wpadder-description,.ms-wpadder-zoneArea button,.ms-WPTitle,.level-item,.level-item a,.level-item a:link,.level-description,.headertitle,.ms-WPBody td,.medium,groupheader,.ms-rtelong,.ms-longer,.ms-rtelonger,.ms-radiotext,.ms-rtedropdown,.ms-lookuptypeintextbox,.ms-rtefield,table.ms-disc td,table tr td.ms-disc-bordered-noleft,.ms-gridCol{font-size:1em;}
+.s4-title h2,.ms-socialNotif-text,.s4-search select.ms-sbscopes,.s4-search input.ms-sbplain,.article-content,.welcome-content,.s4-title .s4-pagedescription,.s4-title .s4uniqpermdescription,.ms-toolbar,.ms-listheaderlabel,.ms-gb .ms-standardheader,.ms-standardheader,.ms-gb,.ms-gb2,.ms-gbload,.ms-vb-tall,.ms-vb-user,.ms-pb,.ms-pb-selected td,.ms-vb,.ms-vb2,.ms-viewlsts-noitems > b,.s4-specialNavLinkList a:hover > span.ms-splinkbutton-text,.ms-vh2-nofilter,.ms-vh2-nofilter-notextalign,.ms-formlabel,.ms-descriptiontext,.ms-formtoolbar,.ms-toolbarContainer,.description,.link-item,.ms-sectionheader,.ms-linksection-level1 h3,.ms-pageinformation h3.ms-standardheader,.ms-linksectionheader .ms-standardheader,.ms-linksectionheader,.ms-pageinformation th,.ms-createpageinformation th,th .ms-vb,.ms-vh2-nofilter-icon,th.ms-vh2-nograd,th.ms-vh2-nograd-icon,.ms-vh,.ms-vh2,.ms-vh-icon-empty,.ms-vhImage,.ms-vh2-nograd,.ms-vh3-nograd,.ms-vh2-nograd-icon,.ms-vh2-nofilter-icon,.ms-ph,.ms-propertysheet,.ms-pageinformation table td,.ms-createpageinformation table td,.ms-bottompaging .ms-paging,.ms-paging,.ms-listedit .ms-standardheader,.ms-listedit .ms-linksectionheader,.ms-listedit .ms-linksectionheader .ms-standardheader,.ms-listedit .ms-gb .ms-vh2-nofilter,.ms-listedit .ms-gb .ms-vh2,.tmt-name,.ms-SPZoneTitle,.ms-SPZoneLabel,.ms-rteElement-P,.level-description,.headertitle,.medium,groupheader,.ms-rtefield,table.ms-disc td{color:inherit;}
+.ms-viewlsts th.ms-vh2-nofilter{color:inherit!important;}
+.ms-cui-ribbon a:link,.ms-cui-ribbon a:visited,.ms-cui-ribbon a:hover,.ms-cui-ribbon a:active,.ms-cui-menu a:link,.ms-cui-menu a:visited,.ms-cui-menu a:hover,.ms-cui-menu a:active,.ms-siteactionsmenu > span > a,.ms-menutoolbar td a,.ms-menutoolbar td a:hover,.s4-specialNavLinkList a:hover > span.ms-splinkbutton-text,a.ms-socialNotif{text-decoration:none;}
+
+/* SharePoint Base
+********************************************************************************************/
+
+/* Hide the OOTB breadcrumb*/ 
+.ms-pagebreadcrumb {
+	display:none;
+}
+
+.ms-addnew a
+{
+	text-decoration:none !important;
+}
+
+.ms-rteElement-H1B, ms-rteElement-H1
+{
+ color:#02adce;	
+}
+
+.ms-rteElement-H2B, ms-rteElement-H2
+{
+ color:#02adce;		
+}
+
+.ms-rteElement-H3B, ms-rteElement-H3
+{
+ color:#02adce;		
+}
+
+
+
+/* Common
+********************************************************************************************/
+
+.clearfix:before, .clearfix:after { 
+	content: "\0020"; 
+	display: block; 
+	height: 0; 
+	overflow: hidden;
+}
+
+.clearfix:after { 
+	clear: both; 
+}
+.clearfix {
+	zoom: 1; 
+}
+
+body {
+	height:100%;
+	width:100%;
+	background-image: url('../images/metro_bg.png');
+	background-repeat:repeat;
+}
+
+/* Dialog 
+********************************************************************************************/
+
+.ms-dialog #s4-bodyContainer 
+{
+	width:auto;
+	margin:auto;
+	border:1px solid #ddd;
+	background-color:#fff;	
+	background-image:none;
+}
+
+
+.ms-dialog body #s4-ribbonrow
+{ 
+	position: relative;
+	top:auto;
+	z-index:1000;
+	width:100%;
+}
+
+.ms-dialog body
+{
+	background-image:none !important;
+	background-color:#fff !important;
+}
+
+.ms-dialog #bodywrapper
+{ 
+	margin:0px;
+	padding:0px;
+}
+
+.ms-dialog .rightpanel 
+{
+	background:transparent none repeat scroll 0 0;
+	border:1px solid #dbddde;	
+	margin:0px 0px 0px 0px !important; 
+	overflow:visible;
+}		
+
+.ms-dialog #s4-bodyContainer {
+	position: relative;
+	background-color:#fff;
+	border:none;
+	min-width:inherit;
+	margin:10px;
+	overflow:inherit;
+	margin-top:0px;
+	background-image: none;	
+}
+
+.ms-dialog 	.scrollbarPanel
+	{
+	    overflow: inherit;
+	    width: inherit;
+	    height: inherit;	    
+	}
+		
+/* popout breadcrumb menu needs background color for firefox */
+.s4-breadcrumb-menu 
+{
+	background:#F2F2F2;
+}
+
+#s4-bodyContainer {
+	position: relative;
+	background-color:#fff;
+	border:1px solid #cfcfcf;
+	min-width:1000px !important;
+	margin:30px;
+}
+	.colourBlockLeft
+	{
+		background-color:#02adce;
+		position:absolute;
+		width:30px;
+		height:100px;
+		top:100px;
+	}
+	
+	
+
+
+/* Header 
+********************************************************************************************/
+
+#header
+{	
+	height:90px;	
+	margin: 0px 10px 0px 10px;	
+	padding-top:10px;
+}
+	
+	#header-inner
+	{
+		float:left;
+		height:90px;
+	}
+	
+		#sitelogo
+		{
+			float:left;
+			margin:20px 10px 0px 35px;
+			height:55px;
+		}
+	
+	
+		#pageTitle
+		{	
+			float:left;
+			height:55px;	
+			margin:10px 10px 0px 0px;						
+		}
+		
+	
+		#pageTitle h1
+		{
+			font-weight:normal;
+			font-size:3.2em;
+			margin:10px 0px 0px 0px;
+			padding:0px;
+			color:#02adce;
+		}
+		
+			#pageTitle h1 a
+			{
+					color:#02adce;
+			}
+		
+		
+		.ms-listdescription
+		{ 
+
+		}
+		
+
+	#social
+	{
+		float:right;	
+		margin:0px 10px 0px 5px;
+		height:80px;	
+		color:#fff !important;		
+		width:440px;		
+	}
+
+		.ms-socialNotif-Container a
+		{    
+			color:#999;
+		}
+		
+		.ms-socialNotif-Container a:hover
+		{    
+			color:#fff !important;
+			background-color: #02adce ;
+			border:1px solid white;
+		}	
+	
+		/* Search Box Styles  
+		********************************************************************************************/
+		
+		#search
+		{
+			padding:0px 0px 0px 0px;
+			margin: 10px 18px 0px 0px;
+			height:40px;	
+			float:right;
+			clear:right;
+		}
+		
+		.srch-sb-results7
+		{
+		    margin-top: 20px !important;
+		    margin-bottom: 20px !important;
+		}
+
+		.s4-search input.ms-sbplain
+		{ 
+			width:185px !important; 
+			background-image :none; 	
+			border: 1px solid #ddd!important; 
+			height:15px; 
+			padding:8px 2px 5px 9px; 
+			color:#000; 
+			font-size:1.3em; 
+			font-style:normal;
+		}
+
+		.ms-sbscopes
+		{
+			font-size:1.3em; 
+			padding:5px !important;
+			height:30px !important;
+			border: 1px solid #ddd!important;
+		}
+		.s4-search .ms-sbgo a
+		{
+			margin-top:0px; 
+			background:url(../images/Blue/search_btn.png) no-repeat; 
+			width:28px; 
+			height:28px; 
+			display:block; 
+			border: 1px solid #ddd!important; 
+		}
+		.s4-search .srch-gosearchimg, .s4-search .ms-sbgo span
+		{
+			display:none; 
+		}
+		.adminBar .ms-sbrow a, .ms-sbcell
+		{
+			margin:0; 
+			padding:0;
+		}	
+
+
+
+/* Navigation 
+********************************************************************************************/
+ 
+
+#navigation
+{
+	margin: 0px 45px 0px 45px;
+	clear:both;
+}	
+
+	.menu-horizontal{
+		background-image:none;
+		float:left;
+		font-size:2em;
+	}
+
+		.menu-horizontal ul li{
+			min-height:30px;
+			line-height:30px;
+			border:0px;
+			padding:0px;
+			margin:0px;	
+		}
+
+			.menu-horizontal ul li a{
+				color:#666666!important;
+				font-weight:normal;
+				border:0px!important;
+				padding:0px!important;
+				margin:0px;
+				height:30px!important;
+				padding-right:20px!important;
+				text-decoration:none !important	;	
+			}
+
+			.menu-horizontal ul li a:hover{
+				background-color:none;
+				color:#000 !important;		
+				text-decoration:underline!important	;	
+			}
+
+			.menu-horizontal ul li a.selected{
+				background-color:none;
+				color:#000!important;	
+			}
+
+
+			.menu-horizontal A.dynamic-children SPAN.additional-background {
+				background-image:none!important;
+			}
+
+	/* Breadcrumb  
+	********************************************************************************************/
+
+			
+	#breadcrumb
+	{
+		height:20px;
+		padding:0px 0px 0px 5px;
+		margin: 0px 10px 0px 10px;
+		float:right;
+		color:#02adce;
+
+	}
+
+		#breadcrumb h1
+		{
+			float:left;
+			padding:0px 0px 0px 0px;
+			margin:0px 0px 0px 0px;	
+			font-size:1.4em;
+			font-weight:normal;
+		}
+
+		#breadcrumb #onetidPageTitleSeparator
+		{
+			float:left;
+			padding:1px 5px 0px 5px;
+			margin:0px 0px 0px 0px;	
+			font-size:1.4em;
+			font-weight:normal;	
+		}
+
+		#breadcrumb h2
+		{
+			float:left;
+			padding:0px 0px 0px 0px;
+			margin:0px 0px 0px 0px;	
+			font-size:1.4em;
+			font-weight:normal;	
+		}
+
+		#breadcrumb .s4-pagedescription
+		{
+			float:left;
+			clear:both;	
+		}
+
+		#breadcrumb a
+		{
+			text-decoration:none;
+			color:#02adce;
+		}
+
+/* Body  
+********************************************************************************************/
+ 
+
+#bodywrapper
+{
+ 	margin:0px 10px 10px 10px;
+ 	padding:5px;
+}
+
+	/* body area normally has a white background */
+	#bodywrapper a 
+	{
+		text-decoration:none;
+	}	
+	
+	
+	
+	.ms-KFMenu 
+	{
+		width:210px !important;
+	}	
+	
+	/* Left Column  
+	********************************************************************************************/
+	
+	body #sideColumn 
+	{
+		width:230px; 	 	 
+		padding-top:0px;	 
+		float:left;
+        margin:0px 0px 0px 30px;
+	}	
+
+	body #sideColumn a 
+	{
+		text-decoration:none;
+	}	
+
+		
+		/* Quick Launch  
+		********************************************************************************************/
+		
+		.listCounter
+		{
+			float:right;
+			font-size:0.7em;
+			margin-top:3px;
+		}
+
+		.s4-ql 
+		{
+			margin:-3px 0px 0px 0px !important;	
+		}
+
+		.s4-ql ul
+		{ 
+			margin:0px !important; 
+			padding:0px  !important; 
+		}
+
+		.s4-ql li a 
+		{ 
+			padding:5px 3px 5px 5px !important; 
+			text-decoration:none; 
+			border-bottom:1px solid #fff !important; 
+			color:#fff !Important; 
+			font-weight:normal; 
+			font-size:1.3em !Important; 
+			background-color:#02adce;
+		}
+
+		.s4-ql li ul 
+		{ 
+			background-color:#fff; 
+		}
+
+		.s4-ql li ul li a 
+		{  
+			font-size:1em  !important; 
+			color:#666 !important; 
+			background-color:#fff; 
+			font-weight:normal; 
+			border:none;
+		}
+
+		.s4-ql li ul li .selected 
+		{ 
+			background-image:none; 
+			background-color:#1994e8;
+			padding:5px 3px 5px 5px !important;
+			color:#fff !important;
+		}
+
+		.s4-ql a.selected, .s4-ql a.selected:visited, .s4-ql a.selected:hover
+		{ 
+			color:#fff !important;
+		}
+
+		.s4-ql li ul li a:hover 
+		{   
+			background-image:none; 
+			background-color:#1994e8;
+			padding:5px 3px 5px 5px !important;
+			color:#fff !important;
+		}	
+	
+		/* Mini Calendar Picker  
+		********************************************************************************************/
+
+		.ms-picker-table
+		{
+			background-color:transparent;
+			background-image:none;
+		}
+
+		.ms-picker-header
+		{
+			background-color:#02adce !important;
+			background-image:none;	
+			color:#fff;
+		}
+
+		.ms-picker-month{
+			color:#fff;
+			font-size:1.3em;	
+		}	
+		
+		#DatePickerDiv
+		{
+			border-right:1px solid #dbddde !important;
+		}
+	
+	
+	/* Wide Panel
+    ********************************************************************************************/
+    
+    .widePanel
+    {
+		background:transparent none repeat scroll 0 0;
+		border:1px solid #dbddde;	
+		margin:0px 30px 0px 30px !important; 
+				 clear:left;	        
+    }
+    
+		.widePanel h2
+		{
+			font-weight:normal;
+			font-size:1em;
+			float:none;
+			margin:5px 5px 5px 10px;
+			padding:0px;
+			text-transform:uppercase;
+			color:#333;
+		}
+
+
+		.widePanel h3
+		{
+			font-size:1.3em;	
+		}    
+	
+	/* Right Column  
+	********************************************************************************************/
+	
+	.rightpanel 
+	{
+		background:transparent none repeat scroll 0 0;
+		border:1px solid #dbddde;	
+		margin:0px 20px 0px 272px !important; 
+				 clear:right;
+	}		
+	
+	.scrollbarPanel
+	{
+	    overflow: auto;
+	    /*width: 100%;*/
+	    height: 100%;	    
+	}
+
+		.rightpanel h2
+		{
+			font-weight:normal;
+			font-size:1em;
+			float:none;
+			margin:5px 5px 5px 10px;
+			padding:0px;
+			text-transform:uppercase;
+			color:#333;
+		}
+
+
+		.rightpanel h3
+		{
+			font-size:1.3em;	
+		}
+	
+#footer
+{
+	clear:both;
+	margin-left:25px;
+	padding-bottom:20px;
+}	
+
+
+/* WebParts  
+********************************************************************************************/
+
+.ms-WPTitle a, .ms-WPTitle a:hover, .ms-WPTitle a:visited, .ms-WPTitle 
+{
+	font-size:1.1em;
+	font-weight:normal;
+	padding-left:5px;
+	font-family:Verdana, arial !important;
+	color:#fff !important;
+}
+
+.ms-WPHeader, .ms-WPHeader td, .ms-WPTitle, .ms-WPHeaderTdMenu, .ms-WPHeaderTdSelection, .ms-wpTdSpace
+{
+	background-color:#02adce;
+	border-bottom: 1px solid #02adce!important;
+}
+
+/* Calendar  
+********************************************************************************************/
+
+.ms-acal-summary-dayrow TD DIV
+{
+	background-color:#02adce;
+	color:#fff;
+	font-size:1.3em;	
+	
+}
+
+.ms-acal-summary-dayrow TD DIV:hover
+{
+	background-color:#02adce;
+	color:#fff;
+}
+
+.ms-acal-apanel, .leftpanelborder
+{
+		 border:1px solid #dbddde !important;
+}	
+
+/* Ribbon  
+********************************************************************************************/
+
+#help
+{
+	float:right;	
+	padding:0px 0px 0px 0px;
+	margin:8px 5px 0px 0px;
+}
+
+body, body.v4.master, body #s4-workspace  
+{
+	overflow:visible !important; 
+	height: inherit; 
+	width: inherit; 
+}
+
+
+/*This sets up our Ribbon for a fixed position.  
+********************************************************************************************/
+
+.ms-dlgOverlay 
+{
+	width: 100% !important 
+}
+
+.ms-v4propertysheetspacing
+{
+    margin-left: 0px;
+}

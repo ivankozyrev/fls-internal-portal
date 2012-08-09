@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Field
+    ID="{121D3BD4-C05A-4782-A289-BDAFB74E4201}"
+    Name="CssUrl"
+    DisplayName="CSS Url"
+    Group="FLS.Sharepoint Columns"
+    Type="Text"/>
+
+  <Field
+    ID="{121D3BD4-C05A-4782-A289-BDAFB74E4202}"
+    Name="SiteIconUrl"
+    DisplayName="Site Icon Url"
+    Group="FLS.Sharepoint Columns"
+    Type="Text"/>
+</Elements>

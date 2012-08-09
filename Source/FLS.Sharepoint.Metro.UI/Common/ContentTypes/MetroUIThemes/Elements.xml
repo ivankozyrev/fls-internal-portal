@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Item (0x01) -->
+  <ContentType ID="0x0100552f6243ef7d4519a30254c3cecc270f"
+               Name="MetroUIThemes"
+               Group="FLS.Sharepoint Content Types"
+               Description="My Content Type"
+               Inherits="TRUE"
+               Version="0">
+    <FieldRefs>
+      <FieldRef
+        ID="{121D3BD4-C05A-4782-A289-BDAFB74E4201}"
+        Name="CssUrl"/>
+
+      <FieldRef
+        ID="{121D3BD4-C05A-4782-A289-BDAFB74E4202}"
+        Name="SiteIconUrl"/>
+    </FieldRefs>
+  </ContentType>
+</Elements>

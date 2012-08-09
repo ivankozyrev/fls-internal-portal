@@ -29,6 +29,6 @@ bin
 obj
 Packages
 deploymentAccount.creds
-
+*.creds
 # mstest test results
 TestResults

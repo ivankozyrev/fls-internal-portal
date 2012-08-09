@@ -1,0 +1,139 @@
+﻿
+/* SharePoint Base
+********************************************************************************************/
+
+
+.ms-rteElement-H1B, ms-rteElement-H1
+{
+ color:#02adce;	
+}
+
+.ms-rteElement-H2B, ms-rteElement-H2
+{
+ color:#02adce;		
+}
+
+.ms-rteElement-H3B, ms-rteElement-H3
+{
+ color:#02adce;		
+}
+
+#s4-bodyContainer {
+
+}
+	.colourBlockLeft
+	{
+		background-color:#02adce;
+	}
+
+/* Header 
+********************************************************************************************/
+
+
+
+		#pageTitle h1
+		{
+			color:#02adce;
+		}
+		
+			#pageTitle h1 a
+			{
+					color:#02adce;
+			}
+
+		
+
+
+		
+		.ms-socialNotif-Container a:hover
+		{    
+			background-color: #02adce ;
+		}	
+	
+
+	/* Breadcrumb  
+	********************************************************************************************/
+
+			
+	#breadcrumb
+	{
+		color:#02adce;
+	}
+
+		#breadcrumb a
+		{			
+			color:#02adce;
+		}
+
+
+		/* Search Box Styles  
+		********************************************************************************************/
+
+		.s4-search .ms-sbgo a
+		{
+			background:url(../images/Blue/search_btn.png) no-repeat; 
+		}
+
+		
+		/* Quick Launch  
+		********************************************************************************************/
+		
+		.s4-ql li a 
+		{ 
+			background-color:#02adce;
+		}
+
+		.s4-ql li ul li .selected 
+		{ 
+			background-image:none; 
+			background-color:#1994e8;
+			padding:5px 3px 5px 5px !important;
+			color:#fff !important;
+		}
+
+		.s4-ql a.selected, .s4-ql a.selected:visited, .s4-ql a.selected:hover
+		{ 
+			color:#fff !important;
+		}
+
+		.s4-ql li ul li a:hover 
+		{   
+			background-image:none; 
+			background-color:#1994e8;
+			padding:5px 3px 5px 5px !important;
+			color:#fff !important;
+		}	
+	
+		/* Mini Calendar Picker  
+		********************************************************************************************/
+
+		.ms-picker-header
+		{
+			background-color:#02adce !important;
+		}
+
+
+
+/* WebParts  
+********************************************************************************************/
+
+.ms-WPHeader, .ms-WPHeader td, .ms-WPTitle, .ms-WPHeaderTdMenu, .ms-WPHeaderTdSelection, .ms-wpTdSpace
+{
+	background-color:#02adce;
+	border-bottom: 1px solid #02adce!important;
+}
+
+/* Calendar  
+********************************************************************************************/
+
+.ms-acal-summary-dayrow TD DIV
+{
+	background-color:#02adce;	
+}
+
+.ms-acal-summary-dayrow TD DIV:hover
+{
+	background-color:#02adce;
+}
+	
+

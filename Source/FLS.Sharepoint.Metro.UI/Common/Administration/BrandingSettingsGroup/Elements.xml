@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomActionGroup 
+    Id="43eaed72-da4d-47d4-8766-440f80b28ee9" 
+    Title="Metro UI Configuration" 
+    Description="Manage the color scheme for Metro UI" 
+    Location="Microsoft.SharePoint.SiteSettings" 
+    ImageUrl="/_layouts/FLS.Sharepoint.Metro/admin/branding_settings_48x48.png"
+    Sequence="111" />
+</Elements>

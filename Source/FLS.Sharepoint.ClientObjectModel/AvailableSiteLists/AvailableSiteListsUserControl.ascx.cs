@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -11,17 +12,40 @@ namespace FLS.Sharepoint.ClientObjectModel.AvailableSiteLists
 {
     public partial class AvailableSiteListsUserControl : UserControl
     {
+        private readonly SPWeb currentWeb = SPContext.Current.Web;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                var service = SPFarm.Local.Services.GetValue<SPWebService>(string.Empty);
-                foreach (SPWebApplication webApplication in service.WebApplications)
+                var adminFlag = SPFarm.Local != null;
+                var siteCollection = new List<SPSite>();
+                if (adminFlag)
                 {
-                    ShowSiteCollection(webApplication.Sites);
+                   //full access
+                    SPSecurity.RunWithElevatedPrivileges(delegate
+                    {
+                        var service = SPFarm.Local.Services.GetValue<SPWebService>(string.Empty);
+                        foreach (SPWebApplication webApplication in service.WebApplications)
+                        {
+                            siteCollection.AddRange(webApplication.Sites);
+                        }
+
+                        ShowSiteCollection(siteCollection);
+                    });
+                   
+                }
+                else
+                {
+                    AuthMessageLabel.Text = "You are not Farm administration and you can't see all farm sites, only current site and it children sites";
+                    siteCollection.Add(SPContext.Current.Site);
+                    ShowSiteCollection(siteCollection);
                 }
 
-                siteCollectionTree.CollapseAll();
+                if (siteCollectionTree.SelectedNode != null)
+                {
+                    ShowLists(siteCollectionTree.SelectedNode.Value, siteCollectionTree.SelectedNode.Text);
+                }
             }
         }
 
@@ -29,24 +53,22 @@ namespace FLS.Sharepoint.ClientObjectModel.AvailableSiteLists
         {
             var node = siteCollectionTree.SelectedNode;
             var siteUrl = node.Value;
-            var siteLists = GetSiteLists(siteUrl).ToList();
-            AvailableListsRpt.DataSource = siteLists;
-            AvailableListsRpt.DataBind();
-
-            SiteNameLabel.Text = string.Format("Selected site: {0}", node.Text);
+            ShowLists(siteUrl, node.Text);
         }
 
-        private static void ShowWebCollection(SPWebCollection collection, Action<string, string> func)
+        private static void ShowWebCollection(SPWebCollection collection, Func<string, string, TreeNode, TreeNode> func, TreeNode rootNode)
         {
             for (var i = 0; i < collection.Count; i++)
             {
                 var info = collection.WebsInfo[i];
 
-                func.Invoke(info.Title, info.ServerRelativeUrl);
-
-                if (collection[i].Webs.Count > 0)
+                var node = func.Invoke(info.Title, info.ServerRelativeUrl, rootNode);
+                using (SPWeb web = collection[i])
                 {
-                    ShowWebCollection(collection[i].Webs, func);
+                    if (web.Webs.Count > 0)
+                    {
+                        ShowWebCollection(web.Webs, func, node);
+                    }
                 }
             }
         }
@@ -66,6 +88,15 @@ namespace FLS.Sharepoint.ClientObjectModel.AvailableSiteLists
             }
         }
 
+        private void ShowLists(string siteUrl, string siteTitle)
+        {
+            var siteLists = GetSiteLists(siteUrl).ToList();
+            AvailableListsRpt.DataSource = siteLists;
+            AvailableListsRpt.DataBind();
+
+            SiteNameLabel.Text = string.Format("Selected site: {0}", siteTitle);
+        }
+
         private void ShowSiteCollection(IEnumerable<SPSite> sites)
         {
             foreach (SPSite site in sites)
@@ -73,10 +104,31 @@ namespace FLS.Sharepoint.ClientObjectModel.AvailableSiteLists
                 using (site)
                 {
                     var rootWeb = site.RootWeb;
+
                     var node = new TreeNode(rootWeb.Title, rootWeb.Url);
+                    if (rootWeb.Url == currentWeb.Url)
+                    {
+                        node.Selected = true;
+                    }
+
                     if (rootWeb.Webs.Count > 0)
                     {
-                        ShowWebCollection(rootWeb.Webs, (title, url) => node.ChildNodes.Add(new TreeNode(title,  new Uri(new Uri(site.Url), url).ToString())));
+                        ShowWebCollection(
+                            rootWeb.Webs,
+                            (title, url, rootNode) =>
+                                {
+                                    var childNode = new TreeNode(title, new Uri(new Uri(site.Url), url).ToString());
+                                    if (currentWeb.Url.Contains(url))
+                                    {
+                                        childNode.Selected = true;
+                                        childNode.Expand();
+                                    }
+
+                                    rootNode.ChildNodes.Add(childNode);
+
+                                    return childNode;
+                                },
+                            node);
                     }
 
                     siteCollectionTree.Nodes.Add(node);
