@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Deploy" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+<Project DefaultTargets="Deploy" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
     <PropertyGroup>
 	<OutDir Condition="'$(OutDit)'==''">Packages</OutDir>
   </PropertyGroup>
@@ -50,8 +50,7 @@
 		<Path>..\.SiteTemplates\Dep-template-03.08.2012-13-31.wsp</Path>
 	</ExternalPackage>
   </ItemGroup>
-  
-  
+
   <Target Name="InitializePackageProjects">
 	  <ItemGroup>
 		<PackageProject>
@@ -79,7 +78,7 @@
 		</ExternalPackagesList>
 	</ItemGroup>
   </Target>
-	
+	 <Import Project="$(MSBuildExtensionsPath)\Microsoft\Windows Workflow Foundation\v3.5\Workflow.Targets" />
   <Target Name="Deploy" DependsOnTargets="InitializePackageProjects;ComputePackagesList">
 	<MSBuild Projects="@(PackagesList)" Targets="CreatePackage"/>
 	<MSBuild Projects="@(ExternalPackagesList)" Targets="CopyExternalPackage"/>
