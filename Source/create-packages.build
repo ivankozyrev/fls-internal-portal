@@ -40,15 +40,18 @@
 	<ExternalPackage Include="Pbs2010">
 		<Path>..\.Libraries\Pbs2010\PropertyBagSettings2010.wsp</Path>
 	</ExternalPackage>
-	<ExternalPackage Include="SiteTemplates">
+  </ItemGroup>
+  
+  <ItemGroup>
+	<SiteTemplate Include="SiteTemplates">
 		<Path>..\.SiteTemplates\qa.wsp</Path>
-	</ExternalPackage>
-	<ExternalPackage Include="SiteTemplates">
+	</SiteTemplate>
+	<SiteTemplate Include="SiteTemplates">
 		<Path>..\.SiteTemplates\hr.wsp</Path>
-	</ExternalPackage>
-	<ExternalPackage Include="SiteTemplates">
+	</SiteTemplate>
+	<SiteTemplate Include="SiteTemplates">
 		<Path>..\.SiteTemplates\Dep-template-03.08.2012-13-31.wsp</Path>
-	</ExternalPackage>
+	</SiteTemplate>
   </ItemGroup>
   
   
@@ -77,12 +80,19 @@
 				BasePackagePath=$(OutDir)
 			</Properties>
 		</ExternalPackagesList>
+		<SiteTemplatesList Include="$(MSBuildProjectFile)">
+			<Properties>
+				Path=%(SiteTemplate.Path);
+				BasePackagePath=$(OutDir)\SiteTemplates
+			</Properties>
+		</SiteTemplatesList>
 	</ItemGroup>
   </Target>
 	
   <Target Name="Deploy" DependsOnTargets="InitializePackageProjects;ComputePackagesList">
 	<MSBuild Projects="@(PackagesList)" Targets="CreatePackage"/>
 	<MSBuild Projects="@(ExternalPackagesList)" Targets="CopyExternalPackage"/>
+	<MSBuild Projects="@(SiteTemplatesList)" Targets="CopySiteTemplate"/>
   </Target>
   
   <Target Name="CreatePackage">
@@ -96,5 +106,13 @@
 	</ItemGroup>
 	<Copy SourceFiles="@(ExternalPackagePath)"
             DestinationFiles="@(ExternalPackagePath->'$(BasePackagePath)\%(Filename)%(Extension)')"/>
+  </Target>
+  
+  <Target Name="CopySiteTemplate">
+	<ItemGroup>
+		<SiteTemplatePath Include="$(Path)"/>
+	</ItemGroup>
+	<Copy SourceFiles="@(SiteTemplatePath)"
+            DestinationFiles="@(SiteTemplatePath->'$(BasePackagePath)\%(Filename)%(Extension)')"/>
   </Target>
 </Project>
