@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Receivers ListTemplateId="101">
+      <Receiver>
+        <Name>QAWorkflowEventReceiverWorkflowCompleted</Name>
+        <Type>WorkflowCompleted</Type>
+        <Assembly>$SharePoint.Project.AssemblyFullName$</Assembly>
+        <Class>FLS.SharePoint.EventReceiver.QAWorkflowEventReceiver.QAWorkflowEventReceiver</Class>
+        <SequenceNumber>10000</SequenceNumber>
+      </Receiver>
+
+  </Receivers>
+</Elements>

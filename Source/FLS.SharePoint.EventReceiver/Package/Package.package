@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" Id="ebda9b35-710e-4030-a8a5-b6b636bd5892" solutionId="ebda9b35-710e-4030-a8a5-b6b636bd5892" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" name="FLS.SharePoint.EventReceiver">
+    <features>
+        <featureReference itemId="e3531adf-b9e7-4de0-b109-b0571df40c1e" />
+    </features>
+</package>
