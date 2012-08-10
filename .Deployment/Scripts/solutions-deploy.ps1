@@ -1,3 +1,4 @@
+param([string]$solutionName = "solutionName")
 function WaitForJobToFinish([string]$Identity)
 {   
     $job = Get-SPTimerJob | ?{ $_.Name -like "*solution-deployment*$Identity*" }
@@ -85,8 +86,23 @@ if ($snapin -eq $null) {
 }
 
 Write-Host "[INIT] Locating WSP files to be deployed"
-$wsps = Get-ChildItem . *.wsp | where-object { !($_.psiscontainer) }
 
+if($solutionName)
+{
+    $wsps = Get-ChildItem . *.wsp | where-object { !($_.psiscontainer) -and $_.Name -eq "$solutionName.wsp"  }
+}
+
+if(!($wsps))
+{
+    $wsps = Get-ChildItem . *.wsp | where-object { !($_.psiscontainer) }
+}
+
+if(!$wsps)
+{
+    Write-Host "[WARNING] ----------------------------------------"
+    Write-Host "Wsp files weren't found."
+    return;
+}
 foreach ($wsp in $wsps)
 {
     $identity = $wsp.Name
