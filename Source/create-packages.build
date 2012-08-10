@@ -28,9 +28,6 @@
 	<PackageProject Include="MetroUI">
 		<Name>FLS.Sharepoint.Metro.UI</Name>
 	</PackageProject>
-	<PackageProject Include="DocumentApproval">
-		<Name>FLS.SharePoint.DocumentApproval</Name>
-	</PackageProject>
 	<PackageProject Include="blank">
 		<Name>FLS.SharePoint</Name>
 	</PackageProject>
