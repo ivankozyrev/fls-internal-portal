@@ -8,6 +8,8 @@ namespace FLS.SharePoint.Utils.ConfigurationEntities
 
         public string TemplatesDirectory { get; set; }
 
+        public Site RootSite { get; set; }
+
         public List<Site> Sites { get; set; }
 
         public List<Group> Groups { get; set; }

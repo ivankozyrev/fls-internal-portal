@@ -52,6 +52,9 @@
 	<SiteTemplate Include="SiteTemplates">
 		<Path>..\.SiteTemplates\Dep-template-03.08.2012-13-31.wsp</Path>
 	</SiteTemplate>
+	<SiteTemplate Include="SiteTemplates">
+		<Path>..\.SiteTemplates\root.wsp</Path>
+	</SiteTemplate>
   </ItemGroup>
 
   <Target Name="InitializePackageProjects">
