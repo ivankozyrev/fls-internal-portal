@@ -31,6 +31,9 @@
 	<PackageProject Include="DocumentApproval">
 		<Name>FLS.SharePoint.DocumentApproval</Name>
 	</PackageProject>
+	<PackageProject Include="MVC">
+		<Name>FLS.SharePoint.MVC</Name>
+	</PackageProject>
 	<PackageProject Include="blank">
 		<Name>FLS.SharePoint</Name>
 	</PackageProject>
