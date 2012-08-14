@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="0bd478b0-cb8e-4e76-91c9-8bf79afeb8aa" solutionId="0bd478b0-cb8e-4e76-91c9-8bf79afeb8aa" resetWebServer="false" name="FLS.Sharepoint.MVC" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <projectOutputAssembly location="FLS.Sharepoint.MVC.Infrastructure.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\FLS.Sharepoint.MVC.Infrastructure\FLS.Sharepoint.MVC.Infrastructure.csproj" />
+    <projectOutputAssembly location="FLS.SharePoint.Infrastructure.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\FLS.SharePoint.Infrastructure\FLS.SharePoint.Infrastructure.csproj" />
+  </assemblies>
+  <features>
+    <featureReference itemId="07040265-a7a6-47fe-ae9a-e17c49cd55be" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="cee0abeb-7480-40d8-b9bb-e8dad62d93a3" />
+  </projectItems>
+</package>
