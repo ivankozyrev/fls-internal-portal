@@ -28,6 +28,9 @@
 	<PackageProject Include="MetroUI">
 		<Name>FLS.Sharepoint.Metro.UI</Name>
 	</PackageProject>
+	<PackageProject Include="DocumentApproval">
+		<Name>FLS.SharePoint.DocumentApproval</Name>
+	</PackageProject>
 	<PackageProject Include="blank">
 		<Name>FLS.SharePoint</Name>
 	</PackageProject>
@@ -37,18 +40,23 @@
 	<ExternalPackage Include="Pbs2010">
 		<Path>..\.Libraries\Pbs2010\PropertyBagSettings2010.wsp</Path>
 	</ExternalPackage>
-	<ExternalPackage Include="SiteTemplates">
-		<Path>..\.SiteTemplates\qa.wsp</Path>
-	</ExternalPackage>
-	<ExternalPackage Include="SiteTemplates">
-		<Path>..\.SiteTemplates\hr.wsp</Path>
-	</ExternalPackage>
-	<ExternalPackage Include="SiteTemplates">
-		<Path>..\.SiteTemplates\Dep-template-03.08.2012-13-31.wsp</Path>
-	</ExternalPackage>
   </ItemGroup>
   
-  
+  <ItemGroup>
+	<SiteTemplate Include="SiteTemplates">
+		<Path>..\.SiteTemplates\qa.wsp</Path>
+	</SiteTemplate>
+	<SiteTemplate Include="SiteTemplates">
+		<Path>..\.SiteTemplates\hr.wsp</Path>
+	</SiteTemplate>
+	<SiteTemplate Include="SiteTemplates">
+		<Path>..\.SiteTemplates\Dep-template-03.08.2012-13-31.wsp</Path>
+	</SiteTemplate>
+	<SiteTemplate Include="SiteTemplates">
+		<Path>..\.SiteTemplates\root.wsp</Path>
+	</SiteTemplate>
+  </ItemGroup>
+
   <Target Name="InitializePackageProjects">
 	  <ItemGroup>
 		<PackageProject>
@@ -74,12 +82,19 @@
 				BasePackagePath=$(OutDir)
 			</Properties>
 		</ExternalPackagesList>
+		<SiteTemplatesList Include="$(MSBuildProjectFile)">
+			<Properties>
+				Path=%(SiteTemplate.Path);
+				BasePackagePath=$(OutDir)\SiteTemplates
+			</Properties>
+		</SiteTemplatesList>
 	</ItemGroup>
   </Target>
-	
+	 <Import Project="$(MSBuildExtensionsPath)\Microsoft\Windows Workflow Foundation\v3.5\Workflow.Targets" />
   <Target Name="Deploy" DependsOnTargets="InitializePackageProjects;ComputePackagesList">
 	<MSBuild Projects="@(PackagesList)" Targets="CreatePackage"/>
 	<MSBuild Projects="@(ExternalPackagesList)" Targets="CopyExternalPackage"/>
+	<MSBuild Projects="@(SiteTemplatesList)" Targets="CopySiteTemplate"/>
   </Target>
   
   <Target Name="CreatePackage">
@@ -93,5 +108,13 @@
 	</ItemGroup>
 	<Copy SourceFiles="@(ExternalPackagePath)"
             DestinationFiles="@(ExternalPackagePath->'$(BasePackagePath)\%(Filename)%(Extension)')"/>
+  </Target>
+  
+  <Target Name="CopySiteTemplate">
+	<ItemGroup>
+		<SiteTemplatePath Include="$(Path)"/>
+	</ItemGroup>
+	<Copy SourceFiles="@(SiteTemplatePath)"
+            DestinationFiles="@(SiteTemplatePath->'$(BasePackagePath)\%(Filename)%(Extension)')"/>
   </Target>
 </Project>

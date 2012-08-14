@@ -28,6 +28,11 @@
           <FieldRef Name="ID" />
         </FieldRefs>
       </Field>
+      <Field ID="{3ECFF1FE-F56B-4556-8805-4570D9422FF4}" Name="DocumentStatus"
+     MaxLength="255" DisplayName="DocumentStatus" Description=""
+     Direction="None" Type="Text" Overwrite="TRUE"
+     xmlns="http://schemas.microsoft.com/sharepoint/" >
+      </Field>
     </Fields>
     <Views>
       <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE" FreeForm="TRUE">
@@ -60,6 +65,7 @@
           <FieldRef Name="LinkFilename"></FieldRef>
           <FieldRef Name="Modified"></FieldRef>
           <FieldRef Name="Editor"></FieldRef>
+          <FieldRef Name="DocumentStatus"></FieldRef>
         </ViewFields>
         <ParameterBindings>
           <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noitemsinview_doclibrary)" />

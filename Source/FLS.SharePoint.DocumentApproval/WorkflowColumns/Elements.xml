@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Field ID="{3ECFF1FE-F56B-4556-8805-4570D9422FF4}" Name="DocumentStatus"
+       MaxLength="255" DisplayName="DocumentStatus" Description=""
+       Direction="None" Type="Text" Overwrite="TRUE"
+       xmlns="http://schemas.microsoft.com/sharepoint/" />
+</Elements>
