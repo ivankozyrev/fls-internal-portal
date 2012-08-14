@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Document (0x0101) -->
+  <ContentType ID="0x010100d33601b2275648cdb974fa10a967c424"
+               Name="ApplicationForAdmission"
+               Group="FLS Content Types"
+               Description="Application for admission"
+               Inherits="TRUE"
+               Version="0">
+    <DocumentTemplate TargetName="/_cts/FLS.CustomDocumentTemplates/AppForAdmission.xsn"/>
+  </ContentType>
+</Elements>

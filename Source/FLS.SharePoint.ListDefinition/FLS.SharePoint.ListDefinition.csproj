@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BB1F664B-9266-4fd6-B973-E1E44974B511};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+    <ActiveDeploymentConfiguration>Default</ActiveDeploymentConfiguration>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,9 +51,22 @@
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\HRLibraryFeature\HRLibraryFeature.EventReceiver.cs">
+      <DependentUpon>HRLibraryFeature.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ContentTypes\UnpaidLeave\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2b198f97-8b4b-4b34-8da2-d890de384b56}</SharePointProjectItemId>
+    </None>
+    <None Include="FLS.CustomDocumentTemplates\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a4af6ca5-d16f-457a-9e59-7400ce3da95b}</SharePointProjectItemId>
+    </None>
+    <None Include="ContentTypes\ApplicationForAdmission\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{751a0eab-3be4-4856-825c-a4acd66ae2a2}</SharePointProjectItemId>
+    </None>
+    <None Include="FLS.CustomDocumentTemplates\AppForAdmission.xsn" />
     <None Include="DevDocumentLibrary\DevLibrary\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{2bd7ab04-16e7-4090-8419-343f4adb8e16}</SharePointProjectItemId>
     </None>
@@ -61,6 +76,7 @@
     <None Include="Features\DevLibraryFeature\DevLibraryFeature.feature">
       <FeatureId>{f37862ed-2163-4645-94de-ace03c5332ff}</FeatureId>
     </None>
+    <None Include="FLS.CustomDocumentTemplates\UnpaidLeave.doc" />
     <None Include="QADocumentLibrary\QALibrary\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{f810356b-c5b6-479c-a675-e78851c4b5eb}</SharePointProjectItemId>
     </None>
@@ -93,6 +109,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ContentTypes\UnpaidLeave\Elements.xml" />
+    <Content Include="FLS.CustomDocumentTemplates\Elements.xml" />
+    <Content Include="ContentTypes\ApplicationForAdmission\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="DevDocumentLibrary\EditDlg.htm" />
     <Content Include="DevDocumentLibrary\Elements.xml">
       <SubType>Designer</SubType>
@@ -119,9 +140,13 @@
       <DependentUpon>QALibraryFeature.feature</DependentUpon>
     </Content>
     <Content Include="HRDocumentLibrary\EditDlg.htm" />
-    <Content Include="HRDocumentLibrary\Elements.xml" />
+    <Content Include="HRDocumentLibrary\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="HRDocumentLibrary\FileDlg.htm" />
-    <Content Include="HRDocumentLibrary\HRLibrary\Elements.xml" />
+    <Content Include="HRDocumentLibrary\HRLibrary\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="HRDocumentLibrary\Repair.aspx" />
     <Content Include="HRDocumentLibrary\Schema.xml" />
     <Content Include="HRDocumentLibrary\Upload.aspx" />
