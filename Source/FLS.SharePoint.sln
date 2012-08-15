@@ -35,9 +35,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.SequentialWo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.Sharepoint.Metro.UI", "FLS.Sharepoint.Metro.UI\FLS.Sharepoint.Metro.UI.csproj", "{7F296F15-917C-425B-AD1B-9FF820E933FD}"
 EndProject
+<<<<<<< HEAD
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.Sharepoint.MVC", "FLS.Sharepoint.MVC\FLS.Sharepoint.MVC.csproj", "{3BB9A1EB-7712-49A8-BE69-D991E1D6E4DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.Sharepoint.MVC.Infrastructure", "FLS.Sharepoint.MVC.Infrastructure\FLS.Sharepoint.MVC.Infrastructure.csproj", "{6A83352C-B992-4D64-89A2-11A6A5B9E884}"
+=======
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.DocumentApproval", "FLS.SharePoint.DocumentApproval\FLS.SharePoint.DocumentApproval.csproj", "{78F4054A-332A-45DD-94ED-0DCA5950A478}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.EventReceiver", "FLS.SharePoint.EventReceiver\FLS.SharePoint.EventReceiver.csproj", "{8A1C7D63-9F21-468E-AA88-B3E50C0418C8}"
+>>>>>>> 06125f4b72362fee19f66ca845e29285a994cfee
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,6 +119,18 @@ Global
 		{7F296F15-917C-425B-AD1B-9FF820E933FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F296F15-917C-425B-AD1B-9FF820E933FD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7F296F15-917C-425B-AD1B-9FF820E933FD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+<<<<<<< HEAD
+		{3BB9A1EB-7712-49A8-BE69-D991E1D6E4DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BB9A1EB-7712-49A8-BE69-D991E1D6E4DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BB9A1EB-7712-49A8-BE69-D991E1D6E4DE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3BB9A1EB-7712-49A8-BE69-D991E1D6E4DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BB9A1EB-7712-49A8-BE69-D991E1D6E4DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BB9A1EB-7712-49A8-BE69-D991E1D6E4DE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6A83352C-B992-4D64-89A2-11A6A5B9E884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A83352C-B992-4D64-89A2-11A6A5B9E884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A83352C-B992-4D64-89A2-11A6A5B9E884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A83352C-B992-4D64-89A2-11A6A5B9E884}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
 		{78F4054A-332A-45DD-94ED-0DCA5950A478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{78F4054A-332A-45DD-94ED-0DCA5950A478}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78F4054A-332A-45DD-94ED-0DCA5950A478}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -125,6 +143,7 @@ Global
 		{8A1C7D63-9F21-468E-AA88-B3E50C0418C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A1C7D63-9F21-468E-AA88-B3E50C0418C8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8A1C7D63-9F21-468E-AA88-B3E50C0418C8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+>>>>>>> 06125f4b72362fee19f66ca845e29285a994cfee
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

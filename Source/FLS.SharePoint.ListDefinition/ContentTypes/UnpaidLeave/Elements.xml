@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Parent ContentType: Document (0x0101) -->
+  <ContentType ID="0x010100833d07aad2ae4a43a6684088d20a99eb"
+               Name="ApplicationForUnpaidLeave"
+               Group="FLS Content Types"
+               Description="Application for unpaid leave"
+               Inherits="TRUE"
+               Version="0">
+    <DocumentTemplate TargetName="/_cts/FLS.CustomDocumentTemplates/UnpaidLeave.doc"/>
+  </ContentType>
+</Elements>

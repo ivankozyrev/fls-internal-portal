@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <Field ID="{3ECFF1FE-F56B-4556-8805-4570D9422FF4}" Name="DocumentStatus"
+  <Field ID="{4317cd05-ff74-4e90-a79b-3c00c251c267}" Name="DocumentStatus"
        MaxLength="255" DisplayName="DocumentStatus" Description=""
        Direction="None" Type="Text" Overwrite="TRUE"
+       xmlns="http://schemas.microsoft.com/sharepoint/" />
+  <Field ID="{a424b134-c4c1-41e0-aeb7-9517c8ceebe3}" Name="ConsolidatedComment"
+       MaxLength="255" DisplayName="ConsolidatedComment" Description=""
+       Direction="None" Type="Note" Overwrite="TRUE"
        xmlns="http://schemas.microsoft.com/sharepoint/" />
 </Elements>

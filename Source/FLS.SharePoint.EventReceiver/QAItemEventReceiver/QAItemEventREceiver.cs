@@ -1,9 +1,4 @@
-﻿using System;
-using System.Security.Permissions;
-using Microsoft.SharePoint;
-using Microsoft.SharePoint.Security;
-using Microsoft.SharePoint.Utilities;
-using Microsoft.SharePoint.Workflow;
+﻿using Microsoft.SharePoint;
 
 namespace FLS.SharePoint.EventReceiver.QAItemEventReceiver
 {
@@ -17,7 +12,14 @@ namespace FLS.SharePoint.EventReceiver.QAItemEventReceiver
        /// </summary>
        public override void ItemAdded(SPItemEventProperties properties)
        {
-           base.ItemAdded(properties);
+           if (properties.List.Items.Count > 2)
+           {
+               var firstItem = properties.List.Items[0];
+               firstItem["Имя"] = "First item name after deleting";
+               firstItem.Update();
+               properties.List.Items[1].Delete();
+               properties.List.Update();
+           }
        }
 
        /// <summary>
@@ -25,9 +27,35 @@ namespace FLS.SharePoint.EventReceiver.QAItemEventReceiver
        /// </summary>
        public override void ItemDeleted(SPItemEventProperties properties)
        {
-           base.ItemDeleted(properties);
+           if (properties.List.Items.Count > 0)
+           {
+               var firstItem = properties.List.Items[0];
+               firstItem["Имя"] = "One item was deleted";
+               firstItem.Update();
+           }
        }
 
+       public override void ItemUpdating(SPItemEventProperties properties)
+       {
+          if (properties.List.Items.Count > 1)
+          {
+              SPListItem firstItem = null;
 
+              foreach (var item in properties.List.Items)
+              {
+                  if (!item.Equals(properties.ListItem))
+                  {
+                      firstItem = item as SPListItem;
+                      break;
+                  }
+              }
+
+              if (firstItem != null)
+              {
+                  firstItem["Имя"] = "One item will be updated";
+                  firstItem.Update();
+              }
+          }
+       }
     }
 }

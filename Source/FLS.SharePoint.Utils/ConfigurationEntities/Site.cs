@@ -11,6 +11,9 @@ namespace FLS.SharePoint.Utils.ConfigurationEntities
         [XmlAttribute]
         public string Title { get; set; }
 
+        [XmlAttribute]
+        public uint Locale { get; set; }
+
         public string Description { get; set; }
 
         public WebTemplate WebTemplate { get; set; }

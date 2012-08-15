@@ -57,6 +57,7 @@
     <Reference Include="System.Workflow.Runtime" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WorkflowConsts.cs" />
     <Compile Include="Features\Feature1\Feature1.EventReceiver.cs">
       <DependentUpon>Feature1.feature</DependentUpon>
     </Compile>
@@ -74,6 +75,7 @@
     <Compile Include="Workflow1\Workflow1.designer.cs">
       <DependentUpon>Workflow1.cs</DependentUpon>
     </Compile>
+    <Compile Include="WorkflowHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="WorkflowColumns\SharePointProjectItem.spdata">

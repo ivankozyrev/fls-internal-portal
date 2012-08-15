@@ -43,7 +43,8 @@
           <FieldRef ID="{1bfee788-69b7-4765-b109-d4d9c31d1ac1}" Name="WorkflowListId" />
           <FieldRef ID="{8e234c69-02b0-42d9-8046-d5f49bf0174f}" Name="WorkflowItemId" />
           <FieldRef ID="{1c5518e2-1e99-49fe-bfc6-1a8de3ba16e2}" Name="ExtendedProperties" />
-          <FieldRef ID="{3ECFF1FE-F56B-4556-8805-4570D9422FF4}" Name="DocumentStatus" />
+          <FieldRef ID="{4317cd05-ff74-4e90-a79b-3c00c251c267}" Name="DocumentStatus" />
+          <FieldRef ID="{a424b134-c4c1-41e0-aeb7-9517c8ceebe3}" Name="ConsolidatedComment" />
         </FieldRefs>
         <XmlDocuments>
           <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
@@ -69,11 +70,15 @@
              Overwrite="TRUE" xmlns="http://schemas.microsoft.com/sharepoint/">
         <Default>FALSE</Default>
       </Field>
-      <Field ID="{3ECFF1FE-F56B-4556-8805-4570D9422FF4}" Name="DocumentStatus"
+      <Field ID="{4317cd05-ff74-4e90-a79b-3c00c251c267}" Name="DocumentStatus"
       MaxLength="255" DisplayName="DocumentStatus" Description=""
       Direction="None" Type="Text" Overwrite="TRUE"
       xmlns="http://schemas.microsoft.com/sharepoint/" >
       </Field>
+      <Field ID="{a424b134-c4c1-41e0-aeb7-9517c8ceebe3}" Name="ConsolidatedComment"
+     MaxLength="255" DisplayName="ConsolidatedComment" Description=""
+     Direction="None" Type="Note" Overwrite="TRUE"
+     xmlns="http://schemas.microsoft.com/sharepoint/" />
       <Field ID="{c3a92d97-2b77-4a25-9698-3ab54874bc6f}" Name="Predecessors" Type="LookupMulti" Mult="TRUE" Required="FALSE" DisplayName="$Resources:core,Tasks_Predecessors;" StaticName="Predecessors" List="Self" ShowField="Title" DisplaceOnUpgrade="TRUE" SourceID="http://schemas.microsoft.com/sharepoint/v3"></Field>
       <Field ID="{a8eb573e-9e11-481a-a8c9-1104a54b2fbd}" Type="Choice" Name="Priority" DisplayName="$Resources:core,Priority;" SourceID="http://schemas.microsoft.com/sharepoint/v3" StaticName="Priority">
         <CHOICES>

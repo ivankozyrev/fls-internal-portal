@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -44,11 +45,11 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
             if (rootSite == null)
             {
                 // logger.Debug("Web application root site is not found. Trying to create it.");
-                rootSite = sites.Add("/", configuration.SitesOwner, null);
+                rootSite = AddSite(sites, configuration.RootSite, configuration);
                 // logger.Debug("Done. Creating web application root site.");
             }
             // logger.Debug("Done. Getting application root site.");
-            var rootWeb = GetSiteRootWeb(rootSite);
+            var rootWeb = GetRootWeb(rootSite);
 
             // logger.Debug("Creating groups...");
             foreach (var group in configuration.Groups)
@@ -70,8 +71,7 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
                 foreach (var user in group.Users)
                 {
                     // logger.Debug(string.Format("Adding user: {0} to group {1}", user.Login, group.Name));
-                    newGroup.AddUser(user.Login, string.Empty, user.Login,
-                                     string.Empty);
+                    newGroup.AddUser(user.Login, string.Empty, user.Login, string.Empty);
                     // logger.Debug(string.Format("Done. Adding user: {0} to group {1}", user.Login, group.Name));
                 }
                 // logger.Debug(string.Format("Done. Adding users to group: {0}", group.Name));
@@ -91,39 +91,8 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
                 }
 
                 // logger.Debug(string.Format("Creating new empty site: {0}", site.Name));
-                var newSite = sites.Add(
-                    site.Name,
-                    site.Title,
-                    site.Description,
-                    GetLocale(rootWeb),
-                    null,
-                    configuration.SitesOwner,
-                    configuration.SitesOwner,
-                    string.Empty);
+                var newSite = AddSite(sites, site, configuration);
                 // logger.Debug(string.Format("Done. Empty site {0} creation.", site.Name));
-                
-                /*logger.Debug(
-                    string.Format(
-                        "Loading template: {0} from package: {1} in folder: {2}", 
-                        site.WebTemplate.Name, 
-                        site.WebTemplate.PackageFileName, 
-                        configuration.TemplatesDirectory));*/
-                LoadTemplateFromPackage(
-                    newSite, 
-                    site.WebTemplate.PackageFileName, 
-                    configuration.TemplatesDirectory);
-                /*logger.Debug(string.Format("Done. Loading template: {0}", site.WebTemplate.Name));*/
-
-                /*logger.Debug(string.Format(
-                    "Applying template: {0} to empty site: {1}", 
-                    site.WebTemplate.Name, 
-                    site.Name));*/
-                ApplyWebTemplate(GetSiteRootWeb(newSite), site.WebTemplate.Name);
-                /*logger.Debug(string.Format(
-                    "Done. Applying template: {0} to site: {1}", 
-                    site.WebTemplate.Name, 
-                    site.Name));*/
-
                 /*logger.Debug(string.Format("Granting permissions for site {0}", site.Name));*/
                 foreach (var permission in site.Permissions)
                 {
@@ -134,7 +103,7 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
                         site.Name));*/
                     var roleAssignment = new SPRoleAssignment(rootWeb.SiteGroups[permission.GroupName]);
                     roleAssignment.RoleDefinitionBindings.Add(rootWeb.RoleDefinitions.GetById(permission.PermissionLevelId));
-                    GetSiteRootWeb(newSite).RoleAssignments.Add(roleAssignment);
+                    GetRootWeb(newSite).RoleAssignments.Add(roleAssignment);
                     /*logger.Debug(string.Format(
                         "Done. Granting permissionLevel: {0} to group: {1} on site {2}", 
                         permission.PermissionLevelId, 
@@ -171,44 +140,15 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
             /*logger.Debug("Start deleting sites...");*/
             foreach (var site in configuration.Sites)
             {
-                /*logger.Debug(string.Format("Processing site: {0}", site.Name));*/
-                if (SiteCollectionExists(sites, site.Name))
-                {
-                    /*logger.Debug(string.Format("Site: {0} has been found. Deleting permissions.", site.Name));*/
-                    var siteToDelete = sites[site.Name];
-                    foreach (var permission in site.Permissions)
-                    {
-                        /*logger.Debug(string.Format(
-                            "Deleting permission level: {0} from group: {1} for site: {2}", 
-                            permission.PermissionLevelId, 
-                            permission.GroupName, 
-                            site.Name));*/
-                        GetSiteRootWeb(siteToDelete).RoleAssignments.Remove(GetSiteRootWeb(rootSite).SiteGroups[permission.GroupName]);
-                        /*logger.Debug(string.Format("Done. Deleting permission level: {0} from group: {1} for site: {2}", 
-                            permission.PermissionLevelId, 
-                            permission.GroupName, 
-                            site.Name));*/
-                    }
-
-                    /*logger.Debug(string.Format("Done. Deleting permissions for site {0}", site.Name));
-                    logger.Debug(string.Format("Deleting site: {0} itself", site.Name));*/
-                    sites.Delete(site.Name);
-                    /*logger.Debug(string.Format("Done. Deleting site {0}", site.Name));*/
-                }
-                else
-                {
-                    /*logger.Debug(string.Format("Can't locate site: {0}. Skipped", site.Name));*/
-                }
-
-                /*logger.Debug(string.Format("Done. Processing site {0}", site.Name));*/
+                RemoveSite(sites, site, rootSite);
             }
-            /*logger.Debug("Done. Deleting sites.");
-
-            logger.Debug("Deleting groups");*/
+            /*logger.Debug("Done. Deleting sites.");*/
+            RemoveSite(sites, configuration.RootSite, rootSite);
+            /*logger.Debug("Deleting groups");*/
             foreach (var group in configuration.Groups)
             {
                 /*logger.Debug(string.Format("Deleteng group: {0}", group.Name));*/
-                GetSiteRootWeb(rootSite).SiteGroups.Remove(group.Name);
+                GetRootWeb(rootSite).SiteGroups.Remove(group.Name);
                 /*logger.Debug(string.Format("Done. Deleting group: {0}", group.Name));*/
             }
             /*logger.Debug("Done. Deleting groups");*/
@@ -298,7 +238,7 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
             return ((SPWebApplication)properties.Feature.Parent).Sites;
         }
 
-        private static SPWeb GetSiteRootWeb(SPSite rootSite)
+        private static SPWeb GetRootWeb(SPSite rootSite)
         {
             return rootSite.RootWeb;
         }
@@ -328,6 +268,77 @@ namespace FLS.SharePoint.SiteStructure.Features.CreateSitesCollection
         private string CombinePath(string directory, string fileName)
         {
             return Path.Combine(directory, fileName);
+        }
+
+        private SPSite AddSite(SPSiteCollection sites, Site siteToAdd, SitesConfiguration configuration)
+        {
+            var newSite = sites.Add(
+                    siteToAdd.Name,
+                    siteToAdd.Title,
+                    siteToAdd.Description,
+                    siteToAdd.Locale,
+                    null,
+                    configuration.SitesOwner,
+                    configuration.SitesOwner,
+                    string.Empty);
+
+            /*logger.Debug(
+                    string.Format(
+                        "Loading template: {0} from package: {1} in folder: {2}", 
+                        site.WebTemplate.Name, 
+                        site.WebTemplate.PackageFileName, 
+                        configuration.TemplatesDirectory));*/
+            LoadTemplateFromPackage(
+                newSite,
+                siteToAdd.WebTemplate.PackageFileName,
+                configuration.TemplatesDirectory);
+            /*logger.Debug(string.Format("Done. Loading template: {0}", site.WebTemplate.Name));*/
+
+            /*logger.Debug(string.Format(
+                "Applying template: {0} to empty site: {1}", 
+                site.WebTemplate.Name, 
+                site.Name));*/
+            ApplyWebTemplate(GetRootWeb(newSite), siteToAdd.WebTemplate.Name);
+            /*logger.Debug(string.Format(
+                "Done. Applying template: {0} to site: {1}", 
+                site.WebTemplate.Name, 
+                site.Name));*/
+
+            return newSite;
+        }
+
+        private void RemoveSite(SPSiteCollection sites, Site site, SPSite rootSite)
+        {
+            /*logger.Debug(string.Format("Processing site: {0}", site.Name));*/
+            if (SiteCollectionExists(sites, site.Name))
+            {
+                /*logger.Debug(string.Format("Site: {0} has been found. Deleting permissions.", site.Name));*/
+                var siteToDelete = sites[site.Name];
+                foreach (var permission in site.Permissions)
+                {
+                    /*logger.Debug(string.Format(
+                        "Deleting permission level: {0} from group: {1} for site: {2}", 
+                        permission.PermissionLevelId, 
+                        permission.GroupName, 
+                        site.Name));*/
+                    GetRootWeb(siteToDelete).RoleAssignments.Remove(GetRootWeb(rootSite).SiteGroups[permission.GroupName]);
+                    /*logger.Debug(string.Format("Done. Deleting permission level: {0} from group: {1} for site: {2}", 
+                        permission.PermissionLevelId, 
+                        permission.GroupName, 
+                        site.Name));*/
+                }
+
+                /*logger.Debug(string.Format("Done. Deleting permissions for site {0}", site.Name));
+                logger.Debug(string.Format("Deleting site: {0} itself", site.Name));*/
+                sites.Delete(site.Name);
+                /*logger.Debug(string.Format("Done. Deleting site {0}", site.Name));*/
+            }
+            else
+            {
+                /*logger.Debug(string.Format("Can't locate site: {0}. Skipped", site.Name));*/
+            }
+
+            /*logger.Debug(string.Format("Done. Processing site {0}", site.Name));*/
         }
     }
 }

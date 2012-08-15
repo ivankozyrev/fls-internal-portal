@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Deploy" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+<Project DefaultTargets="Deploy" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
     <PropertyGroup>
 	<OutDir Condition="'$(OutDit)'==''">Packages</OutDir>
   </PropertyGroup>
@@ -31,6 +31,9 @@
 	<PackageProject Include="DocumentApproval">
 		<Name>FLS.SharePoint.DocumentApproval</Name>
 	</PackageProject>
+	<PackageProject Include="MVC">
+		<Name>FLS.SharePoint.MVC</Name>
+	</PackageProject>
 	<PackageProject Include="blank">
 		<Name>FLS.SharePoint</Name>
 	</PackageProject>
@@ -52,9 +55,11 @@
 	<SiteTemplate Include="SiteTemplates">
 		<Path>..\.SiteTemplates\Dep-template-03.08.2012-13-31.wsp</Path>
 	</SiteTemplate>
+	<SiteTemplate Include="SiteTemplates">
+		<Path>..\.SiteTemplates\root.wsp</Path>
+	</SiteTemplate>
   </ItemGroup>
-  
-  
+
   <Target Name="InitializePackageProjects">
 	  <ItemGroup>
 		<PackageProject>
@@ -88,7 +93,7 @@
 		</SiteTemplatesList>
 	</ItemGroup>
   </Target>
-	
+	 <Import Project="$(MSBuildExtensionsPath)\Microsoft\Windows Workflow Foundation\v3.5\Workflow.Targets" />
   <Target Name="Deploy" DependsOnTargets="InitializePackageProjects;ComputePackagesList">
 	<MSBuild Projects="@(PackagesList)" Targets="CreatePackage"/>
 	<MSBuild Projects="@(ExternalPackagesList)" Targets="CopyExternalPackage"/>
