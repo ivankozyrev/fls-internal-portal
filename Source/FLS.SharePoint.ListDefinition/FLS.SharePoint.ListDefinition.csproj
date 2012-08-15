@@ -60,6 +60,9 @@
     <None Include="ContentTypes\UnpaidLeave\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{2b198f97-8b4b-4b34-8da2-d890de384b56}</SharePointProjectItemId>
     </None>
+    <None Include="Fields\WorkflowFields\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3d0a4aba-bb36-48b8-8f9d-d60339947c35}</SharePointProjectItemId>
+    </None>
     <None Include="FLS.CustomDocumentTemplates\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{a4af6ca5-d16f-457a-9e59-7400ce3da95b}</SharePointProjectItemId>
     </None>
@@ -109,8 +112,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ContentTypes\UnpaidLeave\Elements.xml" />
-    <Content Include="FLS.CustomDocumentTemplates\Elements.xml" />
+    <Content Include="ContentTypes\UnpaidLeave\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Fields\WorkflowFields\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="FLS.CustomDocumentTemplates\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="ContentTypes\ApplicationForAdmission\Elements.xml">
       <SubType>Designer</SubType>
     </Content>

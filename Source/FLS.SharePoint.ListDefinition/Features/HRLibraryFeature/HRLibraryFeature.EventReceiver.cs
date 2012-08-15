@@ -10,7 +10,11 @@ namespace FLS.SharePoint.ListDefinition.Features.HRLibraryFeature
     {
         private static readonly string[] ContentTypeNames = new[] { "ApplicationForAdmission", "ApplicationForUnpaidLeave" };
 
+        private static readonly string[] FieldNames = new[] { "DocumentStatus", "ConsolidatedComment" };
+
         private readonly Hashtable _contentTypeSet = new Hashtable();
+
+        private readonly Hashtable _fieldSet = new Hashtable();
 
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
@@ -20,11 +24,32 @@ namespace FLS.SharePoint.ListDefinition.Features.HRLibraryFeature
                 return;
             }
 
+            CreateFieldSet(site);
             CreateContentTypeSet(site);
+
             var documentsLibrary = site.RootWeb.Lists["HR Library"];
-            if (documentsLibrary != null)
+            if (documentsLibrary == null)
             {
-                AssignContentTypesToLibrary(documentsLibrary);    
+                return;
+            }
+
+            AssignContentTypesToLibrary(documentsLibrary);
+            AssignFieldsToLibrary(documentsLibrary);
+        }
+
+        private void AssignFieldsToLibrary(SPList library)
+        {
+            foreach (var field in FieldNames.Where(fieldName => !library.Fields.ContainsField(fieldName)).Select(fieldName => _fieldSet[fieldName] as SPField))
+            {
+                library.Fields.Add(field);
+
+                // Doesn't work for some obscure reason
+                // library.DefaultView.ViewFields.Add(field)
+                // library.DefaultView.Update()
+                var defaultView = library.DefaultView;
+                defaultView.ViewFields.Add(field);
+                defaultView.Update();
+                library.Update();
             }
         }
 
@@ -41,6 +66,14 @@ namespace FLS.SharePoint.ListDefinition.Features.HRLibraryFeature
             foreach (var contentTypeName in ContentTypeNames)
             {
                 _contentTypeSet.Add(contentTypeName, site.RootWeb.AvailableContentTypes[contentTypeName]);
+            }
+        }
+
+        private void CreateFieldSet(SPSite site)
+        {
+            foreach (var fieldName in FieldNames)
+            {
+                _fieldSet.Add(fieldName, site.RootWeb.AvailableFields[fieldName]);
             }
         }
     }
