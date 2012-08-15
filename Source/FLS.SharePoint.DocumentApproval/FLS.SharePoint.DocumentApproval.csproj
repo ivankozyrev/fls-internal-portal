@@ -58,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="WorkflowConsts.cs" />
+    <Compile Include="Features\Feature1\Feature1.EventReceiver.cs">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </Compile>
     <Compile Include="WorkflowForms\TaskForm.aspx.cs">
       <DependentUpon>TaskForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
