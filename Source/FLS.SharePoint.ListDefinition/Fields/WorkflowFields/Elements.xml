@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <Field ID="{4317cd05-ff74-4e90-a79b-3c00c251c267}" Name="DocumentStatus"
-       MaxLength="255" DisplayName="DocumentStatus" Description="" Viewable="TRUE"
-       Direction="None" Type="Text" Overwrite="TRUE" StaticName="DocumentStatus" ShowInNewForm="FALSE"
+  <Field ID="{4317cd05-ff74-4e90-a79b-3c00c251c267}" Name="DocumentStatus" ShowInEditForm="FALSE"
+       MaxLength="255" DisplayName="DocumentStatus" Description="" 
+       Direction="None" Type="Text" Overwrite="TRUE" StaticName="DocumentStatus" 
        xmlns="http://schemas.microsoft.com/sharepoint/" />
   <Field ID="{a424b134-c4c1-41e0-aeb7-9517c8ceebe3}" Name="ConsolidatedComment"
-       MaxLength="255" DisplayName="ConsolidatedComment" Description="" Viewable="TRUE" ShowInNewForm="FALSE"
+       MaxLength="255" DisplayName="ConsolidatedComment" Description=""  ShowInEditForm="FALSE" 
        Direction="None" Type="Note" Overwrite="TRUE" StaticName="ConsolidatedComment"
        xmlns="http://schemas.microsoft.com/sharepoint/" />
 </Elements>

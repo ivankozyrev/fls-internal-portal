@@ -49,7 +49,6 @@ namespace FLS.SharePoint.ListDefinition.Features.HRLibraryFeature
                 var defaultView = library.DefaultView;
                 defaultView.ViewFields.Add(field);
                 defaultView.Update();
-                library.Update();
             }
         }
 
