@@ -58,7 +58,7 @@ namespace DocumentApproval.Workflow1
             this.onRequestTaskChanged.Name = "onRequestTaskChanged";
             activitybind3.Name = "Workflow1";
             activitybind3.Path = "RequestApproveTaskId";
-            this.onRequestTaskChanged.Invoked += new System.EventHandler<System.Workflow.Activities.ExternalDataEventArgs>(this.onRequestTaskChanged_Invoked);
+            this.onRequestTaskChanged.Invoked += new System.EventHandler<System.Workflow.Activities.ExternalDataEventArgs>(this.OnRequestTaskChanged_Invoked);
             this.onRequestTaskChanged.SetBinding(Microsoft.SharePoint.WorkflowActions.OnTaskChanged.BeforePropertiesProperty, ((System.Workflow.ComponentModel.ActivityBind)(activitybind2)));
             this.onRequestTaskChanged.SetBinding(Microsoft.SharePoint.WorkflowActions.OnTaskChanged.TaskIdProperty, ((System.Workflow.ComponentModel.ActivityBind)(activitybind3)));
             this.onRequestTaskChanged.SetBinding(Microsoft.SharePoint.WorkflowActions.OnTaskChanged.AfterPropertiesProperty, ((System.Workflow.ComponentModel.ActivityBind)(activitybind1)));
@@ -82,7 +82,7 @@ namespace DocumentApproval.Workflow1
             // createRequestTask
             // 
             activitybind5.Name = "Workflow1";
-            activitybind5.Path = "taskContentTypeId";
+            activitybind5.Path = "TaskContentTypeId";
             this.createRequestTask.CorrelationToken = correlationtoken1;
             activitybind6.Name = "Workflow1";
             activitybind6.Path = "RequestApproveTaskItemId";
@@ -92,13 +92,13 @@ namespace DocumentApproval.Workflow1
             activitybind7.Path = "RequestApproveTaskId";
             activitybind8.Name = "Workflow1";
             activitybind8.Path = "RequestTaskProperties";
-            this.createRequestTask.MethodInvoking += new System.EventHandler(this.createRequestTask_MethodInvoking);
+            this.createRequestTask.MethodInvoking += new System.EventHandler(this.CreateRequestTask_MethodInvoking);
             this.createRequestTask.SetBinding(Microsoft.SharePoint.WorkflowActions.CreateTaskWithContentType.ContentTypeIdProperty, ((System.Workflow.ComponentModel.ActivityBind)(activitybind5)));
             this.createRequestTask.SetBinding(Microsoft.SharePoint.WorkflowActions.CreateTaskWithContentType.TaskIdProperty, ((System.Workflow.ComponentModel.ActivityBind)(activitybind7)));
             this.createRequestTask.SetBinding(Microsoft.SharePoint.WorkflowActions.CreateTaskWithContentType.TaskPropertiesProperty, ((System.Workflow.ComponentModel.ActivityBind)(activitybind8)));
             this.createRequestTask.SetBinding(Microsoft.SharePoint.WorkflowActions.CreateTaskWithContentType.ListItemIdProperty, ((System.Workflow.ComponentModel.ActivityBind)(activitybind6)));
             activitybind10.Name = "Workflow1";
-            activitybind10.Path = "workflowId";
+            activitybind10.Path = "WorkflowId";
             // 
             // onWorkflowActivated1
             // 
@@ -108,7 +108,7 @@ namespace DocumentApproval.Workflow1
             this.onWorkflowActivated1.EventName = "OnWorkflowActivated";
             this.onWorkflowActivated1.Name = "onWorkflowActivated1";
             activitybind9.Name = "Workflow1";
-            activitybind9.Path = "workflowProperties";
+            activitybind9.Path = "WorkflowProperties";
             this.onWorkflowActivated1.SetBinding(Microsoft.SharePoint.WorkflowActions.OnWorkflowActivated.WorkflowIdProperty, ((System.Workflow.ComponentModel.ActivityBind)(activitybind10)));
             this.onWorkflowActivated1.SetBinding(Microsoft.SharePoint.WorkflowActions.OnWorkflowActivated.WorkflowPropertiesProperty, ((System.Workflow.ComponentModel.ActivityBind)(activitybind9)));
             // 
@@ -134,6 +134,9 @@ namespace DocumentApproval.Workflow1
         private Microsoft.SharePoint.WorkflowActions.CompleteTask completeRequestTask;
 
         private Microsoft.SharePoint.WorkflowActions.OnWorkflowActivated onWorkflowActivated1;
+
+
+
 
 
 

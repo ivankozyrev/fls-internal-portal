@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QAItemEventReceiver\QAItemEventREceiver.cs" />
+    <Compile Include="QAItemEventReceiver\QAItemEventReceiver.cs" />
     <Compile Include="QAWorkflowEventReceiver\QAWorkflowEventReceiver.cs" />
   </ItemGroup>
   <ItemGroup>

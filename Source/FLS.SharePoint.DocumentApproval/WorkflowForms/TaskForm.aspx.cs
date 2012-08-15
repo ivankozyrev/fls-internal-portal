@@ -8,7 +8,12 @@ namespace DocumentApproval.WorkflowForms
 {
     public partial class TaskForm : WebPartPage
     {
-        protected string TaskStatus { get; private set; }
+        private SPListItem currentTask;
+
+        private SPListItem CurrentTask
+        {
+            get { return currentTask ?? (currentTask = SPContext.Current.ListItem); }
+        }
 
         protected override void OnPreInit(EventArgs e)
         {
@@ -22,8 +27,57 @@ namespace DocumentApproval.WorkflowForms
             btnReject.Click += OnBtnRejectClick;
             btnCancel.Click += OnBtnCancelClick;
             btnOnAdvisement.Click += OnBtnAdvisementClick;
-            if (SPContext.Current != null && SPContext.Current.ListItem != null)
-              InitializeFormElemets();
+
+            if (CurrentTask != null)
+            {
+                InitializeFormElements();
+            }
+        }
+
+        private void InitializeFormElements()
+        {
+            var task = CurrentTask;
+
+            if (!IsPostBack)
+            {
+                taskStatus.Value = WorkflowHelper.ConvertFieldToString(task[WorkflowConsts.TaskStatus]);
+                taskReqested.Value = WorkflowHelper.ConvertFieldToString(task[WorkflowConsts.TaskAssignedTo]);
+                taskDueDate.Value = WorkflowHelper.ConvertFieldToString(task[WorkflowConsts.TaskDueDate]);
+                taskComment.Value = WorkflowHelper.ConvertFieldToString(task[WorkflowConsts.WorkflowStepConsolidatedNote]); 
+            }
+
+            // task statuses buttons
+            if (task[WorkflowConsts.TaskStatus].ToString() == WorkflowConsts.DocumentCreated)
+            {
+                btnOnAdvisement.Visible = true;
+            }
+
+            if (task[WorkflowConsts.TaskStatus].ToString() == WorkflowConsts.DocumentOnAdvisement)
+            {
+                btnApprove.Visible = true;
+                btnReject.Visible = true;
+            }
+        }
+
+        private void OnBtnAdvisementClick(object sender, EventArgs e)
+        {
+            InitTaskFields(WorkflowConsts.DocumentOnAdvisement, taskComment.Value);
+            SaveButton.SaveItem(SPContext.Current, false, string.Empty);
+            CloseForm();
+        }
+
+        private void OnBtnApproveClick(object sender, EventArgs e)
+        {
+            InitTaskFields(WorkflowConsts.DocumentApproved, taskComment.Value);
+            SaveButton.SaveItem(SPContext.Current, false, string.Empty);
+            CloseForm();
+        }
+
+        private void OnBtnRejectClick(object sender, EventArgs e)
+        {
+            InitTaskFields(WorkflowConsts.DocumentRejected, taskComment.Value);
+            SaveButton.SaveItem(SPContext.Current, false, string.Empty);
+            CloseForm();
         }
 
         private void OnBtnCancelClick(object sender, EventArgs e)
@@ -31,56 +85,12 @@ namespace DocumentApproval.WorkflowForms
             CloseForm();
         }
 
-        private void InitializeFormElemets()
+        private void InitTaskFields(string documentStatus, string comment)
         {
-            var task = SPContext.Current.ListItem;
-
-            if (task["DocumentStatus"].ToString() == "Created")
-            {
-                btnOnAdvisement.Visible = true;
-            }
-
-            if (task["DocumentStatus"].ToString() == "On advisement")
-            {
-                btnApprove.Visible = true;
-                btnReject.Visible = true;
-            }
-
-            var workflowfTaskStatus = SPContext.Current.ListItem["DocumentStatus"];
-            taskStatus.Value = workflowfTaskStatus != null ? workflowfTaskStatus.ToString() : string.Empty;
-            var workflowTaskAssigned = SPContext.Current.ListItem["AssignedTo"];
-            taskReqested.Value = workflowTaskAssigned != null ? workflowTaskAssigned.ToString() : string.Empty;
-            var workflowTaskDate = SPContext.Current.ListItem["DueDate"];
-            taskDueDate.Value = workflowTaskDate != null ? workflowTaskDate.ToString() : string.Empty;
-            var workflowTaskComment = SPContext.Current.ListItem["Body"];
-            taskComment.Value = workflowTaskComment != null ? workflowTaskComment.ToString() : string.Empty; 
+            var task = CurrentTask;
+            task[WorkflowConsts.TaskStatus] = documentStatus;
+            task[WorkflowConsts.WorkflowStepConsolidatedNote] = comment;
         }
-
-        private void OnBtnAdvisementClick(object sender, EventArgs e)
-        {
-            var task = SPContext.Current.ListItem;
-            task["DocumentStatus"] = "On advisement";
-            task["Body"] = taskComment.Value;
-            SaveButton.SaveItem(SPContext.Current, false, string.Empty);
-            CloseForm();
-        }
-
-        private void OnBtnApproveClick(object sender, EventArgs e)
-        {
-            var task = SPContext.Current.ListItem;
-            task["DocumentStatus"] = "Approved";
-            task["Body"] = taskComment.Value;
-            SaveButton.SaveItem(SPContext.Current, false, string.Empty);
-            CloseForm();
-        }
-
-        private void OnBtnRejectClick(object sender, EventArgs e)
-        {
-            var task = SPContext.Current.ListItem;
-            task["DocumentStatus"] = "Rejected";    
-            SaveButton.SaveItem(SPContext.Current, false, string.Empty);
-            CloseForm();
-        } 
 
         private void CloseForm()
         {
