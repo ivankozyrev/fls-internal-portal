@@ -23,7 +23,9 @@
     Due Date: <input type="text" id="taskDueDate" disabled="True" style="width: 80%;margin-left: 25px" runat="server" />
  </div>
  <div style="margin-left: 5px;height:40px;">
-    Comments: <input type="text" id="taskComment" style="width: 80%; height: 40px;margin-left: 15px;word-wrap: normal" runat="server" />
+     <div style="height: 40px;width: 80px; float: left">Consolidated comment:</div>
+     <textarea id="taskComment" name="taskComment" rows="3" cols="1" style=";width: 80%;margin-left:10px; height: 40px;word-wrap: normal" runat="server" >
+    </textarea>
  </div>
  </div>
  <div style="margin:5px">
