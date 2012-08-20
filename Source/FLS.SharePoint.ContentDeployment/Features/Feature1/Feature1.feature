@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feature deploymentPath="$SharePoint.Project.FileNameWithoutExtension$_$SharePoint.Feature.FileNameWithoutExtension$" title="FLS.SharePoint.ContentDeployment Feature1" dslVersion="1.0.0.0" Id="1914cc9c-9ecd-40e1-af4a-53fea70c2750" featureId="1914cc9c-9ecd-40e1-af4a-53fea70c2750" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/FeatureModel">
+</feature>
