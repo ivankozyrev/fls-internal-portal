@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/windows/2007/BusinessDataCatalog" Name="BdcModel1">
+  <LobSystems>
+    <LobSystem Name="BdcModel1" Type="DotNetAssembly">
+      <LobSystemInstances>
+        <LobSystemInstance Name="BdcModel1" />
+      </LobSystemInstances>
+      <Entities>
+        <Entity Name="TrainingEventEntity" Namespace="FLS.SharePoint.BdcModel.BdcModel1" EstimatedInstanceCount="1000" Version="1.0.0.29">
+          <Properties>
+            <Property Name="Class" Type="System.String">FLS.SharePoint.BdcModel.BdcModel1.TrainingEventEntityService, BdcModel1</Property>
+          </Properties>
+          <Identifiers>
+            <Identifier Name="TrainingEventID" TypeName="System.Int32" />
+            <!-- TODO: Change the name of the ID and if needed the TypeName of your identifier. -->
+          </Identifiers>
+          <Methods>
+            <!-- start finder method -->
+            <Method Name="ReadList">
+              <!-- TODO: Change the name of the method if needed. -->
+              <Parameters>
+                <Parameter Direction="Return" Name="returnParameter">
+                  <TypeDescriptor TypeName="System.Collections.Generic.IEnumerable`1[[FLS.SharePoint.BdcModel.BdcModel1.TrainingEvent, BdcModel1]]" IsCollection="true" Name="TrainingEventList">
+                    <TypeDescriptors>
+                      <TypeDescriptor Name="TrainingEvent" TypeName="FLS.SharePoint.BdcModel.BdcModel1.TrainingEvent, BdcModel1">
+                        <TypeDescriptors>
+                          <TypeDescriptor Name="TrainingEventID" TypeName="System.Int32" IdentifierName="TrainingEventID" IsCollection="false" ReadOnly="false" />
+                          <TypeDescriptor Name="Status" TypeName="System.String" />
+                          <TypeDescriptor Name="LoginName" TypeName="System.String" />
+                          <TypeDescriptor Name="Title" TypeName="System.String" />
+                          <TypeDescriptor Name="EventType" TypeName="System.String" />
+                          <TypeDescriptor Name="Description" TypeName="System.String" />
+                          <TypeDescriptor Name="EventDate" TypeName="System.DateTime" IsCollection="false" /></TypeDescriptors></TypeDescriptor></TypeDescriptors>
+                  </TypeDescriptor>
+                </Parameter>
+              </Parameters>
+              <MethodInstances>
+                <MethodInstance Type="Finder" ReturnParameterName="returnParameter" Default="true" Name="ReadList" DefaultDisplayName="Entity1 List" />
+              </MethodInstances>
+            </Method>
+            <!-- end finder method -->
+            <!-- start specific finder method -->
+            <Method Name="ReadItem">
+              <Parameters>
+                <Parameter Direction="In" Name="id">
+                  <TypeDescriptor TypeName="System.Int32" IdentifierName="TrainingEventID" Name="TrainingEventID" IsCollection="false" />
+                </Parameter>
+                <Parameter Direction="Return" Name="returnParameter">
+                  <TypeDescriptor TypeName="FLS.SharePoint.BdcModel.BdcModel1.TrainingEvent, BdcModel1" Name="TrainingEvent">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="TrainingEventID" IdentifierName="TrainingEventID" IsCollection="false" />
+                      <TypeDescriptor TypeName="System.String" Name="Status" />
+                      <!-- TODO: Add TypeDescriptors when you add properties to Entity1. -->
+                      <TypeDescriptor Name="LoginName" TypeName="System.String" />
+                      <TypeDescriptor Name="Title" TypeName="System.String" />
+                      <TypeDescriptor Name="EventType" TypeName="System.String" />
+                      <TypeDescriptor Name="Description" TypeName="System.String" />
+                      <TypeDescriptor Name="EventDate" TypeName="System.DateTime" IsCollection="false" /></TypeDescriptors>
+                  </TypeDescriptor>
+                </Parameter>
+              </Parameters>
+              <MethodInstances>
+                <MethodInstance Type="SpecificFinder" ReturnParameterName="returnParameter" Default="true" Name="ReadItem" DefaultDisplayName="Read Entity1" />
+              </MethodInstances>
+            </Method>
+            <Method Name="Create">
+              <Parameters>
+                <Parameter Name="returnTrainingEventEntity" Direction="Return">
+                  <TypeDescriptor Name="ReturnTrainingEventEntity" TypeName="FLS.SharePoint.BdcModel.BdcModel1.TrainingEvent, BdcModel1">
+                    <TypeDescriptors>
+                      <TypeDescriptor Name="TrainingEventID" IdentifierName="TrainingEventID" IsCollection="false" TypeName="System.Int32" />
+                      <TypeDescriptor Name="Status" TypeName="System.String" />
+                      <TypeDescriptor Name="LoginName" TypeName="System.String" />
+                      <TypeDescriptor Name="Title" TypeName="System.String" />
+                      <TypeDescriptor Name="EventType" TypeName="System.String" />
+                      <TypeDescriptor Name="Description" TypeName="System.String" />
+                      <TypeDescriptor Name="EventDate" IsCollection="false" TypeName="System.DateTime" /></TypeDescriptors></TypeDescriptor></Parameter>
+                <Parameter Name="newTrainingEventEntity" Direction="In">
+                  <TypeDescriptor Name="NewTrainingEventEntity" TypeName="FLS.SharePoint.BdcModel.BdcModel1.TrainingEvent, BdcModel1">
+                    <TypeDescriptors>
+                      <TypeDescriptor Name="TrainingEventID" IdentifierName="TrainingEventID" IsCollection="false" TypeName="System.Int32" CreatorField="true" />
+                      <TypeDescriptor Name="Status" TypeName="System.String" CreatorField="true" />
+                      <TypeDescriptor Name="LoginName" TypeName="System.String" CreatorField="true" />
+                      <TypeDescriptor Name="Title" TypeName="System.String" CreatorField="true" />
+                      <TypeDescriptor Name="EventType" TypeName="System.String" CreatorField="true" />
+                      <TypeDescriptor Name="Description" TypeName="System.String" CreatorField="true" />
+                      <TypeDescriptor Name="EventDate" IsCollection="false" TypeName="System.DateTime" CreatorField="true" /></TypeDescriptors></TypeDescriptor></Parameter>
+              </Parameters>
+              <MethodInstances>
+                <MethodInstance Name="Create" Type="Creator" ReturnParameterName="returnTrainingEventEntity" ReturnTypeDescriptorPath="ReturnTrainingEventEntity" />
+              </MethodInstances></Method>
+            <Method Name="Delete">
+              <Parameters>
+                <Parameter Name="trainingEventID" Direction="In">
+                  <TypeDescriptor Name="TrainingEventID" TypeName="System.Int32" IdentifierEntityName="TrainingEventEntity" IdentifierEntityNamespace="FLS.SharePoint.BdcModel.BdcModel1" IdentifierName="TrainingEventID" /></Parameter>
+              </Parameters>
+              <MethodInstances>
+                <MethodInstance Name="Delete" Type="Deleter" />
+              </MethodInstances></Method>
+            <Method Name="Update">
+              <Parameters>
+                <Parameter Name="trainingEventEntity" Direction="In">
+                  <TypeDescriptor Name="TrainingEventEntity" TypeName="FLS.SharePoint.BdcModel.BdcModel1.TrainingEvent, BdcModel1" ReadOnly="false">
+                    <TypeDescriptors>
+                      <TypeDescriptor Name="TrainingEventID" IdentifierName="TrainingEventID" IsCollection="false" TypeName="System.Int32" UpdaterField="true" />
+                      <TypeDescriptor Name="Status" TypeName="System.String" UpdaterField="true" />
+                      <TypeDescriptor Name="LoginName" TypeName="System.String" UpdaterField="true" />
+                      <TypeDescriptor Name="Title" TypeName="System.String" UpdaterField="true" />
+                      <TypeDescriptor Name="EventType" TypeName="System.String" UpdaterField="true" />
+                      <TypeDescriptor Name="Description" TypeName="System.String" UpdaterField="true" />
+                      <TypeDescriptor Name="EventDate" IsCollection="false" TypeName="System.DateTime" UpdaterField="true" /></TypeDescriptors></TypeDescriptor></Parameter>
+              </Parameters>
+              <MethodInstances>
+                <MethodInstance Name="Update" Type="Updater" />
+              </MethodInstances></Method>
+            <!-- end specific finder method -->
+          </Methods>
+        </Entity>
+      </Entities>
+    </LobSystem>
+  </LobSystems>
+</Model>

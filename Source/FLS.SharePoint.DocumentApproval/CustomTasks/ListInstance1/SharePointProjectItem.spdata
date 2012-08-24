@@ -3,4 +3,7 @@
   <Files>
     <ProjectItemFile Source="Elements.xml" Target="ListInstance1\" Type="ElementManifest" />
   </Files>
+  <ExtensionData>
+    <ExtensionDataItem Key="DeploymentConflictResolutionBehavior" Value="Automatic" />
+  </ExtensionData>
 </ProjectItem>
