@@ -13,7 +13,7 @@
         Type="101"
         BaseType="1"
         OnQuickLaunch="TRUE"
-        SecurityBits="11"
+        SecurityBits="22"
         Sequence="110"
         DisplayName="HR document library"
         Description="Library for HR documents"

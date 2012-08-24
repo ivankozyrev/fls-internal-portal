@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- new site column for custom page layout named Title -->
+   <Field ID="{C6D6193A-132E-4864-B758-01D34CBF2E62}"
+    Name="BBTitle" DisplayName="Title" Group="BambooSiteColumn"
+   Type="Text" Required="FALSE" Sealed="FALSE" Hidden="FALSE" />
+
+   <!-- new site column for custom page layout named Header -->
+  <Field ID="{5BA0C344-A0B1-48A6-A47C-DE0C1A991306}"
+  Name="BBHeader" DisplayName="Header" Group="BambooSiteColumn"
+  Type="Text" Required="FALSE" Sealed="FALSE" Hidden="FALSE" />
+
+   <!-- new site column for custom page layout named Body -->
+   <Field ID="{CD5992A8-11ED-4AE4-8BA9-BC5D54A3CFAA}"
+  Name="BBBody" DisplayName="Body" Group="BambooSiteColumn"
+  Type="Text" Required="FALSE" Sealed="FALSE" Hidden="FALSE" />
+
+   <!-- new site column for custom page layout named Footer -->
+  <Field ID="{451B1D2B-BA34-4CC7-AE1E-F46DC4797CFF}"
+  Name="BBFooter" DisplayName="Footer" Group="BambooSiteColumn"
+ Type="Text" Required="FALSE" Sealed="FALSE" Hidden="FALSE" />
+  <!-- Parent ContentType: Простая страница (0x010109) -->
+  <ContentType ID="#0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF3900242457EFB8B24247815D688C526CD44D"
+               Name="FLS.SharePoint.ContentDeployment - CustomPageContentType"
+               Group="Custom Content Types"
+               Description="My Content Type"
+               Inherits="TRUE"
+               Version="0">
+    <FieldRefs>
+             <FieldRef ID="{C6D6193A-132E-4864-B758-01D34CBF2E62}" Name="BBTitle" />
+             <FieldRef ID="{5BA0C344-A0B1-48A6-A47C-DE0C1A991306}" Name="BBHeader" />
+             <FieldRef ID="{CD5992A8-11ED-4AE4-8BA9-BC5D54A3CFAA}" Name="BBBody" />
+             <FieldRef ID="{451B1D2B-BA34-4CC7-AE1E-F46DC4797CFF}" Name="BBFooter" />
+    </FieldRefs>
+  </ContentType>
+</Elements>

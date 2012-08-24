@@ -6,7 +6,9 @@
                Group="FLS Content Types"
                Description="Application for admission"
                Inherits="TRUE"
-               Version="0">
+               Version="0"
+               >
+    
     <DocumentTemplate TargetName="/_cts/FLS.CustomDocumentTemplates/AppForAdmission.xsn"/>
   </ContentType>
 </Elements>

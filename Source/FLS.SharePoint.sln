@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.BdcModel", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.BdcModelToDB2", "FLS.SharePoint.BdcModelToDB2\FLS.SharePoint.BdcModelToDB2.csproj", "{0062DDA4-8B42-4DA6-A96F-E9E2E079C115}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLS.SharePoint.ContentDeployment", "FLS.SharePoint.ContentDeployment\FLS.SharePoint.ContentDeployment.csproj", "{535D1A51-F506-453E-A619-E209FC9D12D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,7 +145,14 @@ Global
 		{8A1C7D63-9F21-468E-AA88-B3E50C0418C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A1C7D63-9F21-468E-AA88-B3E50C0418C8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8A1C7D63-9F21-468E-AA88-B3E50C0418C8}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{EAE40470-7266-43B0-BBA1-AF27EA8921CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{535D1A51-F506-453E-A619-E209FC9D12D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{535D1A51-F506-453E-A619-E209FC9D12D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{535D1A51-F506-453E-A619-E209FC9D12D7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{535D1A51-F506-453E-A619-E209FC9D12D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{535D1A51-F506-453E-A619-E209FC9D12D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{535D1A51-F506-453E-A619-E209FC9D12D7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+
+	{EAE40470-7266-43B0-BBA1-AF27EA8921CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EAE40470-7266-43B0-BBA1-AF27EA8921CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAE40470-7266-43B0-BBA1-AF27EA8921CC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{EAE40470-7266-43B0-BBA1-AF27EA8921CC}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <Module Name="FLS.CustomDocumentTemplates" Url="_cts/FLS.CustomDocumentTemplates">
+  <Module Name="FLS.CustomDocumentTemplates" Url="_cts/FLS.CustomDocumentTemplates" RootWebOnly="true">
   <File Url="AppForAdmission.xsn" Type="Ghostable" />
   <File Url="UnpaidLeave.doc" Type="Ghostable"/>
 </Module>

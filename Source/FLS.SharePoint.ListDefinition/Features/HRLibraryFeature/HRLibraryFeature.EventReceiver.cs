@@ -12,10 +12,6 @@ namespace FLS.SharePoint.ListDefinition.Features.HRLibraryFeature
 
         private static readonly string[] FieldNames = new[] { "DocumentStatus", "ConsolidatedComment" };
 
-        private readonly Hashtable _contentTypeSet = new Hashtable();
-
-        private readonly Hashtable _fieldSet = new Hashtable();
-
         public override void FeatureActivated(SPFeatureReceiverProperties properties)
         {
             var site = properties.Feature.Parent as SPSite;
@@ -24,22 +20,22 @@ namespace FLS.SharePoint.ListDefinition.Features.HRLibraryFeature
                 return;
             }
 
-            CreateFieldSet(site);
-            CreateContentTypeSet(site);
-
+            var contentTypeSet = CreateContentTypeSet(site); 
+            var fieldSet = CreateFieldSet(site);
+            
             var documentsLibrary = site.RootWeb.Lists["HR Library"];
             if (documentsLibrary == null)
             {
                 return;
             }
 
-            AssignContentTypesToLibrary(documentsLibrary);
-            AssignFieldsToLibrary(documentsLibrary);
+            AssignContentTypesToLibrary(documentsLibrary, contentTypeSet);
+            AssignFieldsToLibrary(documentsLibrary, fieldSet);
         }
 
-        private void AssignFieldsToLibrary(SPList library)
+        private static void AssignFieldsToLibrary(SPList library, Hashtable fieldSet)
         {
-            foreach (var field in FieldNames.Where(fieldName => !library.Fields.ContainsField(fieldName)).Select(fieldName => _fieldSet[fieldName] as SPField))
+            foreach (var field in FieldNames.Where(fieldName => !library.Fields.ContainsField(fieldName)).Select(fieldName => fieldSet[fieldName] as SPField))
             {
                 library.Fields.Add(field);
 
@@ -49,32 +45,38 @@ namespace FLS.SharePoint.ListDefinition.Features.HRLibraryFeature
                 var defaultView = library.DefaultView;
                 defaultView.ViewFields.Add(field);
                 defaultView.Update();
-                library.Update();
             }
         }
 
-        private void AssignContentTypesToLibrary(SPList library)
+        private static void AssignContentTypesToLibrary(SPList library, Hashtable contentTypeSet)
         {
-            foreach (var contentTypeName in ContentTypeNames.Where(contentTypeName => library.ContentTypes[contentTypeName] == null))
+            foreach (var contentType in ContentTypeNames.Where(contentTypeName => library.ContentTypes[contentTypeName] == null).Select(contentTypeName => contentTypeSet[contentTypeName] as SPContentType))
             {
-                library.ContentTypes.Add(_contentTypeSet[contentTypeName] as SPContentType);
+                contentType.DocumentTemplate = library.ParentWebUrl + contentType.DocumentTemplate;
+                library.ContentTypes.Add(contentType);
             }
         }
 
-        private void CreateContentTypeSet(SPSite site)
+        private static Hashtable CreateContentTypeSet(SPSite site)
         {
-            foreach (var contentTypeName in ContentTypeNames)
+            var result = new Hashtable();
+            foreach (var contentTypeName in ContentTypeNames.Where(contentTypeName => !result.ContainsKey(contentTypeName)))
             {
-                _contentTypeSet.Add(contentTypeName, site.RootWeb.AvailableContentTypes[contentTypeName]);
+                result.Add(contentTypeName, site.RootWeb.AvailableContentTypes[contentTypeName]);
             }
+
+            return result;
         }
 
-        private void CreateFieldSet(SPSite site)
+        private static Hashtable CreateFieldSet(SPSite site)
         {
-            foreach (var fieldName in FieldNames)
+            var result = new Hashtable();
+            foreach (var fieldName in FieldNames.Where(fieldName => !result.ContainsKey(fieldName)))
             {
-                _fieldSet.Add(fieldName, site.RootWeb.AvailableFields[fieldName]);
+                result.Add(fieldName, site.RootWeb.AvailableFields[fieldName]);
             }
+
+            return result;
         }
     }
 }

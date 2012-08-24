@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomActionGroup
+    Id="88dca07e-1e9d-4313-9e33-596ea4d24b25"
+    Title="Migration Job Configuration"
+    Description="Manage the migraion job settings and running"
+    Location="Microsoft.SharePoint.SiteSettings" >   
+  </CustomActionGroup>
+</Elements>
