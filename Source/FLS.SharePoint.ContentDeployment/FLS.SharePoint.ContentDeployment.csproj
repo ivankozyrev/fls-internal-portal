@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BB1F664B-9266-4fd6-B973-E1E44974B511};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <SandboxedSolution>False</SandboxedSolution>
+    <IncludeAssemblyInPackage>True</IncludeAssemblyInPackage>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,18 +45,43 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExportContentJob.cs" />
     <Compile Include="ImportContentJob.cs" />
+    <Compile Include="Features\Feature1\Feature1.EventReceiver.cs">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </Compile>
+    <Compile Include="ExportContentJob.cs" />
+    <Compile Include="module\EditJobCustomLayout.aspx.cs">
+      <DependentUpon>EditJobCustomLayout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="module\EditJobCustomLayout.aspx.designer.cs">
+      <DependentUpon>EditJobCustomLayout.aspx.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="administration\MigrationJobAction\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a8a03a54-b469-4065-8318-46f2eb32bafc}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{145430a1-eee8-45e5-ba57-991594738b39}</FeatureId>
+    </None>
     <None Include="key.snk" />
+    <None Include="administration\MigrationJobConfigurationGroup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2dec12fc-1989-4eba-9c60-cac57dd896a2}</SharePointProjectItemId>
+    </None>
+    <None Include="module\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4f263468-ecac-4c4e-9c61-a4ca8003f92e}</SharePointProjectItemId>
+    </None>
     <None Include="Package\Package.package">
       <PackageId>{37a45586-fc8d-4315-a048-2fdaef81203c}</PackageId>
     </None>
@@ -63,8 +89,19 @@
       <DependentUpon>Package.package</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Features\" />
+    <Content Include="administration\MigrationJobAction\Elements.xml" />
+    <Content Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </Content>
+    <Content Include="administration\MigrationJobConfigurationGroup\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="module\EditJobCustomLayout.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="module\Elements.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />

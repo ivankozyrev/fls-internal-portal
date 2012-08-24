@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction
+    Description="Migration job Action"
+    GroupId="88dca07e-1e9d-4313-9e33-596ea4d24b25"
+    Id="1a2894f1-5545-4ed4-92ae-b45735bcae99"
+    Location="Microsoft.SharePoint.SiteSettings"
+    Sequence="106"
+    Title="Migration job Action" >
+   <UrlAction Url="/module/EditJobCustomLayout.aspx"/>
+  </CustomAction>
+</Elements>
