@@ -47,42 +47,26 @@ namespace FLS.SharePoint.BdcModelToDB2.BdcModel1
         public static IEnumerable<GreetingEvent> ReadList()
         {
             var db2Connection = GetSqlConnection();
-//            try
-//            {
-                var trainingEvents = new List<GreetingEvent>();
-                db2Connection.Open();
-                var db2Command = new DB2Command
+            var trainingEvents = new List<GreetingEvent>();
+            db2Connection.Open();
+            var db2Command = new DB2Command
+            {
+                Connection = db2Connection,
+                CommandText = "SELECT * FROM GREETING",
+            };
+            var sqlDataReader = db2Command.ExecuteReader(CommandBehavior.CloseConnection);
+            while (sqlDataReader.Read())
+            {
+                var trainingEvent = new GreetingEvent
                 {
-                    Connection = db2Connection,
-                    CommandText = "SELECT * FROM GREETING",
+                    DeptNo = sqlDataReader[0].ToString(),
+                    Greeting = sqlDataReader[1].ToString()
                 };
-                var sqlDataReader = db2Command.ExecuteReader(CommandBehavior.CloseConnection);
-                while (sqlDataReader.Read())
-                {
-                    var trainingEvent = new GreetingEvent
-                    {
-                        DeptNo = sqlDataReader[0].ToString(),
-                        Greeting = sqlDataReader[1].ToString()
-                    };
-                    trainingEvents.Add(trainingEvent);
-                }
+                trainingEvents.Add(trainingEvent);
+            }
 
-                db2Connection.Dispose();
-                return trainingEvents;
-//            }
-//            catch (DB2Exception ex)
-//            {
-//            }
-//            finally
-//            {
-//                db2Connection.Dispose();
-//            }
-//            return null;
-        }
-
-        public static GreetingEvent ReadItem(char id)
-        {
-            throw new System.NotImplementedException();
+            db2Connection.Dispose();
+            return trainingEvents;
         }
     }
 }

@@ -57,11 +57,6 @@
       <DependentUpon>Feature1.feature</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TrainingDataModel.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TrainingDataModel.dbml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="BdcModel1\SharePointProjectItem.spdata">
@@ -71,13 +66,8 @@
     <None Include="BdcModel1\BdcModel1.bdcm.diagram">
       <DependentUpon>BdcModel1.bdcm</DependentUpon>
     </None>
-    <Compile Include="BdcModel1\TrainingEvent.cs" />
-    <Compile Include="BdcModel1\TrainingEventEntityService.cs" />
-    <None Include="TrainingDataModel.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>TrainingDataModel.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
+    <Compile Include="BdcModel1\ExternalUser.cs" />
+    <Compile Include="BdcModel1\ExternalUserEntityService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
@@ -96,11 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="TrainingDataModel.dbml.layout">
-      <DependentUpon>TrainingDataModel.dbml</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
