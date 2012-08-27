@@ -12,7 +12,7 @@ namespace FLS.SharePoint.BdcModelToDB2.BdcModel1
     {
         private static DB2Connection GetSqlConnection()
         {
-            return new DB2Connection("Database=Test2;UserID=mgalanova;Password=pkfz1cj,frfwin;Server=localhost:50000");
+            return new DB2Connection("Database=Test2;UserID=user;Password=password;Server=localhost:50000");
         }
         /// <summary>
         /// This is a sample specific finder method for Entity1.
