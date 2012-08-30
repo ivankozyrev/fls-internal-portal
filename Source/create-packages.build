@@ -37,6 +37,9 @@
 	<PackageProject Include="blank">
 		<Name>FLS.SharePoint</Name>
 	</PackageProject>
+	<PackageProject Include="BdcModel">
+		<Name>FLS.SharePoint.BdcModel</Name>
+	</PackageProject>
   </ItemGroup>
   
   <ItemGroup>
