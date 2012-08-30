@@ -6,7 +6,7 @@
         <LobSystemInstance Name="BdcModel1" />
       </LobSystemInstances>
       <Entities>
-        <Entity Name="ExternalUser" Namespace="FLS.SharePoint.BdcModel.BdcModel1" EstimatedInstanceCount="1000" Version="1.0.0.125">
+        <Entity Name="ExternalUser" Namespace="FLS.SharePoint.BdcModel.BdcModel1" EstimatedInstanceCount="1000" Version="1.0.0.126">
           <Properties>
             <Property Name="Class" Type="System.String">FLS.SharePoint.BdcModel.BdcModel1.ExternalUserService, BdcModel1</Property>
           </Properties>
@@ -81,20 +81,6 @@
               </Parameters>
               <MethodInstances>
                 <MethodInstance Name="Delete" Type="Deleter" />
-              </MethodInstances></Method>
-            <Method Name="Update">
-              <Parameters>
-                <Parameter Name="externalUser" Direction="In">
-                  <TypeDescriptor Name="ExternalUser" IsCollection="false" TypeName="FLS.SharePoint.BdcModel.BdcModel1.ExternalUser, BdcModel1" PreUpdaterField="true">
-                    <TypeDescriptors>
-                      <TypeDescriptor Name="Email" TypeName="System.String" UpdaterField="true" />
-                      <TypeDescriptor Name="Name" TypeName="System.String" UpdaterField="true" />
-                      <TypeDescriptor Name="UserID" TypeName="System.Int32" IdentifierName="UserID" IsCollection="false" /></TypeDescriptors></TypeDescriptor></Parameter>
-                <Parameter Name="parameter" Direction="In">
-                  <TypeDescriptor Name="UserID" TypeName="System.Int32" IdentifierName="UserID" IsCollection="false" PreUpdaterField="true" /></Parameter>
-              </Parameters>
-              <MethodInstances>
-                <MethodInstance Name="Update" Type="Updater" />
               </MethodInstances></Method>
             <!-- end specific finder method -->
           </Methods>

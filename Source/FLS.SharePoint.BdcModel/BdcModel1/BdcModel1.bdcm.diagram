@@ -2,11 +2,11 @@
 <minimalLanguageDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="$rootname$">
   <modelRootMoniker Name="/BdcModel1" />
   <nestedChildShapes>
-    <entityShape Id="8ae8716b-f3c1-4d32-a3ef-d9e35740ab23" absoluteBounds="1.125, 0.5, 1.5, 2.172587890625">
+    <entityShape Id="8ae8716b-f3c1-4d32-a3ef-d9e35740ab23" absoluteBounds="1.125, 0.5, 1.5, 1.9802864583333331">
       <entityMoniker name="FLS.SharePoint.BdcModel.BdcModel1.ExternalUser" />
       <nestedChildShapes>
         <elementListCompartment Id="2e39a40a-1c10-4c5e-9dd6-7b05a1b1da81" absoluteBounds="1.1400000000000001, 0.91, 1.4700000000000002, 0.44169108072916663" name="Identifiers" titleTextColor="Black" itemTextColor="Black" />
-        <elementListCompartment Id="ef8cfdca-a8a8-4793-9a7e-0d1c9881f5f0" absoluteBounds="1.1400000000000001, 1.3616910807291667, 1.4700000000000002, 1.2108968098958333" name="Methods" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ef8cfdca-a8a8-4793-9a7e-0d1c9881f5f0" absoluteBounds="1.1400000000000001, 1.3616910807291667, 1.4700000000000002, 1.0185953776041665" name="Methods" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </entityShape>
   </nestedChildShapes>
