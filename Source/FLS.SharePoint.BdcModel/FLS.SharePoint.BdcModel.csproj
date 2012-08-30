@@ -53,6 +53,11 @@
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BdcModel1\ExternalService.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExternalService.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Features\Feature1\Feature1.EventReceiver.cs">
       <DependentUpon>Feature1.feature</DependentUpon>
     </Compile>
@@ -66,10 +71,14 @@
     <None Include="BdcModel1\BdcModel1.bdcm.diagram">
       <DependentUpon>BdcModel1.bdcm</DependentUpon>
     </None>
-    <Compile Include="BdcModel1\ExternalUser.cs" />
-    <Compile Include="BdcModel1\ExternalUserEntityService.cs" />
+    <Compile Include="BdcModel1\ExternalUserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BdcModel1\ExternalService.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ExternalService.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="key.snk" />
     <None Include="Package\Package.package">
       <PackageId>{353a7bb8-105b-4c60-bd12-26673219fed2}</PackageId>
@@ -89,6 +98,11 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BdcModel1\ExternalService.dbml.layout">
+      <DependentUpon>ExternalService.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />
