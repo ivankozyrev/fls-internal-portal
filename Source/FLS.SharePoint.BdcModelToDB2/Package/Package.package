@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="09b70ab1-00f2-4d08-8077-df69620c781d" solutionId="09b70ab1-00f2-4d08-8077-df69620c781d" resetWebServer="false" name="FLS.SharePoint.BdcModelToDB2" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <assemblies>
+    <customAssembly location="IBM.Data.DB2.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="..\..\.Libraries\DB2\IBM.Data.DB2.dll" />
+  </assemblies>
+  <features>
+    <featureReference itemId="a2f83c09-0c69-4417-b6bd-4c81934a1323" />
+  </features>
+</package>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<minimalLanguageDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="BdcModel1">
+  <modelRootMoniker Name="/BdcModel1" />
+  <nestedChildShapes>
+    <entityShape Id="fb8c6714-a1e3-4a01-ae81-7979cba3f818" absoluteBounds="0.5, 1.375, 1.5, 1.59568359375">
+      <entityMoniker name="FLS.SharePoint.BdcModelToDB2.BdcModel1.GreetingEvent" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3b5c5476-f341-45cd-915c-0dd04bc6d668" absoluteBounds="0.515, 1.7850000000000001, 1.4700000000000002, 0.44169108072916663" name="Identifiers" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6833b980-ff12-460c-9d78-1770222f1271" absoluteBounds="0.515, 2.2366910807291669, 1.4700000000000002, 0.63399251302083326" name="Methods" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </entityShape>
+  </nestedChildShapes>
+</minimalLanguageDiagram>

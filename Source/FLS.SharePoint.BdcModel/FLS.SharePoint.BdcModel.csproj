@@ -4,11 +4,11 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{78F4054A-332A-45DD-94ED-0DCA5950A478}</ProjectGuid>
+    <ProjectGuid>{EAE40470-7266-43B0-BBA1-AF27EA8921CC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DocumentApproval</RootNamespace>
-    <AssemblyName>DocumentApproval</AssemblyName>
+    <RootNamespace>FLS.SharePoint.BdcModel</RootNamespace>
+    <AssemblyName>FLS.SharePoint.BdcModel</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BB1F664B-9266-4fd6-B973-E1E44974B511};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -40,89 +40,70 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.SharePoint.Linq, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.BusinessData, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
     <Reference Include="Microsoft.SharePoint.Security" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="Microsoft.SharePoint.WorkflowActions" />
-    <Reference Include="System.Workflow.Activities" />
-    <Reference Include="System.Workflow.ComponentModel" />
-    <Reference Include="System.Workflow.Runtime" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SiteEntities.cs" />
-    <Compile Include="WorkflowConsts.cs" />
+    <Compile Include="BdcModel1\ExternalService.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExternalService.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Features\Feature1\Feature1.EventReceiver.cs">
       <DependentUpon>Feature1.feature</DependentUpon>
     </Compile>
-    <Compile Include="WorkflowForms\TaskForm.aspx.cs">
-      <DependentUpon>TaskForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WorkflowForms\TaskForm.aspx.designer.cs">
-      <DependentUpon>TaskForm.aspx.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Workflow1\Workflow1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Workflow1\Workflow1.designer.cs">
-      <DependentUpon>Workflow1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WorkflowHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="WorkflowColumns\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{3d8d0a0c-c112-4189-a240-64e603b5f610}</SharePointProjectItemId>
+    <None Include="BdcModel1\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d1dedf4c-4782-4c47-9088-9e145195ad6a}</SharePointProjectItemId>
     </None>
-    <None Include="WorkflowForms\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{8f2c56a2-beb9-4d3a-ab32-c0fab625f61d}</SharePointProjectItemId>
+    <None Include="BdcModel1\BdcModel1.bdcm" />
+    <None Include="BdcModel1\BdcModel1.bdcm.diagram">
+      <DependentUpon>BdcModel1.bdcm</DependentUpon>
+    </None>
+    <Compile Include="BdcModel1\ExternalUserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BdcModel1\ExternalService.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ExternalService.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="key.snk" />
-    <None Include="Workflow1\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{5b2e7bef-1c30-4333-86c8-7c9a67e9afdd}</SharePointProjectItemId>
-    </None>
-    <None Include="Workflow1\Elements.xml" />
-    <None Include="CustomTasks\ListInstance1\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{bfeb5163-9ed8-4af0-b861-95bcde6f4c4e}</SharePointProjectItemId>
-    </None>
-    <None Include="CustomTasks\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{2023b9ed-9f67-4ef3-9bfe-7a6ac628a412}</SharePointProjectItemId>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Package\Package.package">
-      <PackageId>{e0c298ff-1285-4cd2-92ed-6a52db5ebd96}</PackageId>
+      <PackageId>{353a7bb8-105b-4c60-bd12-26673219fed2}</PackageId>
     </None>
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </None>
     <None Include="Features\Feature1\Feature1.feature">
-      <FeatureId>{25e8877f-f9a0-4fca-b91b-4c05aa2d9f18}</FeatureId>
+      <FeatureId>{c243b649-1580-4fbf-b410-4eff42f1a9eb}</FeatureId>
     </None>
     <None Include="Features\Feature1\Feature1.Template.xml">
       <DependentUpon>Feature1.feature</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WorkflowColumns\Elements.xml" />
-    <Content Include="WorkflowForms\Elements.xml" />
-    <Content Include="WorkflowForms\TaskForm.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="CustomTasks\Elements.xml" />
-    <Content Include="CustomTasks\ListInstance1\Elements.xml" />
-    <Content Include="CustomTasks\Schema.xml" />
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BdcModel1\ExternalService.dbml.layout">
+      <DependentUpon>ExternalService.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />
 </Project>

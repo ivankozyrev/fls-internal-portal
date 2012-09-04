@@ -23,6 +23,8 @@ namespace DocumentApproval.Features.Feature1
 
                 using (var web = site.OpenWeb())
                 {
+                    var d = new SiteEntitiesDataContext(site.Url);
+                    var list2 = d.HRLibrary;
                     var list = web.Lists["HR Library"];
                     //List which we is going to associate the workflow           
 
@@ -42,7 +44,7 @@ namespace DocumentApproval.Features.Feature1
                     }
 
                     // Try to get workflow tasks list
-                    SPList taskList;
+                    SPList taskList; 
                     try
                     {
                         taskList = web.Lists["CustomTasks"];

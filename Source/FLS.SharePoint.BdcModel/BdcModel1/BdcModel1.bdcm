@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/windows/2007/BusinessDataCatalog" Name="BdcModel1">
+  <LobSystems>
+    <LobSystem Name="BdcModel1" Type="DotNetAssembly">
+      <LobSystemInstances>
+        <LobSystemInstance Name="BdcModel1" />
+      </LobSystemInstances>
+      <Entities>
+        <Entity Name="ExternalUser" Namespace="FLS.SharePoint.BdcModel.BdcModel1" EstimatedInstanceCount="1000" Version="1.0.0.126">
+          <Properties>
+            <Property Name="Class" Type="System.String">FLS.SharePoint.BdcModel.BdcModel1.ExternalUserService, BdcModel1</Property>
+          </Properties>
+          <Identifiers>
+            <Identifier Name="UserID" TypeName="System.Int32" />
+            <!-- TODO: Change the name of the ID and if needed the TypeName of your identifier. -->
+          </Identifiers>
+          <Methods>
+            <!-- start finder method -->
+            <Method Name="ReadList">
+              <!-- TODO: Change the name of the method if needed. -->
+              <Parameters>
+                <Parameter Direction="Return" Name="returnParameter">
+                  <TypeDescriptor TypeName="System.Collections.Generic.IEnumerable`1[[FLS.SharePoint.BdcModel.BdcModel1.ExternalUser, BdcModel1]]" IsCollection="true" Name="ExternalUsersList">
+                    <TypeDescriptors>
+                      <TypeDescriptor Name="ExternalUser" TypeName="FLS.SharePoint.BdcModel.BdcModel1.ExternalUser, BdcModel1" IsCollection="false">
+                        <TypeDescriptors>
+                          <TypeDescriptor Name="UserID" TypeName="System.Int32" IdentifierName="UserID" IsCollection="false" />
+                          <TypeDescriptor Name="Email" TypeName="System.String" />
+                          <TypeDescriptor Name="Name" TypeName="System.String" /></TypeDescriptors></TypeDescriptor></TypeDescriptors>
+                  </TypeDescriptor>
+                </Parameter>
+              </Parameters>
+              <MethodInstances>
+                <MethodInstance Type="Finder" ReturnParameterName="returnParameter" Default="true" Name="ReadList" DefaultDisplayName="Entity1 List" />
+              </MethodInstances>
+            </Method>
+            <!-- end finder method -->
+            <!-- start specific finder method -->
+            <Method Name="ReadItem">
+              <Parameters>
+                <Parameter Direction="In" Name="id">
+                  <TypeDescriptor TypeName="System.Int32" Name="UserID" IsCollection="false" IdentifierEntityName="ExternalUser" IdentifierEntityNamespace="FLS.SharePoint.BdcModel.BdcModel1" IdentifierName="UserID" />
+                </Parameter>
+                <Parameter Direction="Return" Name="returnParameter">
+                  <TypeDescriptor TypeName="FLS.SharePoint.BdcModel.BdcModel1.ExternalUser, BdcModel1" Name="ExternalUser" IsCollection="false">
+                    <TypeDescriptors>
+                      <TypeDescriptor TypeName="System.Int32" Name="UserID" IdentifierName="UserID" IsCollection="false" />
+                      <TypeDescriptor TypeName="System.String" Name="Email" />
+                      <!-- TODO: Add TypeDescriptors when you add properties to Entity1. -->
+                      <TypeDescriptor Name="Name" TypeName="System.String" />
+                      </TypeDescriptors>
+                  </TypeDescriptor>
+                </Parameter>
+              </Parameters>
+              <MethodInstances>
+                <MethodInstance Type="SpecificFinder" ReturnParameterName="returnParameter" Default="true" Name="ReadItem" DefaultDisplayName="Read Entity1" />
+              </MethodInstances>
+            </Method>
+            <Method Name="Create">
+              <Parameters>
+                <Parameter Name="returnExternalUser" Direction="Return">
+                  <TypeDescriptor Name="ReturnExternalUser" TypeName="FLS.SharePoint.BdcModel.BdcModel1.ExternalUser, BdcModel1" IsCollection="false">
+                    <TypeDescriptors>
+                      <TypeDescriptor Name="UserID" IdentifierName="UserID" IsCollection="false" TypeName="System.Int32" />
+                      <TypeDescriptor Name="Email" TypeName="System.String" />
+                      <TypeDescriptor Name="Name" TypeName="System.String" /></TypeDescriptors></TypeDescriptor></Parameter>
+                <Parameter Name="newExternalUser" Direction="In">
+                  <TypeDescriptor Name="NewExternalUser" TypeName="FLS.SharePoint.BdcModel.BdcModel1.ExternalUser, BdcModel1" IsCollection="false">
+                    <TypeDescriptors>
+                      <TypeDescriptor Name="Email" TypeName="System.String" CreatorField="true" />
+                      <TypeDescriptor Name="Name" TypeName="System.String" CreatorField="true" />
+                      <TypeDescriptor Name="UserID" TypeName="System.Int32" IdentifierName="UserID" IsCollection="false" PreUpdaterField="true" UpdaterField="true" CreatorField="true" /></TypeDescriptors></TypeDescriptor></Parameter>
+              </Parameters>
+              <MethodInstances>
+                <MethodInstance Name="Create" Type="Creator" ReturnParameterName="returnExternalUser" ReturnTypeDescriptorPath="ReturnExternalUser" />
+              </MethodInstances></Method>
+            <Method Name="Delete">
+              <Parameters>
+                <Parameter Name="userID" Direction="In">
+                  <TypeDescriptor Name="UserID" TypeName="System.Int32" IdentifierEntityName="ExternalUser" IdentifierEntityNamespace="FLS.SharePoint.BdcModel.BdcModel1" IdentifierName="UserID" /></Parameter>
+              </Parameters>
+              <MethodInstances>
+                <MethodInstance Name="Delete" Type="Deleter" />
+              </MethodInstances></Method>
+            <!-- end specific finder method -->
+          </Methods>
+        </Entity>
+      </Entities>
+    </LobSystem>
+  </LobSystems>
+</Model>
