@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction Id="MigrationContentJobConfigurationPage"
+                GroupId="MigrationContentJobConfiguration"
+                Location="Microsoft.SharePoint.Administration.Applications"
+                Sequence="50"
+                Title="Migration Content Job Settings Page">
+    <UrlAction Url="_admin/FLS.SharePoint.ContentDeployment/MigrationJobSettingsPage.aspx"/>
+  </CustomAction>
+</Elements>

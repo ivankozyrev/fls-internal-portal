@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomActionGroup Id="MigrationContentJobConfiguration"
+                     Title="Migration Content Job Configuration"
+                     RequiredAdmin="Delegated"
+                     Description="Manage the migraion job settings"
+                     Location="Microsoft.SharePoint.Administration.Applications"
+                     ImageUrl="/_layouts/images/CentralAdmin_SystemSettings_FarmManagement_32x32.png"/>
+</Elements>

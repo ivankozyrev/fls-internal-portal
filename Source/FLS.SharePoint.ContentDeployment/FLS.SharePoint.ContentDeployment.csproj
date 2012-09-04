@@ -41,6 +41,10 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Server.UI, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SharePoint.ApplicationPages.Administration">
+      <HintPath>..\..\..\..\program files\common files\microsoft shared\web server extensions\14\CONFIG\ADMINBIN\Microsoft.SharePoint.ApplicationPages.Administration.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -54,33 +58,40 @@
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ImportContentJob.cs" />
+    <Compile Include="ConfigurationHelper.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Features\Feature1\Feature1.EventReceiver.cs">
       <DependentUpon>Feature1.feature</DependentUpon>
     </Compile>
-    <Compile Include="ExportContentJob.cs" />
-    <Compile Include="module\EditJobCustomLayout.aspx.cs">
-      <DependentUpon>EditJobCustomLayout.aspx</DependentUpon>
+    <Compile Include="MigrationContentJob.cs" />
+    <Compile Include="MigrationJobSettingsPage\MigrationJobSettingsPage.aspx.cs">
+      <DependentUpon>MigrationJobSettingsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="module\EditJobCustomLayout.aspx.designer.cs">
-      <DependentUpon>EditJobCustomLayout.aspx.cs</DependentUpon>
+    <Compile Include="MigrationJobSettingsPage\MigrationJobSettingsPage.aspx.designer.cs">
+      <DependentUpon>MigrationJobSettingsPage.aspx.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="administration\MigrationJobAction\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{a8a03a54-b469-4065-8318-46f2eb32bafc}</SharePointProjectItemId>
-    </None>
     <None Include="Features\Feature1\Feature1.feature">
       <FeatureId>{145430a1-eee8-45e5-ba57-991594738b39}</FeatureId>
     </None>
     <None Include="key.snk" />
-    <None Include="administration\MigrationJobConfigurationGroup\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{2dec12fc-1989-4eba-9c60-cac57dd896a2}</SharePointProjectItemId>
+    <None Include="Layouts\FLS.SharePoint.ContentDeployment\migration.config">
+      <SubType>Designer</SubType>
     </None>
-    <None Include="module\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{4f263468-ecac-4c4e-9c61-a4ca8003f92e}</SharePointProjectItemId>
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{14eb6368-ed3a-48d7-bf56-8f503e65d7af}</SharePointProjectItemId>
+    </None>
+    <None Include="MigrationJobSettingsPage\MigrationJobSettingsPageAction\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{96bdea6c-3bd1-4a1f-b690-2c448216f381}</SharePointProjectItemId>
+    </None>
+    <None Include="MigrationJobSettingsPage\MigrationJobSettingsPageGroup\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4ccc58dc-5cbd-4b86-b563-551972b15ee4}</SharePointProjectItemId>
+    </None>
+    <None Include="MigrationJobSettingsPage\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{75908309-77eb-491c-bc58-a5dbfc6c1bbe}</SharePointProjectItemId>
     </None>
     <None Include="Package\Package.package">
       <PackageId>{37a45586-fc8d-4315-a048-2fdaef81203c}</PackageId>
@@ -91,17 +102,14 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="administration\MigrationJobAction\Elements.xml" />
     <Content Include="Features\Feature1\Feature1.Template.xml">
       <DependentUpon>Feature1.feature</DependentUpon>
     </Content>
-    <Content Include="administration\MigrationJobConfigurationGroup\Elements.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="module\EditJobCustomLayout.aspx">
+    <Content Include="MigrationJobSettingsPage\MigrationJobSettingsPage.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="module\Elements.xml" />
+    <Content Include="MigrationJobSettingsPage\MigrationJobSettingsPageAction\elements.xml" />
+    <Content Include="MigrationJobSettingsPage\MigrationJobSettingsPageGroup\elements.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />

@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <Module Name="module">
-  <File Path="module\EditJobCustomLayout.aspx" Url="module/EditJobCustomLayout.aspx" />
-</Module>
-</Elements>
